@@ -1,0 +1,153 @@
+@import url("/Users/mo/Documents/cafe/css/main/main-reset.css");
+
+body {
+  width: 100%;
+  height: 1000vh;
+  border: 1px solid tomato;
+}
+
+.nav-header {
+  border: 1px solid tomato;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+.nav1,
+.nav3 {
+  width: 25%;
+  text-align: center;
+  border: 1px solid tomato;
+}
+
+.nav2 {
+  width: 50%;
+  text-align: center;
+  font-size: 40px;
+  border: 1px solid tomato;
+}
+
+.nav2 > span {
+  border: 1px solid tomato;
+}
+
+.nav3 > span {
+  border: 1px solid tomato;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid tomato;
+}
+
+.main-box {
+  border: 1px solid tomato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+}
+
+.result-box {
+  border: 1px solid tomato;
+  width: 100%;
+  text-align: center;
+  margin: 20px;
+}
+
+.result-text {
+  font-size: 30px;
+}
+
+.search-box {
+  border: 1px solid tomato;
+
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 20px;
+  padding: 15px;
+}
+
+.search-form {
+  width: 100%;
+  display: flex;
+}
+
+.search-form > input {
+  flex: 1 1 0%;
+  font-size: 1.25rem;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.result-lineUp {
+  border: 1px solid tomato;
+
+  width: 90%;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+}
+
+.result-lineUp > div {
+  border: 1px solid tomato;
+  margin-right: 5px;
+}
+
+.info-contents {
+  border: 1px solid tomato;
+  width: 100%;
+}
+
+.cafe-info {
+  width: 40%;
+  float: left;
+}
+
+.cafe-info-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.box__img-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.info__star-view {
+  display: flex;
+  flex-direction: row;
+}
+
+.info__star {
+  margin-right: 5px;
+}
+
+.info__hashtag {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-box {
+  text-align: center;
+  font-size: 25px;
+}
+
+.page {
+  width: 100%;
+  border: 1px solid tomato;
+  text-align: center;
+  clear: both;
+}
+
+.page-box > span {
+  border: 1px solid tomato;
+}
