@@ -7,6 +7,7 @@
     <title>cafe-surfer</title>
     <link rel="stylesheet" href="../../css/home/home-style.css" />
     <link rel="stylesheet" href="../../css/main/main.css" />
+    <script defer src="../../js/main/노드생성함수.js"></script>
     <script defer src="../../js/home/home.js"></script>
     <script defer src="../../js/main/main.js"></script>
   </head>
@@ -96,24 +97,25 @@
       <ul>
         <div class="list-basis">
           <!-- 기본 리스트 포맷 시작 -->
-          <div class="base-form">
-            <li class="base-form-left">
+          <div class="list-form">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
                   <img class="cafeThumb" alt="" />
                 </div>
                 <div class="text-info">
-                  <div class="cafe-name">카페 이름1</div>
+                  <div class="cafe-name">스타벅스(국가정원)</div>
                   <div class="hashTag-info">
-                    <span>#태그1</span>
-                    <span>#태그2</span>
-                    <span>#태그3</span>
-                    <span>#태그4</span>
+                    <span>#울산 남구</span>
+                    <span>#태화강 국가정원</span>
+                    <span>#아늑함</span>
+                    <span>#공원뷰</span>
                   </div>
                 </div>
               </div>
+              <script>imgSrc();</script>
             </li>
-            <li class="base-form-right">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
                   <img class="cafeThumb" alt="" />
@@ -131,8 +133,8 @@
             </li>
           </div>
           <!-- 기본 리스트 포맷 끝 -->
-          <div class="base-form">
-            <li class="base-form-left">
+          <div class="list-form">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
                   <img class="cafeThumb" alt="" />
@@ -148,7 +150,7 @@
                 </div>
               </div>
             </li>
-            <li class="base-form-right">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
                   <img class="cafeThumb" alt="" />
@@ -165,8 +167,8 @@
               </div>
             </li>
           </div>
-          <div class="base-form">
-            <li class="base-form-left">
+          <div class="list-form">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
                   <img class="cafeThumb" alt="" />
@@ -182,7 +184,7 @@
                 </div>
               </div>
             </li>
-            <li class="base-form-right">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
                   <img class="cafeThumb" alt="" />
@@ -199,8 +201,8 @@
               </div>
             </li>
           </div>
-          <div class="base-form">
-            <li class="base-form-left">
+          <div class="list-form">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
                   <img class="cafeThumb" alt="" />
@@ -216,7 +218,7 @@
                 </div>
               </div>
             </li>
-            <li class="base-form-right">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
                   <img class="cafeThumb" alt="" />
@@ -233,8 +235,8 @@
               </div>
             </li>
           </div>
-          <div class="base-form">
-            <li class="base-form-left">
+          <div class="list-form">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
                   <img class="cafeThumb" alt="" />
@@ -250,7 +252,7 @@
                 </div>
               </div>
             </li>
-            <li class="base-form-right">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
                   <img class="cafeThumb" alt="" />
@@ -267,8 +269,26 @@
               </div>
             </li>
           </div>
+          </div>
         </div>
       </ul>
     </main>
+      <!-- <script>
+        const $listBasis = document.querySelector('.list-basis');
+        const $listForm = makeElement('div', { class: 'list-form' }, 
+        makeElement('li', { class: 'base-form' }, 
+        makeElement('div', { class: 'cafe-info' }, 
+        makeElement('div', { class: 'img-info' }, 
+        makeElement('img', { class: 'cafeThumb' }), 
+        makeElement('div', { class: 'text-info' }, 
+        makeElement('div', { class: 'cafe-name' }, '카페이름'), 
+        makeElement('div', { class: 'hashTag-name' }, 
+        makeElement('span','#태그'), 
+        makeElement('span','#태그'), 
+        makeElement('span','#태그'), 
+        makeElement('span','#태그')))))));
+
+        $listBasis.appendChild($listForm);
+      </script> -->
   </body>
 </html>

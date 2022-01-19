@@ -55,8 +55,6 @@ main {
   cursor: pointer;
 }
 
-/* 상세버튼 관련 css */
-
 .input-group input {
   width: 100%;
   height: 100%;
@@ -81,7 +79,7 @@ main {
 
 .menu .menuitems {
   outline: 1px solid red;
-  width: 58%;
+  width: 65%;
   height: 300px;
   list-style: none;
   display: none;
@@ -206,7 +204,6 @@ main {
     width: 100%;
   }
 }
-/* 상세버튼 관련 css 끝 */
 
 footer {
   margin: 20px;
