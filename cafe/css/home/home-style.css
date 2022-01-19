@@ -1,11 +1,9 @@
-@import url("reset.css");
+@import url('reset.css');
 
 :root {
   --black: rgba(0, 0, 0, 0);
   --blue: #b4bce9;
 }
-
-
 
 .header-box {
   display: flex;
@@ -64,31 +62,30 @@ main {
   height: 100%;
 }
 
-.menu input[type=checkbox] {
+.menu input[type='checkbox'] {
   display: none;
 }
 
-.menu input[type=checkbox]+label {
+.menu input[type='checkbox'] + label {
   padding-left: 25px;
   background-repeat: no-repeat;
 }
 
-.menu input[type=checkbox]+label>span {
+.menu input[type='checkbox'] + label > span {
   font-weight: bold;
 }
 
 .menu {
-  width: 100%;  }
-
+  width: 100%;
+}
 
 .menu .menuitems {
   outline: 1px solid red;
   width: 58%;
   height: 300px;
   list-style: none;
-  display: none; 
-  margin: 0 auto;  
-
+  display: none;
+  margin: 0 auto;
 }
 
 .menuitems .Areadata {
@@ -101,7 +98,6 @@ main {
   width: 100%;
   height: 90%;
   display: flex;
-
 }
 
 .Areadata .selectArea li {
@@ -109,13 +105,12 @@ main {
 }
 
 .menu .menuitems .detailChoice .detailmenu {
-  text-decoration: none; 
+  text-decoration: none;
   width: 50%;
   height: 100%;
   font-weight: bold;
   font-size: 0.8rem;
 }
-
 
 .menu .menuitems .detailChoice .detailmenu .Area {
   outline: 1px solid red;
@@ -132,10 +127,9 @@ main {
   width: 100%;
   height: 85%;
   position: relative;
-
 }
 
-.menu .menuitems .detailChoice .detailmenu .Areabox .cont { 
+.menu .menuitems .detailChoice .detailmenu .Areabox .cont {
   position: absolute;
   left: 0;
   /* text-align: center; */
@@ -164,7 +158,6 @@ main {
 .menu .menuitems .detailChoice .detailmenu .btn {
   font-size: 15px;
   margin-left: 50px;
-
 }
 
 .menu .menuitems .detailChoice .detailbox .hashtag {
@@ -191,7 +184,7 @@ main {
   font-size: 0.8rem;
 }
 
-.menu input[type=checkbox]:checked~.menuitems {
+.menu input[type='checkbox']:checked ~ .menuitems {
   display: block;
 }
 

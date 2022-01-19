@@ -3,6 +3,15 @@
 * {
   margin: 0;
   padding: 0;
+  /* outline: 1px solid tomato; */
+}
+
+header {
+  background-color: aqua;
+  position: sticky;
+  top: 0px;
+  opacity: 0.9;
+  backdrop-filter: blur(50px);
 }
 
 .headerBox {
@@ -15,6 +24,57 @@
   height: 100px;
 }
 
-.search-Text {
+.search-Text,
+.search-Btn {
   line-height: 100px;
+} /* 헤더 높이에 따라 변경. */
+
+main {
+  margin-top: 50px;
+  height: max-content;
+}
+
+.base-form,
+.page {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1100px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.base-form-left {
+  margin-right: 100px;
+}
+
+.cafe-info {
+  display: flex;
+  width: 500px;
+  height: 200px;
+}
+
+.img-info img {
+  width: 300px;
+  height: 200px;
+}
+
+.text-info {
+  width: 200px;
+  flex-direction: column;
+}
+
+.cafe-name {
+  font-size: 2em;
+  text-align: center;
+}
+
+.hashTag-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.hashTag-info span {
+  margin-bottom: 20px;
 }
