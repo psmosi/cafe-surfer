@@ -1,0 +1,347 @@
+@import url("/main/main-reset.css");
+
+.img00{
+ width: 200px;
+ height: 150px;
+} */
+
+body {
+  width: 100%;
+  height: 1000vh;
+  border: 1px solid tomato;
+}
+ul {
+  list-style:none;
+}
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+.box__img-info{
+  width: 100%;
+}
+.nav1,
+.nav3 {
+  width: 25%;
+  text-align: center;
+}
+
+.nav2 {
+  width: 300px;
+  height: 200px;
+  text-align: center;
+  font-size: 40px;
+}
+
+
+
+.nav3 > span {
+  width: 125px;
+  height: 50px;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+}
+
+.result-box {
+  width: 100%;
+  text-align: center;
+  margin: 20px;
+}
+
+.result-text {
+  font-size: 30px;
+}
+
+.search-box {
+
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 20px;
+  padding: 15px;
+}
+
+.search-form {
+  width: 100%;
+  display: flex;
+}
+
+.search-form > input {
+  flex: 1 1 0%;
+  font-size: 1.25rem;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.result-lineUp {
+  width: 90%;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+}
+
+.result-lineUp > div {
+  margin-right: 5px;
+}
+
+.info-contents {
+  width: 100%;
+}
+
+.cafe-info {
+
+  float: left;
+  width: 400px;
+  height: 200px;
+}
+
+.cafe-info-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.box__img-info {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.cafe-list{
+  padding: 0;
+  display: flex;
+  justify-content:center;
+  flex-flow: row wrap
+}
+
+.info__star-view {
+  display: flex;
+  flex-direction: row;
+}
+
+.info__star {
+  margin-right: 5px;
+}
+
+.info__hashtag {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-box {
+  margin: 0;
+  text-align: center;
+  font-size: 25px;
+}
+.title-box h3 {
+  margin: 0;
+  text-align: center;
+  font-size: 25px;
+}
+
+.page {
+  width: 100%;
+  text-align: center;
+  clear: both;
+  font-size: 30px;
+}
+
+.home-search-box {
+  margin-top: 30px;
+}
+
+.home-search__form {
+  display: flex;
+}
+
+.search__input-box {
+  flex: 1 1 0%;
+  border-radius: 1rem;
+  padding: 1rem;
+  font-size: 1.25rem;
+  margin-right: 1rem;
+  width: 50vw;
+}
+
+.search-button__standard {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.search-button__detail {
+  cursor: pointer;
+}
+
+/* 상세버튼 */
+
+.input-group input {
+  width: 100%;
+  height: 100%;
+}
+
+.menu input[type=checkbox] {
+  display: none;
+}
+
+.menu input[type=checkbox]+label {
+  padding-left: 25px;
+  background-repeat: no-repeat;
+}
+
+.menu input[type=checkbox]+label>span {
+  font-weight: bold;
+}
+
+.menu {
+  width: 100%;  }
+
+
+.menu .menuitems {
+  outline: 1px solid red;
+  width: 58%;
+  height: 300px;
+  list-style: none;
+  display: none; 
+  margin: 0 auto;  
+
+}
+
+.menuitems .Areadata {
+  outline: 1px solid red;
+  width: 100%;
+  height: 10%;
+}
+
+.menu .menuitems .detailChoice {
+  width: 100%;
+  height: 90%;
+  display: flex;
+
+}
+
+.Areadata .selectArea li {
+  display: inline;
+}
+
+.menu .menuitems .detailChoice .detailmenu {
+  text-decoration: none; 
+  width: 50%;
+  height: 100%;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+
+.menu .menuitems .detailChoice .detailmenu .Area {
+  outline: 1px solid red;
+  overflow: hidden;
+  list-style: none;
+  /* display: inline-block; */
+  width: 100%;
+  height: 15%;
+}
+
+.menu .menuitems .detailChoice .detailmenu .Areabox {
+  outline: 1px solid red;
+  display: inline-block;
+  width: 100%;
+  height: 85%;
+  position: relative;
+
+}
+
+.menu .menuitems .detailChoice .detailmenu .Areabox .cont { 
+  position: absolute;
+  left: 0;
+  /* text-align: center; */
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  color: black;
+  display: inline-flex;
+}
+
+.Areabox a {
+  margin: 10px;
+  text-align: center;
+}
+
+.menu .menuitems .detailChoice .detailmenu li {
+  float: left;
+  margin-right: 14px;
+}
+
+.menu .menuitems .detailChoice .detailmenu li.is_on .btn {
+  font-weight: bold;
+  color: blue;
+}
+
+.menu .menuitems .detailChoice .detailmenu .btn {
+  font-size: 15px;
+  margin-left: 50px;
+
+}
+
+.menu .menuitems .detailChoice .detailbox .hashtag {
+  outline: 1px solid red;
+  /* display: inline-block; */
+  width: 100%;
+  height: 15%;
+}
+
+.menu .menuitems .detailChoice .detailbox .hashtagbox {
+  outline: 1px solid red;
+  /* display: inline-block; */
+  width: 100%;
+  height: 85%;
+}
+
+.menu .menuitems .detailChoice .detailbox {
+  text-decoration: none;
+  /* outline: 1px solid red; */
+  /* color: white; */
+  width: 50%;
+  height: 100%;
+  /* font-weight: bold; */
+  font-size: 0.8rem;
+}
+
+.menu input[type=checkbox]:checked~.menuitems {
+  display: block;
+}
+
+.scroll {
+  overflow: auto;
+}
+
+@media (max-width: 600px) {
+  .menu .menuitems .detailChoice {
+    display: inline-block;
+    overflow: auto;
+  }
+
+  .menu .menuitems .detailChoice .detailmenu {
+    width: 100%;
+  }
+
+  .menu .menuitems .detailChoice .detailbox {
+    width: 100%;
+  }
+}
