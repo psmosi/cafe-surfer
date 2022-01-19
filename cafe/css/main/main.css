@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.headerBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-logo img {
+  width: 200px;
+  height: 100px;
+}
+
+.search-Text {
+  line-height: 100px;
+}
