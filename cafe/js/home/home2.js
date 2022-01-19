@@ -3,15 +3,15 @@
     const $detail = document.querySelector('.detail');
     const $detailCHK = document.querySelector('.detailCHK');
 
-    const $tab1 = document.querySelector('.tabs');
-    const $tab2 = document.querySelector('.tabs2');
-    const $tab3 = document.querySelector('.tabs3');
+    // const $tab1 = document.querySelector('.tabs');
+    // const $tab2 = document.querySelector('.tabs2');
+    // const $tab3 = document.querySelector('.tabs3');
     const $tab2box = document.querySelector('.tab2box');
     const $tab3box = document.querySelector('.tab3box');
 
-    const $Ulsan = document.querySelector('.Ulsan');
-    const $Busan = document.querySelector('.Busan');
-    const $Seoul = document.querySelector('.Seoul');
+    // const $Ulsan = document.querySelector('.Ulsan');
+    // const $Busan = document.querySelector('.Busan');
+    // const $Seoul = document.querySelector('.Seoul');
 
 
 
@@ -31,6 +31,15 @@
           });
         }
       }     
+      
+      //지역 초기화
+      if(evt.target.matches('.reset')){
+        document.getElementById('selectArea1').innerHTML = null;
+        document.getElementById('selectArea2').innerHTML = null;
+        document.getElementById('selectArea3').innerHTML = null;        
+        
+        document.getElementById('btn tab1').click();
+      }
 
       if (evt.target.matches('.tabs')) {
         $toMove.addEventListener('click', (evt) => {
@@ -38,15 +47,14 @@
           document.getElementById('btn tab2').click();
         });
         if (evt.target.matches('.Ulsan')) {
-
+          
           const $Ele = makeElement('div', { 'class': 'cont', 'id': 'tab2' },
           makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod21' }, '울산중구'),
           makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod22' }, '울산동구'),
           makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod23' }, '울산남구'),
           makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod24' }, '울산북구'),
           );
-          $tab2box.appendChild($Ele);
-
+          $tab2box.appendChild($Ele);                 
         }
         if (evt.target.matches('.Busan')) {
 

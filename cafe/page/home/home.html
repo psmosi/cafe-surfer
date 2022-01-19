@@ -6,8 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>카페 홍길동 - Home</title>
-  <link rel="stylesheet" href="../../css/home/home-style.css" />
-  <script defer src="../../js/home/home2.js"></script>
+  <link rel="stylesheet" href="../../css/home/home-style.css" />  
   <script defer src="../../js/home/home.js"></script>
 </head>
 
@@ -42,6 +41,7 @@
       <div class="menuitems">
         <div class="Areadata">
           <div class="selectArea">
+            <button class="reset">지역초기화</button>
             <li id="selectArea1"></li>
             <li id="selectArea2"></li>
             <li id="selectArea3"></li>
@@ -51,7 +51,7 @@
           <div class="detailmenu">
             <div class="Area">
               <li class="is_on">
-                <a href="#tab1" class="btn">시</a>
+                <a href="#tab1" class="btn" id="btn tab1">시</a>
               </li>
               <li>
                 <a href="#tab2" class="btn tab2" id="btn tab2">군</a>
@@ -67,7 +67,7 @@
                 <a href="javascript:void(0)" class="tabs Ulsan">울산</a>
               </div><!-- id="tab1" class="cont" -->
               <div id="tab2" class="cont">
-                <div class="tab2box">
+                <div class="tab2box">                 
                 </div><!-- class="tab2box" -->
               </div><!-- id="tab2" class="cont" -->
               <div id="tab3" class="cont">
