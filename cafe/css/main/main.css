@@ -34,17 +34,17 @@ main {
   height: max-content;
 }
 
-.base-form,
+.list-form,
 .page {
   display: flex;
   flex-wrap: wrap;
-  width: 1100px;
+  width: 1200px;
   margin: 0 auto;
   margin-bottom: 50px;
 }
 
-.base-form-left {
-  margin-right: 100px;
+.base-form {
+  margin: 50px;
 }
 
 .cafe-info {
@@ -77,13 +77,4 @@ main {
 
 .hashTag-info span {
   margin-bottom: 20px;
-}
-
-.page {
-  width: 100%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  clear: both;
-  font-size: 30px;
 }
