@@ -6,6 +6,7 @@
   /* outline: 1px solid tomato; */
 }
 
+/* 헤더 부분 css 시작 */
 header {
   background-color: #fff;
   position: sticky;
@@ -28,7 +29,8 @@ header {
 .search-Btn {
   line-height: 100px;
 } /* 헤더 높이에 따라 변경. */
-
+/* 헤더 부분 css 끝 */
+/* 메인 컨텐츠 css 시작 */
 main {
   margin-top: 50px;
   height: max-content;
@@ -78,3 +80,13 @@ main {
 .hashTag-info span {
   margin-bottom: 20px;
 }
+/* 메인 컨텐츠 css 끝 */
+/* 페이지 이동 css 시작 */
+.page {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+}
+/* 페이지 이동 css 끝 */
