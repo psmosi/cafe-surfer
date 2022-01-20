@@ -36,8 +36,7 @@ main {
   height: max-content;
 }
 
-.list-form,
-.page {
+.list-form {
   display: flex;
   flex-wrap: wrap;
   width: 1200px;
