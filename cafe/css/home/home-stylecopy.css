@@ -58,6 +58,8 @@ main {
   cursor: pointer;
 }
 
+
+/* 상세 CSS 시작*/
 .input-group input {
   width: 100%;
   height: 100%;
@@ -213,6 +215,8 @@ main {
     width: 100%;
   }
 }
+
+/* 상세 CSS 끝*/
 
 footer {
   margin: 20px;
