@@ -97,12 +97,34 @@ function click_f(evt) {
    }
    if (evt.target.matches('.Seoul')) {
 
-     const $Ele = makeElement('div', { 'class': 'cont', 'id': 'tab22' },
-      makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '서울중구'),
-      makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '서울동구'),
-      makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '서울남구'),
-      makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '서울북구')
-     );
+    const $Ele = makeElement('div', { 'class': 'cont', 'id': 'tab22' },
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '서울 전체'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '강남구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '강동구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '강북구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '강서구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '관악구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '광진구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '구로구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '금천구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '노원구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '도봉구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '동대문구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '동작구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '마포구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '서대문구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '서초구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '성동구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '성북구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '송파구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '양천구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '영등포구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '용산구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '은평구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '종로구'),
+    makeElement('a', { 'href': 'javascript:void(0)', 'class': 'tabs2 cod00' }, '중랑구')
+   );
+
      $tab2box.appendChild($Ele);
     
    }
