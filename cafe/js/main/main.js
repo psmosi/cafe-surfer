@@ -1,10 +1,11 @@
 'use strict';
+
 {
   // 경로 저장
-  const src1 = '../../cafeImg/1/썸네일1.png';
-  const src2 = '../../cafeImg/1/썸네일2.png';
-  const src3 = '../../cafeImg/1/썸네일3.png';
-  const src4 = '../../cafeImg/1/썸네일4.png';
+  const src1 = '../../cafeImg/cafe1/썸네일1.png';
+  const src2 = '../../cafeImg/cafe1/썸네일2.png';
+  const src3 = '../../cafeImg/cafe1/썸네일3.png';
+  const src4 = '../../cafeImg/cafe1/썸네일4.png';
 
   // 경로를 배열에 담기
   const cafeImgArray = [src1, src2, src3, src4];
@@ -19,10 +20,10 @@
 }
 {
   // 경로 저장
-  const src1 = '../../cafeImg/2/원유로스페셜티1.jpg';
-  const src2 = '../../cafeImg/2/원유로스페셜티2.jpg';
-  const src3 = '../../cafeImg/2/원유로스페셜티3.jpg';
-  const src4 = '../../cafeImg/2/원유로스페셜티4.jpg';
+  const src1 = '../../cafeImg/cafe2/썸네일1.jpg';
+  const src2 = '../../cafeImg/cafe2/썸네일2.jpg';
+  const src3 = '../../cafeImg/cafe2/썸네일3.jpg';
+  const src4 = '../../cafeImg/cafe2/썸네일4.jpg';
 
   // 경로를 배열에 담기
   const cafeImgArray = [src1, src2, src3, src4];
@@ -37,10 +38,10 @@
 }
 {
   // 경로 저장
-  const src1 = '../../cafeImg/3/썸네일1.png';
-  const src2 = '../../cafeImg/3/썸네일2.png';
-  const src3 = '../../cafeImg/3/썸네일3.png';
-  const src4 = '../../cafeImg/3/썸네일4.png';
+  const src1 = '../../cafeImg/cafe3/썸네일1.png';
+  const src2 = '../../cafeImg/cafe3/썸네일2.png';
+  const src3 = '../../cafeImg/cafe3/썸네일3.png';
+  const src4 = '../../cafeImg/cafe3/썸네일4.png';
 
   // 경로를 배열에 담기
   const cafeImgArray = [src1, src2, src3, src4];
@@ -55,10 +56,10 @@
 }
 {
   // 경로 저장
-  const src1 = '../../cafeImg/4/문그릭스1.jpg';
-  const src2 = '../../cafeImg/4/문그릭스2.jpg';
-  const src3 = '../../cafeImg/4/문그릭스3.jpg';
-  const src4 = '../../cafeImg/4/문그릭스4.jpg';
+  const src1 = '../../cafeImg/cafe4/썸네일1.jpg';
+  const src2 = '../../cafeImg/cafe4/썸네일2.jpg';
+  const src3 = '../../cafeImg/cafe4/썸네일3.jpg';
+  const src4 = '../../cafeImg/cafe4/썸네일4.jpg';
 
   // 경로를 배열에 담기
   const cafeImgArray = [src1, src2, src3, src4];
@@ -73,10 +74,10 @@
 }
 {
   // 경로 저장
-  const src1 = '../../cafeImg/5/썸네일1.png';
-  const src2 = '../../cafeImg/5/썸네일2.png';
-  const src3 = '../../cafeImg/5/썸네일3.png';
-  const src4 = '../../cafeImg/5/썸네일4.png';
+  const src1 = '../../cafeImg/cafe5/썸네일1.png';
+  const src2 = '../../cafeImg/cafe5/썸네일2.png';
+  const src3 = '../../cafeImg/cafe5/썸네일3.png';
+  const src4 = '../../cafeImg/cafe5/썸네일4.png';
 
   // 경로를 배열에 담기
   const cafeImgArray = [src1, src2, src3, src4];
@@ -91,10 +92,10 @@
 }
 {
   // 경로 저장
-  const src1 = '../../cafeImg/6/콜프로스터스1.jpg';
-  const src2 = '../../cafeImg/6/콜프로스터스2.jpg';
-  const src3 = '../../cafeImg/6/콜프로스터스3.jpg';
-  const src4 = '../../cafeImg/6/콜프로스터스4.jpg';
+  const src1 = '../../cafeImg/cafe6/썸네일1.jpg';
+  const src2 = '../../cafeImg/cafe6/썸네일2.jpg';
+  const src3 = '../../cafeImg/cafe6/썸네일3.jpg';
+  const src4 = '../../cafeImg/cafe6/썸네일4.jpg';
 
   // 경로를 배열에 담기
   const cafeImgArray = [src1, src2, src3, src4];
@@ -109,10 +110,10 @@
 }
 {
   // 경로 저장
-  const src1 = '../../cafeImg/7/썸네일1.png';
-  const src2 = '../../cafeImg/7/썸네일2.png';
-  const src3 = '../../cafeImg/7/썸네일3.png';
-  const src4 = '../../cafeImg/7/썸네일4.png';
+  const src1 = '../../cafeImg/cafe7/썸네일1.png';
+  const src2 = '../../cafeImg/cafe7/썸네일2.png';
+  const src3 = '../../cafeImg/cafe7/썸네일3.png';
+  const src4 = '../../cafeImg/cafe7/썸네일4.png';
 
   // 경로를 배열에 담기
   const cafeImgArray = [src1, src2, src3, src4];
@@ -127,10 +128,10 @@
 }
 {
   // 경로 저장
-  const src1 = '../../cafeImg/8/스틱어라운드1.jpg';
-  const src2 = '../../cafeImg/8/스틱어라운드2.jpg';
-  const src3 = '../../cafeImg/8/스틱어라운드3.jpg';
-  const src4 = '../../cafeImg/8/스틱어라운드4.jpg';
+  const src1 = '../../cafeImg/cafe8/썸네일1.jpg';
+  const src2 = '../../cafeImg/cafe8/썸네일2.jpg';
+  const src3 = '../../cafeImg/cafe8/썸네일3.jpg';
+  const src4 = '../../cafeImg/cafe8/썸네일4.jpg';
 
   // 경로를 배열에 담기
   const cafeImgArray = [src1, src2, src3, src4];
@@ -145,10 +146,10 @@
 }
 {
   // 경로 저장
-  const src1 = '../../cafeImg/9/썸네일1.png';
-  const src2 = '../../cafeImg/9/썸네일2.png';
-  const src3 = '../../cafeImg/9/썸네일3.png';
-  const src4 = '../../cafeImg/9/썸네일4.png';
+  const src1 = '../../cafeImg/cafe9/썸네일1.png';
+  const src2 = '../../cafeImg/cafe9/썸네일2.png';
+  const src3 = '../../cafeImg/cafe9/썸네일3.png';
+  const src4 = '../../cafeImg/cafe9/썸네일4.png';
 
   // 경로를 배열에 담기
   const cafeImgArray = [src1, src2, src3, src4];
@@ -163,10 +164,10 @@
 }
 {
   // 경로 저장
-  const src1 = '../../cafeImg/10/마음의온도237-1.jpg';
-  const src2 = '../../cafeImg/10/마음의온도237-2.jpg';
-  const src3 = '../../cafeImg/10/마음의온도237-3.jpg';
-  const src4 = '../../cafeImg/10/마음의온도237-4.jpg';
+  const src1 = '../../cafeImg/cafe10/썸네일1.jpg';
+  const src2 = '../../cafeImg/cafe10/썸네일2.jpg';
+  const src3 = '../../cafeImg/cafe10/썸네일3.jpg';
+  const src4 = '../../cafeImg/cafe10/썸네일4.jpg';
 
   // 경로를 배열에 담기
   const cafeImgArray = [src1, src2, src3, src4];

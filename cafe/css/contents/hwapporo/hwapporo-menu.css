@@ -101,6 +101,45 @@ a {
 .main-content {
   width: 60%;
   display: flex;
+  flex-direction: column;
+}
+
+.menu-kind-box {
+  display: flex;
+
+  flex-direction: row;
+}
+
+.menu-kind-set {
+  width: 25%;
+  margin: 20px;
+  text-align: center;
+}
+.content-box {
+  width: 100%;
+}
+
+.menu-set {
+  display: block;
+  width: 100%;
+}
+
+.menu-list-set {
+  float: left;
+  margin: 20px;
+  width: 25%;
+}
+
+.menu-box {
+  outline: 1px solid tomato;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.menu-content-info {
+  display: flex;
 }
 
 .content-box {
