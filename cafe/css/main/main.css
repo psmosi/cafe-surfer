@@ -54,22 +54,22 @@ main {
   height: 200px;
 }
 
-.img-info img {
+.cafe-info-img img {
   width: 300px;
   height: 200px;
 }
 
-.text-info {
+.cafe-info-text {
   width: 200px;
   flex-direction: column;
 }
 
-.cafe-name {
+.cafe-info-name {
   font-size: 2em;
   text-align: center;
 }
 
-.hashTag-info {
+.cafe-info-hashTag {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
