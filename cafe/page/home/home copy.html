@@ -24,12 +24,20 @@
 
     <main>
       <div class="home-content-box">
+
         <div class="home-logo">
-          <span class="home-logo-title">카페 홍길동</span>
+         
+          <span class="home-logo-title">
+            <img src="KakaoTalk_20220127_005713523.png" alt="">
+          </span>
+
         </div>
+
         <div class="home-search-box">
+
           <form class="home-search__form">
             <input class="search__input-box" type="text" placeholder />
+            <input type="button" value="삭제" class="search-button__delete" />
             <input type="button" value="검색" lass="search-button__standard" />
             <input type="button" value="상세" class="search-button__detail detail" />
           </form>
@@ -55,16 +63,16 @@
                       <a href="#tab2" class="btn tab2" id="btn tab2">동</a>
                     </li>                 
                   </div>
-                  <div class="scroll Areabox">
-                    <div id="tab1" class="cont" style="z-index: 2;">
-                      <a href="javascript:void(0)" class="tabs Seoul">서울</a>
-                      <a href="javascript:void(0)" class="tabs Incheon">인천</a>
-                      <a href="javascript:void(0)" class="tabs Daejeon">대전</a>
+                  <div class="Areabox">
+                    <div id="tab1" class="cont scroll" style="z-index: 2;">
+                      <a href="#tab22" class="tabs Seoul">서울</a>
+                      <!-- <a href="javascript:void(0)" class="tabs Incheon">인천</a> -->
+                      <!-- <a href="javascript:void(0)" class="tabs Daejeon">대전</a>
                       <a href="javascript:void(0)" class="tabs Sejong">세종</a>
-                      <a href="javascript:void(0)" class="tabs Gwangju">광주</a>
-                      <a href="javascript:void(0)" class="tabs Busan">부산</a>
-                      <a href="javascript:void(0)" class="tabs Ulsan">울산</a>
-                      <a href="javascript:void(0)" class="tabs Gyeonggi">경기</a>
+                      <a href="javascript:void(0)" class="tabs Gwangju">광주</a> -->
+                      <a href="#tab11" class="tabs Busan">부산</a>
+                      <a href="#tab33" class="tabs Ulsan">울산</a>
+                      <!-- <a href="javascript:void(0)" class="tabs Gyeonggi">경기</a>
                       <a href="javascript:void(0)" class="tabs Gangwon">강원</a>
                       <a href="javascript:void(0)" class="tabs Chungbuk">충북</a>
                       <a href="javascript:void(0)" class="tabs Chungnam">충남</a>
@@ -72,13 +80,14 @@
                       <a href="javascript:void(0)" class="tabs Jeonnam">전남</a>
                       <a href="javascript:void(0)" class="tabs Gyeongbuk">경북</a>
                       <a href="javascript:void(0)" class="tabs Gyeongnam">경남</a>
-                      <a href="javascript:void(0)" class="tabs Jeju">제주</a>
+                      <a href="javascript:void(0)" class="tabs Jeju">제주</a> -->
                     </div><!-- id="tab1" class="cont" -->
+
                     <div id="tab2" class="cont">
-                      <div class="tab2box">
-                        <!-- <div id="tab22"></div> -->
+                      <div class="tab2box" id="tab2box">                    
                       </div><!-- class="tab2box" -->
-                    </div><!-- id="tab2" class="cont" -->                    
+                    </div><!-- id="tab2" class="cont" -->    
+
                   </div><!-- class="Areabox" -->
                 </div><!-- class="detailmenu" -->
                 <div class="detailbox">
@@ -94,15 +103,19 @@
               </div><!-- class="detailChoice" -->
             </div><!-- class="menuitems" -->
           </div><!-- class="menu" -->
-        </div><!-- class="body" -->
-        </div>        
-      </div>
+        </div><!-- "home-search-box" -->               
+      </div><!-- "home-content-box" -->
     </main>    
+
+
+ 
+
 
   <footer>
     <span>@Copyright</span>
   </footer>
-  </div>  
 
+ 
+  </div>  <!-- class="body" -->
 </body>
 </html>
