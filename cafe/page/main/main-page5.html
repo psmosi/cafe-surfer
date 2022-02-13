@@ -7,6 +7,7 @@
     <title>cafe-surfer</title>
     <link rel="stylesheet" href="../../css/home/home-style.css" />
     <link rel="stylesheet" href="../../css/main/main.css" />
+    <script defer src="../../js/main/노드생성함수.js"></script>
     <script defer src="../../js/home/home.js"></script>
     <script defer src="../../js/main/main.js"></script>
   </head>
@@ -15,17 +16,24 @@
       <div class="body">
         <div class="headerBox">
           <div class="header-logo">
-            <img
-              src="https://previews.123rf.com/images/vectorich/vectorich1704/vectorich170400016/75276337-%EA%B0%80%EB%A1%9C-%EB%A1%9C%EA%B3%A0.jpg"
-              alt=""
-            />
+            <img src="/cafe/img/cafe_surfer_logo.png" alt="" />
           </div>
           <div class="header-search">
             <form class="home-search__form">
-              <div class="search-Text"><input class="search__input-box" type="text" placeholder /></div>
+              <div class="search-Text">
+                <input class="search__input-box" type="text" placeholder />
+              </div>
               <div class="search-Btn">
-                <input type="button" value="검색" class="search-button__standard search" />
-                <input type="button" value="상세" class="search-button__detail detail" />
+                <input
+                  type="button"
+                  value="검색"
+                  class="search-button__standard search"
+                />
+                <input
+                  type="button"
+                  value="상세"
+                  class="search-button__detail detail"
+                />
               </div>
             </form>
           </div>
@@ -96,172 +104,172 @@
       <ul>
         <div class="list-basis">
           <!-- 기본 리스트 포맷 시작 -->
-          <div class="base-form">
-            <li class="base-form-left">
+          <div class="list-form">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
-                  <img class="cafeThumb" alt="" />
+                  <img class="cafeThumb1" alt="" />
                 </div>
                 <div class="text-info">
-                  <div class="cafe-name">카페 이름5-1</div>
+                  <div class="cafe-name">스타벅스(국가정원)</div>
                   <div class="hashTag-info">
-                    <span>#태그1</span>
-                    <span>#태그2</span>
-                    <span>#태그3</span>
-                    <span>#태그4</span>
+                    <span>#울산 남구</span>
+                    <span>#태화강 국가정원</span>
+                    <span>#아늑함</span>
+                    <span>#공원뷰</span>
                   </div>
                 </div>
               </div>
             </li>
-            <li class="base-form-right">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
-                  <img class="cafeThumb" alt="" />
+                  <img class="cafeThumb2" alt="" />
                 </div>
                 <div class="text-info">
-                  <div class="cafe-name">카페 이름5-2</div>
+                  <div class="cafe-name">원유로스페셜티</div>
                   <div class="hashTag-info">
-                    <span>#태그1</span>
-                    <span>#태그2</span>
-                    <span>#태그3</span>
-                    <span>#태그4</span>
+                    <span>#파운드케익</span>
+                    <span>#원데이보틀</span>
+                    <span>#라떼</span>
+                    <span>#가성비</span>
                   </div>
                 </div>
               </div>
             </li>
           </div>
           <!-- 기본 리스트 포맷 끝 -->
-          <div class="base-form">
-            <li class="base-form-left">
+          <div class="list-form">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
-                  <img class="cafeThumb" alt="" />
+                  <img class="cafeThumb3" alt="" />
                 </div>
                 <div class="text-info">
-                  <div class="cafe-name">카페 이름5-3</div>
+                  <div class="cafe-name">스타벅스(남구청DT)</div>
                   <div class="hashTag-info">
-                    <span>#태그1</span>
-                    <span>#태그2</span>
-                    <span>#태그3</span>
-                    <span>#태그4</span>
+                    <span>#울산 남구</span>
+                    <span>#드라이브 스루</span>
+                    <span>#분위기</span>
+                    <span>#풍경</span>
                   </div>
                 </div>
               </div>
             </li>
-            <li class="base-form-right">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
-                  <img class="cafeThumb" alt="" />
+                  <img class="cafeThumb4" alt="" />
                 </div>
                 <div class="text-info">
-                  <div class="cafe-name">카페 이름5-4</div>
+                  <div class="cafe-name">문그릭스02</div>
                   <div class="hashTag-info">
-                    <span>#태그1</span>
-                    <span>#태그2</span>
-                    <span>#태그3</span>
-                    <span>#태그4</span>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </div>
-          <div class="base-form">
-            <li class="base-form-left">
-              <div class="cafe-info">
-                <div class="img-info">
-                  <img class="cafeThumb" alt="" />
-                </div>
-                <div class="text-info">
-                  <div class="cafe-name">카페 이름5</div>
-                  <div class="hashTag-info">
-                    <span>#태그1</span>
-                    <span>#태그2</span>
-                    <span>#태그3</span>
-                    <span>#태그4</span>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="base-form-right">
-              <div class="cafe-info">
-                <div class="img-info">
-                  <img class="cafeThumb" alt="" />
-                </div>
-                <div class="text-info">
-                  <div class="cafe-name">카페 이름6</div>
-                  <div class="hashTag-info">
-                    <span>#태그1</span>
-                    <span>#태그2</span>
-                    <span>#태그3</span>
-                    <span>#태그4</span>
+                    <span>#그릭요거트</span>
+                    <span>#비건</span>
+                    <span>#포토존</span>
+                    <span>#샌드위치</span>
                   </div>
                 </div>
               </div>
             </li>
           </div>
-          <div class="base-form">
-            <li class="base-form-left">
+          <div class="list-form">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
-                  <img class="cafeThumb" alt="" />
+                  <img class="cafeThumb5" alt="" />
                 </div>
                 <div class="text-info">
-                  <div class="cafe-name">카페 이름7</div>
+                  <div class="cafe-name">카몬시 카페</div>
                   <div class="hashTag-info">
-                    <span>#태그1</span>
-                    <span>#태그2</span>
-                    <span>#태그3</span>
-                    <span>#태그4</span>
+                    <span>#울산 북구</span>
+                    <span>#떡구이</span>
+                    <span>#시원함</span>
+                    <span>#오션뷰</span>
                   </div>
                 </div>
               </div>
             </li>
-            <li class="base-form-right">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
-                  <img class="cafeThumb" alt="" />
+                  <img class="cafeThumb6" alt="" />
                 </div>
                 <div class="text-info">
-                  <div class="cafe-name">카페 이름8</div>
+                  <div class="cafe-name">콜프로스터스</div>
                   <div class="hashTag-info">
-                    <span>#태그1</span>
-                    <span>#태그2</span>
-                    <span>#태그3</span>
-                    <span>#태그4</span>
+                    <span>#에스프레소</span>
+                    <span>#분위기</span>
+                    <span>#아인슈페너</span>
+                    <span>#직원친절</span>
                   </div>
                 </div>
               </div>
             </li>
           </div>
-          <div class="base-form">
-            <li class="base-form-left">
+          <div class="list-form">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
-                  <img class="cafeThumb" alt="" />
+                  <img class="cafeThumb7" alt="" />
                 </div>
                 <div class="text-info">
-                  <div class="cafe-name">카페 이름9</div>
+                  <div class="cafe-name">인얼스 커피 (울산 동구)</div>
                   <div class="hashTag-info">
-                    <span>#태그1</span>
-                    <span>#태그2</span>
-                    <span>#태그3</span>
-                    <span>#태그4</span>
+                    <span>#울산 동구</span>
+                    <span>#디저트 맛집</span>
+                    <span>#차분함</span>
+                    <span>#오션뷰</span>
                   </div>
                 </div>
               </div>
             </li>
-            <li class="base-form-right">
+            <li class="base-form">
               <div class="cafe-info">
                 <div class="img-info">
-                  <img class="cafeThumb" alt="" />
+                  <img class="cafeThumb8" alt="" />
                 </div>
                 <div class="text-info">
-                  <div class="cafe-name">카페 이름10</div>
+                  <div class="cafe-name">스틱어라운드</div>
                   <div class="hashTag-info">
-                    <span>#태그1</span>
-                    <span>#태그2</span>
-                    <span>#태그3</span>
-                    <span>#태그4</span>
+                    <span>#마시멜로우</span>
+                    <span>#라떼</span>
+                    <span>#흑임자</span>
+                    <span>#디저트</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </div>
+          <div class="list-form">
+            <li class="base-form">
+              <div class="cafe-info">
+                <div class="img-info">
+                  <img class="cafeThumb9" alt="" />
+                </div>
+                <div class="text-info">
+                  <div class="cafe-name">HAMONN</div>
+                  <div class="hashTag-info">
+                    <span>#울산 동구</span>
+                    <span>#카페라떼</span>
+                    <span>#시크함</span>
+                    <span>#중앙정원</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="base-form">
+              <div class="cafe-info">
+                <div class="img-info">
+                  <img class="cafeThumb10" alt="" />
+                </div>
+                <div class="text-info">
+                  <div class="cafe-name">마음의온도237</div>
+                  <div class="hashTag-info">
+                    <span>#샐러드</span>
+                    <span>#샌드위치</span>
+                    <span>#청결</span>
+                    <span>#토스트</span>
                   </div>
                 </div>
               </div>
@@ -269,6 +277,7 @@
           </div>
         </div>
       </ul>
+    </main>
       <div class="page">
         <div class="page-box">
           <a href="http://localhost:5502/cafe/page/main/main.html">1</a>
@@ -279,6 +288,5 @@
           <a href="http://localhost:5502/cafe/page/main/main-page6.html">>></a>
         </div>
       </div>
-    </main>
   </body>
 </html>
