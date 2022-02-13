@@ -4,6 +4,9 @@
   --black: rgba(0, 0, 0, 0);
   --blue: #b4bce9;
 }
+body {
+  background-color: rgb(207, 190, 167);
+}
 
 .header-box {
   display: flex;
@@ -22,6 +25,10 @@ main {
   align-items: center;
   flex-direction: column;
   margin-top: 100px;
+}
+
+.home-logo {
+  text-align: center;
 }
 
 .home-search-box {

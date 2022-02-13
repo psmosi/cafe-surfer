@@ -1,0 +1,22 @@
+.main-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--background-beige-content-body);
+}
+.content-body {
+  width: 85%;
+}
+
+.info-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.info-content-img {
+  width: 30%;
+  margin-right: 10px;
+}

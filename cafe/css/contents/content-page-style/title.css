@@ -1,0 +1,22 @@
+.title-bar {
+  border-bottom: var(--border-btm);
+  margin-top: 140px;
+}
+
+.title-logo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.starbucks-logo {
+  width: 130px;
+  height: 100px;
+}
+
+.cafe-title {
+  font-size: 50px;
+  margin: 20px;
+  color: var(--font-color-normal);
+}

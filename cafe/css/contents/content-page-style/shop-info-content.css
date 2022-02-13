@@ -1,0 +1,14 @@
+.info-content-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-content {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.go-hashtagAll {
+  text-decoration: none;
+  color: teal;
+}

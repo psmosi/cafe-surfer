@@ -39,6 +39,7 @@ a {
 /* ----------------------- Header ----------------------- */
 /* -- 홈 타이틀 / 로그인 정보 / 상호명 -- */
 .header {
+  margin-top: 40px;
   display: flex;
   justify-content: center;
 }

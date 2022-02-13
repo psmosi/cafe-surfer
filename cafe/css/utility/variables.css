@@ -1,0 +1,20 @@
+:root {
+  /* 색 지정 */
+  /*
+  #ffc93c 노란색
+  #07689f 남색
+  #a2d5f2 하늘색
+  #fcf7f0 아이보리(연함)
+  #f8f4ef 아이보리(덜연함) 
+  */
+
+  --background-beige-dark: rgb(207, 190, 167);
+  --background-beige-white: #f8f4ef;
+  --background-beige-content-body: #fef5e9;
+  --font-color-normal: rgb(60, 60, 60); /* */
+  --font-color-header: rgb(70, 70, 70);
+  --border-btm: 1px solid rgb(100, 100, 100);
+  --border-btm-light: 1px solid rgb(170, 170, 170);
+  --outline-img-box: 1px solid rgb(170, 170, 170);
+  --header-baseline: rgb(120, 120, 120);
+}

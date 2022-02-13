@@ -1,0 +1,28 @@
+@import url("reset.css");
+@import url("header.css");
+@import url("title.css");
+@import url("shop-info-carousel.css");
+@import url("item.css");
+@import url("shop-info-content.css");
+@import url("shop-info-box.css");
+@import url("/Users/mo/Documents/cafe-surfer/cafe/css/utility/variables.css");
+
+body {
+  background-color: #f8f4ef;
+}
+
+/*
+
+
+  #ffc93c 노란색
+  #07689f 남색
+  #a2d5f2 하늘색
+  #fcf7f0 아이보리(연함)
+  #f8f4ef 아이보리(덜연함) 
+*/
+
+/*
+컬러 테마
+인텔리제이
+CSS
+*/

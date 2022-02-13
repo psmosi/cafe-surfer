@@ -4,7 +4,8 @@
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  max-width: 100px;
+  max-height: 100px;
   position: relative;
   margin: auto;
 }
