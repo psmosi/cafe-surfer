@@ -1,5 +1,6 @@
 @import url("reset.css");
 
+
 :root {
   --black: rgba(0, 0, 0, 0);
   --blue: #b4bce9;
@@ -57,6 +58,7 @@ main {
 .search-button__detail {
   cursor: pointer;
 }
+
 
 
 /* 상세 CSS 시작*/
@@ -159,6 +161,7 @@ main {
 
 .menu .menuitems .detailChoice .detailmenu .Areabox {   
   width: 100%;
+  /* height: 100%; */
   height: 229.5px; 
   position: relative;  
   background-color: #dce4ed;
@@ -186,7 +189,7 @@ main {
   text-align: center;
   color: black;  
   /* 지역 선택 영역 박스 */
-  outline: 1px solid red;
+  outline: 1px solid brown;
   padding: 5px;
 }
 
@@ -201,7 +204,7 @@ main {
 
 .menu .menuitems .detailChoice .detailmenu li.is_on .btn {
   font-weight: bold;
-  color: green;  
+  color: brown;  
 }
 
 .menu .menuitems .detailChoice .detailmenu .btn {
