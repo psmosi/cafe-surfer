@@ -1,0 +1,273 @@
+@import url("reset.css");
+
+
+:root {
+  --black: rgba(0, 0, 0, 0);
+  --blue: #b4bce9;
+}
+
+
+
+.header-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 40px;
+}
+
+main {
+  
+  height: 70%;
+}
+
+.home-content-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.home-search-box {
+  margin-top: 30px;
+}
+
+.home-logo-title {
+  font-size: 100px;
+  color: var(--blue);
+}
+
+.home-search__form {
+  display: flex;
+}
+
+.search__input-box {
+  flex: 1 1 0%;
+  border-radius: 1rem;
+  padding: 1rem;
+  font-size: 1.25rem;
+  margin-right: 1rem;
+  width: 50vw;
+}
+
+.search-button__standard {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.search-button__detail {
+  cursor: pointer;
+}
+
+
+
+/* 상세 CSS 시작*/
+.input-group input {
+  width: 100%;
+  height: 100%;
+}
+
+.menu input[type=checkbox] {
+  display: none;
+}
+
+.menu input[type=checkbox]+label {
+  padding-left: 25px;
+  background-repeat: no-repeat;
+}
+
+.menu input[type=checkbox]+label>span {
+  font-weight: bold;
+}
+
+.menu {
+  width: 100%;  
+  margin-top: 5px;
+}
+
+
+.menu .menuitems {  
+  width: 100%;
+  height: 300px;
+  list-style: none;
+  display: none; 
+  margin: 0 auto;   
+  border-radius: 5px;
+
+}
+
+.menuitems .Areadata {  
+  width: 100%;
+  height: 10%; 
+}
+
+.menu .menuitems .detailChoice {
+  width: 100%;
+  height: 90%;
+  display: flex;  
+}
+.Areadata .selectArea{
+  width: 100%;
+  height: 100%;
+  
+}
+.Areadata .selectArea button {
+  width: 100px;
+  height: 90%; 
+  border-radius: 10px;
+  background-color: #ccead8;
+}
+
+.Areadata .selectArea li {
+  display: inline; 
+}
+
+.menu .menuitems .detailChoice .detailmenu {
+  text-decoration: none; 
+  width: 50%;
+  height: 100%;
+  font-weight: bold;
+  font-size: 0.8rem;
+  /* border-right: 1px solid #86b1e5; */
+ 
+}
+
+
+.menu .menuitems .detailChoice .detailmenu .Area {  
+  overflow: hidden;
+  list-style: none;
+  width: 100%;
+  height: 15%; 
+  background-color: #b7cae2;
+  border-radius: 5px; 
+  text-align: center;
+}
+.menu .menuitems .detailChoice .detailmenu .Area li{    
+  width: 50%;  
+  height: 100%;  
+  text-align: center;
+  line-height: 40px;
+  
+}
+
+.menu .menuitems .detailChoice .detailmenu .Area a{
+  width: 100%;
+  height: 100%;
+  text-decoration-line: none;
+  margin: 0;
+  color: black;  
+  display: inline-block;
+}
+
+.menu .menuitems .detailChoice .detailmenu .Areabox {   
+  width: 100%;
+  /* height: 100%; */
+  height: 229.5px; 
+  position: relative;  
+  background-color: #dce4ed;
+  border-radius: 5px;
+ 
+}
+
+.menu .menuitems .detailChoice .detailmenu .Areabox .cont {  
+  position: absolute;
+  left: 0;  
+  width: 100%;
+  height: 100%;
+  background-color: #dce4ed;
+  border-radius: 5px;
+  color: black;
+  display: block;
+}
+.Areabox a {  
+  display: inline-block;
+  width: 35%;
+  text-decoration-line: none;
+  margin: 10px;
+  /* margin-top: 20px; */
+  font-size: 15px ; 
+  text-align: center;
+  color: black;  
+  /* 지역 선택 영역 박스 */
+  outline: 1px solid brown;
+  padding: 5px;
+}
+
+.menu .menuitems .detailChoice .detailmenu li {
+  float: left; 
+  margin: 0;
+}
+.menu .menuitems .detailChoice .detailmenu li.is_on {
+  background-color: #dce4ed;
+  border-radius: 5px;
+}
+
+.menu .menuitems .detailChoice .detailmenu li.is_on .btn {
+  font-weight: bold;
+  color: brown;  
+}
+
+.menu .menuitems .detailChoice .detailmenu .btn {
+  font-size: 15px;
+  margin-left: 50px;
+
+}
+
+.menu .menuitems .detailChoice .detailbox .hashtag {  
+  width: 100%;
+  height: 15%;
+  background-color: #b7cae2;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.menu .menuitems .detailChoice .detailbox .hashtagbox { 
+  width: 100%;
+  height: 85%;
+  background-color: #dce4ed;
+  border-radius: 5px;
+  font-weight: bold;
+ 
+}
+
+.menu .menuitems .detailChoice .detailbox { 
+  width: 50%;
+  height: 100%;
+}
+.menu .menuitems .detailChoice .detailbox p{
+  display: inline-block;
+  margin: 15px;
+}
+.menu input[type=checkbox]:checked~.menuitems {
+  display: block;
+}
+
+.scroll {
+  overflow: auto;
+}
+
+@media (max-width: 600px) {
+  .menu .menuitems .detailChoice {
+    display: inline-block;
+    /* 미정 */
+    overflow: auto;
+  }
+
+  .menu .menuitems .detailChoice .detailmenu {
+    width: 100%;
+  }
+
+  .menu .menuitems .detailChoice .detailbox {
+    width: 100%;
+  }
+  .home-logo-title{
+    font-size: 80px;
+  }
+}
+
+/* 상세 CSS 끝*/
+
+footer {
+  margin: 20px;
+}
