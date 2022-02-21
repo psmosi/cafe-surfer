@@ -28,13 +28,13 @@ flagSeoul2 = false;
 
 let count = 0;
 
-const $hashtag = document.querySelector('.hashtag');
+const $hashtag = document.querySelector('.hashtags');
 
 function click_f(evt) {
   
 // 해시태그
 if (evt.target.matches('.bbb')) {
-  newItem('.bbb', searchMakerRep8888, 'filter_list2', '.filter_list2', '에이수스', 'ccccc', 'prodbtn_del_small2', 'filterItem_searchMaker8888'
+  newItem('.bbb', searchMakerRep8888, 'filter_list2', '.filter_list2', '에이수스', 'ccccc reset', 'prodbtn_del_small2', 'filterItem_searchMaker8888'
     );
   console.log('체크에이수스');
 }
@@ -44,7 +44,7 @@ if (evt.target.matches('.ccccc')) {
 }
 
 if (evt.target.matches('.aaa')) {
-  newItem('.aaa', searchMakerRep6792, 'filter_list1', '.filter_list1', '레노버', 'aaaaa', 'prodbtn_del_small1', 'filterItem_searchMaker6792'
+  newItem('.aaa', searchMakerRep6792, 'filter_list1', '.filter_list1', '레노버', 'aaaaa reset', 'prodbtn_del_small1', 'filterItem_searchMaker6792'
     );
   console.log('체크레노버');
 }
@@ -93,6 +93,21 @@ function newItemBtn(itemBtn1, itemBtn2, itemBtn3) {
 }
 
 
+
+
+// 해시태그 초기화 버튼
+if (evt.target.matches('.resetBtn')) {
+  console.log('초기화 버튼');
+  document.getElementById('selectArea1').innerHTML = null;
+ document.getElementById('selectArea2').innerHTML = null;
+ document.getElementById('selectArea3').innerHTML = null;       
+  
+  for(i=0; i<10; i++){
+    document.querySelector('.reset').click();  
+  }
+
+}
+
   //상세버튼 출력
   const $toMove = evt.target.closest('a');
 
@@ -109,27 +124,46 @@ function newItemBtn(itemBtn1, itemBtn2, itemBtn3) {
    }
   }     
 
-    //입력창 내용 초기화(삭제)
-    if(evt.target.matches('.search-button__delete')){
-      console.log('삭제버튼 클릭됨!');
+    // //입력창 내용 초기화(삭제)
+    // if(evt.target.matches('.search-button__delete')){
+    //   console.log('삭제버튼 클릭됨!');
       
-      const inputText = document.querySelector('.search__input-box'); 
-      inputText.value = null;  
-     }
+    //   const inputText = document.querySelector('.search__input-box'); 
+    //   inputText.value = null;  
+    //  }
   
-  //지역 초기화
-  if(evt.target.matches('.reset')){
+//지역 초기화
+if(evt.target.matches('.reset')){
    document.getElementById('selectArea1').innerHTML = null;
    document.getElementById('selectArea2').innerHTML = null;
    document.getElementById('selectArea3').innerHTML = null;        
    
-   document.getElementById('btn tab1').click();
+}
+  //지역 시 초기화
+  if(evt.target.matches('.btn')){
+  //  document.getElementById('selectArea1').innerHTML = null;
+   document.getElementById('selectArea2').innerHTML = null;
+   document.getElementById('selectArea3').innerHTML = null;        
+   
+  //  document.getElementById('btn tab1').click();
   }
+  if(evt.target.matches('.btn1')){
+     document.getElementById('selectArea3').innerHTML = null;             
+    }
+    if(evt.target.matches('.btn2')){
+      document.getElementById('selectArea3').innerHTML = null;             
+     }
+     if(evt.target.matches('.btn3')){
+      document.getElementById('selectArea3').innerHTML = null;             
+     }
+     
+
  
   // const $toMove = evt.target.closest('a');
-
+  
   if (evt.target.matches('.btn')) {
     $toMove.addEventListener('click', (evt) => {
+      
        document.getElementById('selectArea1').innerHTML = $toMove.textContent;
       //  document.getElementById('btn tab2').click();
     });
@@ -173,11 +207,12 @@ function newItemBtn(itemBtn1, itemBtn2, itemBtn3) {
       flagSeoul = true;
     }
   }
-
+  
   //tabs2 2번
   if (evt.target.matches('.btn3')) {
     $toMove.addEventListener('click', (evt) => {
-       document.getElementById('selectArea2').innerHTML = $toMove.textContent;
+        document.getElementById('selectArea2').innerHTML = $toMove.textContent;
+
       //  document.getElementById('btn tab3').click();
     });
     if (evt.target.matches('.Ulsan2') && !flagUlsan2) {
