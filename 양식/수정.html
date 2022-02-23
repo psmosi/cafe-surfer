@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>커피숍 정보 수정</title>
+  <link rel="stylesheet" href="/양식.css">
+</head>
+<body>
+  <div>
+  <div class="content">
+  <table>
+    <th color="blue" align ="center" colspan = "2">커피숍 수정 양식</th>
+      <tr>
+          <td class="box1">
+            커피숍 명
+          </td>
+          <td class="box2">
+            <input type="text" placeholder="커피숍 명을 입력해주세요">
+          </td>
+      </tr>
+      <tr>
+        <td class="box1">
+          커피숍 전화번호
+        </td>
+        <td class="box2">
+          <input type="text" placeholder="- 빼고 입력해주세요">
+        </td>
+    </tr>
+      <tr>
+        <td class="box1">
+          커피숍 주소
+        </td>
+        <td class="box2">
+            <input type="text" name="dong" id="dong" size="5">-
+            <input type="text" name="dong" id="dong" size="5">
+            <input type="button" id="address" value="우편번호검색"><br>
+            <input type="text" name="home" id="home" size="60" placeholder="커피숍 주소를 입력해주세요"> <br>
+            <input type="text" name="homeAddress" id="homeAddress" size="60" placeholder="상세 주소를 입력해주세요">   
+        </td>
+      </tr>
+      <tr>
+        <td class="box1">
+          사진 첨부
+        </td>
+        <td class="box2">
+          <img class="img" src="/엑박.png" alt="">
+          <p><input type="text" placeholder="커피숍 사진">
+          <input type="button" id="사진첨부" value="첨부파일"></p>
+          <img class="img" src="/엑박.png" alt="">
+          <p><input type="text" placeholder="메뉴 사진">
+          <input type="button" id="사진첨부" value="첨부파일"></p>
+          <img class="img" src="/엑박.png" alt="">
+          <p><input type="text" placeholder="메뉴판 사진">
+          <input type="button" id="사진첨부" value="첨부파일"></p>
+        </td>
+      </tr>
+      <tr>
+          <td class="box1">
+            해시태그
+          </td>
+          <td class="box2">
+            <input type="text" >
+            <input type="text" ><br>
+            <input type="text" >
+            <input type="text" ><br>
+            8자 미만으로 최대 4개까지 입력가능
+          </td>
+      </tr>
+      <tr>
+          <td class="box1">
+            요구사항
+          </td>
+          <td class="box2">
+            <textarea cols="60" rows="10" th:field="*{content}"></textarea>
+          </td>
+      </tr>
+  </table>
+  </div>
+    <div class="Btn">
+    <input type="button" id="add" value="임시저장">
+    <input type="button" id="add" value="수정요청">
+    <input type="button" id="cancel" value="취소">
+    </div>
+  </div>	
+</body>
+</html>
