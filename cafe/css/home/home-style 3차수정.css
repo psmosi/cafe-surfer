@@ -16,7 +16,12 @@
 }
 
 main {
-  
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   height: 70%;
 }
 
@@ -229,13 +234,17 @@ main {
 }
 
 .com {  
+  
   margin: 0;
-  width: 30%;
+  width: 50%;
   height: 229.5px;
   display: inline-block;    
   /* background-color: brown; */
   /* float: left; */
   /* position: relative; */
+}
+.com li{
+  padding: 20px;
 }
 .com7 {
   margin: 0;
@@ -244,19 +253,20 @@ main {
 }
 
 .com1 {
+  text-align: center;
   overflow: hidden;
 }
 
 .com1 li {
   float: left;
-  margin-right: 14px;
+  /* margin-right: 14px; */
 }
 
 .com5 .cont {
   /* position: relative; */
   position: absolute;     
   /* float: left; */
-  width: 70%;
+  width: 50%;
   height: 229.5px;
   display: inline-block;
   
@@ -289,13 +299,17 @@ main {
 
 .com8 {
   
-  width: 50%;     
+  width: 100%;     
   height: 229.5px;
   display: inline-block;
   background: #dce4ed;
   /* outline: 1px red solid; */
   /* background-color: bisque; */
 }  
+.com8 li{
+  padding: 10px;
+
+}
 .com6 .com3 {
   font-weight: bold;
   color: green;
@@ -392,7 +406,7 @@ body {
   display: inline-flex;
 }
 input[type="checkbox"] {
-  display: none;
+  /* display: none; */
 }
 
 /* 상세 해시태그 */

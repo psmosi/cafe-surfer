@@ -37,11 +37,13 @@
           
                   </div>
                   
-                  <li class="input_tag__tags__input"><input type="text"></li>
+                  <li class="input_tag__tags__input">
+                    <input type="text" id="inputtext" onkeyup="backspace()" >
+                  </li>
                 </ul>
               </div>
             </div>
-            <input type="button" value="검색" lass="search-button__standard" />
+            <input type="button" value="검색" class="search-button__standard" />
             <input type="button" value="상세" class="search-button__detail detail" />
           </form>
           
@@ -51,10 +53,10 @@
               <div class="Areadata">
                 <div class="selectArea">
                   <button class="resetBtn">초기화</button>
-                  <li id="selectArea1"></li>
-                  <li id="selectArea2"></li>
-                  <li id="selectArea3"></li>
-                  <button class="reset">+</button>
+                  <!-- <li id="selectArea1"></li>
+                  <li id="selectArea2"></li> -->
+                  <!-- <li id="selectArea3"></li> -->
+                  <!-- <button class="reset">+</button> -->
                 </div><!-- class="selectArea" -->
               </div><!-- class="Areadata" -->
               <div class="detailChoice">
