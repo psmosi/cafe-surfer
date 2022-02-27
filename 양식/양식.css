@@ -18,10 +18,10 @@ th {
   padding-top: 3px;
   padding-bottom: 3px;
   border: 1px solid #444444;
-  background-color: aqua;
 }
 .box1{
   text-align: center;
+  background-color: skyblue;
 }
 .box2{
   padding-left: 10px;
@@ -31,8 +31,7 @@ th {
   justify-content: center;
 }
 
-.img{
-  padding-top: 5px;
+img{
   width: 120px;
   height: 120px;
 }
