@@ -35,19 +35,8 @@ body{font-family:  sans-serif, Arial,"맑은 고딕";  }
   .page-main-wrap{width: 76.5%; float: left;}
   .main-nav-title{font-size: 23px; padding: 49px 30px; }
   
-  .shop-box::after{content: "";display: block;clear: both; }
-  .shop-each{float: left; width: 30%;  height: 300px; display: list-item;  border-radius: 0 0 80px 0; margin: 0 1.5% 20px; box-shadow: 0px 2px 14px -2px rgba(153, 162, 180, 0.8);  }
-  .shop-container{display: flex; flex-direction: column; align-items: flex-start;}
-  .shop-container-util{width: 90%; margin: 10px auto; position: relative;}
-
-  .shop-each_img{width: 90%; height: 170px;  }
-  .shop-each_img > img{width: 100%; height: 100%; object-fit: cover;}
-  .shop-each_title{font-size: 1rem; margin: 10px auto; text-align: center; word-break: keep-all; line-height: 23px;}
-  .shop-each_hashtag{font-size: 0.8rem; }
-
-  .jj-icon{
-    position: absolute; right: 40px; bottom: 0px;
-    width: 45px; height: 45px; background-size: cover; background-image: url("../icon/icon-heart-red.png"); display: block; overflow: hidden; text-indent: -20000px;}
+  /*  */
+  .main-review-wrap{width: 100%; outline: 1px solid tomato;}
 
 
   .page{text-align: center; margin: 40px 0;}
