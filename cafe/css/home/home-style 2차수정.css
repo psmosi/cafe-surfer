@@ -1,0 +1,290 @@
+@import url("reset.css");
+
+
+:root {
+  --black: rgba(0, 0, 0, 0);
+  --blue: #b4bce9;
+}
+
+
+
+.header-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 40px;
+}
+
+main {
+  
+  height: 70%;
+}
+
+.home-content-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.home-search-box {
+  margin-top: 30px;
+}
+
+.home-logo-title {
+  font-size: 100px;
+  color: var(--blue);
+}
+
+.home-search__form {
+  display: flex;
+}
+
+.search__input-box {
+  flex: 1 1 0%;
+  border-radius: 1rem;
+  padding: 1rem;
+  font-size: 1.25rem;
+  margin-right: 1rem;
+  width: 50vw;
+}
+
+.search-button__standard {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.search-button__detail {
+  cursor: pointer;
+}
+
+
+
+/* 상세 CSS 시작*/
+.input-group input {
+  width: 100%;
+  height: 100%;
+}
+
+.menu input[type=checkbox] {
+  display: none;
+}
+
+.menu input[type=checkbox]+label {
+  padding-left: 25px;
+  background-repeat: no-repeat;
+}
+
+.menu input[type=checkbox]+label>span {
+  font-weight: bold;
+}
+
+.menu {
+  width: 100%;  
+  margin-top: 5px;
+}
+
+
+.menu .menuitems {  
+  width: 100%;
+  height: 300px;
+  list-style: none;
+  display: none; 
+  margin: 0 auto;   
+  border-radius: 5px;
+
+}
+
+.menuitems .Areadata {  
+  width: 100%;
+  height: 10%; 
+}
+
+.menu .menuitems .detailChoice {
+  width: 100%;
+  height: 90%;
+  display: flex;  
+}
+.Areadata .selectArea{
+  width: 100%;
+  height: 100%;
+  
+}
+.Areadata .selectArea button {
+  width: 100px;
+  height: 90%; 
+  border-radius: 10px;
+  background-color: #ccead8;
+}
+
+.Areadata .selectArea li {
+  display: inline; 
+}
+
+.menu .menuitems .detailChoice .detailmenu {
+  text-decoration: none; 
+  width: 50%;
+  height: 100%;
+  font-weight: bold;
+  font-size: 0.8rem;
+
+  
+  /* border-right: 1px solid #86b1e5; */
+ 
+}
+
+
+
+.menu .menuitems .detailChoice .detailbox .hashtag {  
+  width: 100%;
+  height: 15%;
+  background-color: #b7cae2;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.menu .menuitems .detailChoice .detailbox .hashtagbox { 
+  width: 100%;
+  height: 85%;
+  background-color: #dce4ed;
+  border-radius: 5px;
+  font-weight: bold;
+ 
+}
+
+.menu .menuitems .detailChoice .detailbox { 
+  width: 50%;
+  height: 100%;
+}
+.menu .menuitems .detailChoice .detailbox p{
+  display: inline-block;
+  margin: 15px;
+}
+.menu input[type=checkbox]:checked~.menuitems {
+  display: block;
+}
+
+.scroll {
+  overflow: auto;
+}
+
+@media (max-width: 600px) {
+  .menu .menuitems .detailChoice {
+    display: inline-block;
+    /* 미정 */
+    /* overflow: auto; */
+  }
+
+  .menu .menuitems .detailChoice .detailmenu {
+    width: 100%;
+  }
+ 
+
+  .menu .menuitems .detailChoice .detailbox {
+    width: 100%;
+  }
+  .home-logo-title{
+    font-size: 80px;
+  }
+}
+
+/* 상세 CSS 끝*/
+/*  */
+.menu .menuitems .detailChoice .detailmenu .Area {  
+  overflow: hidden;
+  list-style: none;
+  width: 100%;
+  height: 15%; 
+  background-color: #b7cae2;
+  border-radius: 5px; 
+  text-align: center;
+}
+.menu .menuitems .detailChoice .detailmenu .Area li{    
+  width: 100%;  
+  height: 100%;  
+  text-align: center;
+  line-height: 40px;
+  
+}
+
+.com {  
+  margin: 0;
+  width: 30%;
+  height: 229.5px;
+  display: inline-block;    
+  /* background-color: brown; */
+  /* float: left; */
+  /* position: relative; */
+}
+.com7 {
+  margin: 0;
+  width: 100%; 
+  display: inline-block;
+}
+
+.com1 {
+  overflow: hidden;
+}
+
+.com1 li {
+  float: left;
+  margin-right: 14px;
+}
+
+.com5 .cont {
+  /* position: relative; */
+  position: absolute;     
+  /* float: left; */
+  width: 70%;
+  height: 229.5px;
+  display: inline-block;
+  
+  
+  /* outline: 3px blue solid; */
+  /* background-color: yellow; */
+}
+
+.com3 {
+  font-size: 17px;
+}
+
+.com4 {
+  position: absolute;
+  display: inline-block;
+ 
+  height: 229.5px;
+  /* outline: 1px red solid; */
+
+}
+
+.com5 {
+  width: 100%;     
+  height: 229.5px;
+  display: inline-block;
+  background: #dce4ed;
+  /* outline: 1px red solid; */
+  position: relative;
+}  
+
+.com8 {
+  
+  width: 50%;     
+  height: 229.5px;
+  display: inline-block;
+  background: #dce4ed;
+  /* outline: 1px red solid; */
+  /* background-color: bisque; */
+}  
+.com6 .com3 {
+  font-weight: bold;
+  color: green;
+}
+
+
+/*  */
+
+footer {
+  margin: 20px;
+}
