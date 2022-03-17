@@ -22,10 +22,8 @@ background:linear-gradient(to bottom, #8cc841 , #29aeec 50%);
 
 @media screen and (min-width:641px) {
   
-
-
-  body{background:linear-gradient(to bottom, #8cc841 , #29aeec 50%); width: 100%; height: 100vh; font-family:  sans-serif, Arial,"맑은 고딕"}
-
+  html{width: 100%; height: 100%;}
+  body{background:linear-gradient(to bottom, #8cc841 , #29aeec 50%); background-repeat: no-repeat; width: 100%; font-family:  sans-serif, Arial,"맑은 고딕"; }
   /* header-box */
   .header-box{display:flex; justify-content: flex-end; align-items: center; margin: 40px;}
   .header-login{padding-right: 5px; border-right: 1px solid #fefefeda;}
@@ -46,6 +44,7 @@ background:linear-gradient(to bottom, #8cc841 , #29aeec 50%);
   .detail-box{position:absolute; left:25px;top:20px; }
   .detail-icon{width: 13px; height: 10px; background-size: cover; background-image: url("../icon/icon-triangle_inverted.png"); display: block; overflow: hidden; text-indent: -20000px;}
   .search-input{width: 50vw; min-width: 500px; max-width: 650px; flex: 1 1 0%; border-radius: 2rem; padding: 1rem 4rem; font-size: 1rem; border: none; }
+  .search-input:focus{outline: none;}
   .search-box{ position: absolute; right: 25px; top: 17px; }
   .search-icon{width: 16px; height: 17px; background-size: cover; background-image: url("../icon/icon-search.png"); display: block; overflow: hidden; text-indent: -20000px;}
 
@@ -53,16 +52,16 @@ background:linear-gradient(to bottom, #8cc841 , #29aeec 50%);
   .location-selected-wrap{width: 50vw; min-width: 500px;  max-width: 650px; margin: 24px 0; padding: 0 4rem; position: relative;}
 
   .condition-reset-wrap{position: absolute; left:20px; top: 5px;}
-  .reset-icon-box{background-color: #a8d2eb; padding: 5px; border-radius: 50%;}
+  .reset-icon-box{background-color: #a8d2eb; padding: 5px; border-radius: 50%; border: 3px solid #fff;}
   .reset-icon{width: 13px; height: 12px; background-size: cover; background-image: url("../icon/icon-reset.png"); display: block; overflow: hidden; text-indent: -20000px;} 
 
-  .location-selected-box-each{width:fit-content; padding: 5px 8px 5px 10px; display: inline-block;  background-color: #a8d2eb;   border-radius: 30px; line-height: 20px;}
+  .location-selected-box-each{width:fit-content; padding: 5px 8px 5px 10px; display: inline-block;  background-color: #a8d2eb;   border-radius: 30px; line-height: 20px; border: 3px solid #fff;}
   .location-selected,
   .location-delete{display: inline-block;}
   .location-selected{margin: 0 5px 0 3px; width: auto;}
   .location-selected-title{font-size: 13px; vertical-align: center;}
-  .location-delete{width: 20px; height: 20px; background-color: #e0f7ff;  border-radius: 10px; text-align: center;}
-  .location-delete-btn{font-size: 12px; padding-left: 2px;}
+  .location-delete{width: 20px; height: 20px; background-color: #e0f7ff;  border-radius: 10px;}
+  .location-delete-btn{width: 8px; height: 8px; margin: 5px 6px 0; background-size: cover; background-image: url("../icon/icon-ex-2.png"); display: inline-block; overflow: hidden; text-indent: -20000px;   }
 
   /* search-detail-header */
   .search-detail-wrap{width: 50vw;  min-width: 500px; max-width: 650px;   padding: 0 4rem; }
