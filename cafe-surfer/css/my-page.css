@@ -32,11 +32,11 @@ body{font-family:  sans-serif, Arial,"맑은 고딕";  }
 
 
   /* body - main */
-  .page-main-wrap{width: 76.5%; float: left;}
+  .page-main-wrap{width: 76.5%; float: left; height: 1200px;}
   .main-nav-title{font-size: 23px; padding: 49px 30px; }
   
   .shop-box::after{content: "";display: block;clear: both; }
-  .shop-each{float: left; width: 30%;  height: 300px; display: list-item;  border-radius: 0 0 80px 0; margin: 0 1.5% 20px; box-shadow: 0px 2px 14px -2px rgba(153, 162, 180, 0.8);  }
+  .shop-each{float: left; width: 30%;  height: 300px; display: list-item;  border-radius: 0 0 80px 0; margin: 0 1.5% 28px; box-shadow: 0px 2px 14px -2px rgba(153, 162, 180, 0.8);  }
   .shop-container{display: flex; flex-direction: column; align-items: flex-start;}
   .shop-container-util{width: 90%; margin: 10px auto; position: relative;}
 
@@ -46,8 +46,8 @@ body{font-family:  sans-serif, Arial,"맑은 고딕";  }
   .shop-each_hashtag{font-size: 0.8rem; }
 
   .jj-icon{
-    position: absolute; right: 40px; bottom: 0px;
-    width: 45px; height: 45px; background-size: cover; background-image: url("../icon/icon-heart-red.png"); display: block; overflow: hidden; text-indent: -20000px;}
+    position: absolute; right: 40px; bottom: 7px;
+    width: 30px; height: 30px; background-size: cover; background-image: url("../icon/icon-heart-red.png"); display: block; overflow: hidden; text-indent: -20000px;}
 
 
   .page{text-align: center; margin: 40px 0;}

@@ -1,7 +1,5 @@
 @import url("reset.css");
-body{
-  height: 1000vh;
-}
+
 
 /* util */
 /* 
@@ -59,7 +57,7 @@ body{font-family:  sans-serif, Arial,"맑은 고딕"}
   .icon-box{ width: 20%; height: auto;}
   .txt-box{width: 80%; font-size: 14px; margin: auto 0;}
   .heart-btn{width: 25px; height: 25px;  background-size: cover; background-image: url("../icon/icon-heart-empty-red.png"); display: inline-block; overflow: hidden; text-indent: -20000px; position: absolute; top: -2px; right: 0; margin-right: 50px;}
-  .link-btn{width: 25px; height: 25px;  background-size: cover; background-image: url("../icon/icon-heart-empty-red.png"); display: inline-block; overflow: hidden; text-indent: -20000px; position: absolute; top: -2px; right: 0; }
+  .link-btn{width: 23px; height: 23px;  background-size: cover; background-image: url("../icon/icon-hyperlink.png"); display: inline-block; overflow: hidden; text-indent: -20000px; position: absolute; top: -2px; right: 0; }
 
   .shop-hashtag-icon-box{margin: auto 0;}
 
@@ -103,5 +101,7 @@ body{font-family:  sans-serif, Arial,"맑은 고딕"}
   .rev-del-btn{width: 10px; height: 10px; background-size: cover; background-image: url("../icon/icon-ex-15.png"); display: block; overflow: hidden; text-indent: -20000px; }
   
   .delabc{width: 15px; height: 15px;}
+
+  footer{margin-top: 100px;}
 }
 

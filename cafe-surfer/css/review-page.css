@@ -32,13 +32,35 @@ body{font-family:  sans-serif, Arial,"맑은 고딕";  }
 
 
   /* body - main */
-  .page-main-wrap{width: 76.5%; float: left;}
+  .page-main-wrap{width: 76.5%; float: left; height: 1200px; position: relative;}
   .main-nav-title{font-size: 23px; padding: 49px 30px; }
   
   /*  */
-  .main-review-wrap{width: 100%; outline: 1px solid tomato;}
+  
+  .main-review-wrap{width: 700px;  margin: 0 auto;}
+  .main-review-each{box-shadow: 0px 2px 14px -2px rgba(153, 162, 180, 0.8); display: flex; height: 150px; margin-bottom: 20px;}
+
+  .review-shop-content-box{width: 100%; display: flex; flex-direction: column;}
+  .review-shop-img-box{text-align: center; border-right: 1px solid #ddd; }
+  .review-shop-img-box>img{width: 170px; height: 100px; margin: 10px;}
+  .shop-title{margin-bottom: 7px;}
+  .review-header{padding: 15px; margin: 5px; border-bottom: 1px solid #ddd; display: flex; align-items: center; justify-content: space-between;}
+
+  .review-writer, .review-date, .review-btn, .review-writer-info{display: inline-block;}
+
+  .review-writer{font-size: 13px;}
+  .review-date{font-size: 13px; color: #aaa; margin-left: 15px;}
+  
+  .review-btn>a{margin: 0 10px;}
+  .rev-modify-btn{width: 15px; height: 15px; background-size: cover; background-image: url("../icon/icon-modify-black.png");  display: inline-block; overflow: hidden; text-indent: -20000px; }
+  .rev-report-btn{width: 20px; height: 17px; background-size: cover; background-image: url("../icon/icon-report.png");  display: inline-block; overflow: hidden; text-indent: -20000px; }
+  .rev-del-btn{width: 13px; height: 13px; background-size: cover; background-image: url("../icon/icon-ex-black.png");  display: inline-block; overflow: hidden; text-indent: -20000px; }
+  .review-content{padding: 15px; margin: 5px; height: 100px; overflow: scroll;}
+
+  
 
 
-  .page{text-align: center; margin: 40px 0;}
+
+  .page{text-align: center; padding-top: 5px;}
   .page>a{font-size: 16px; margin: 3px; border: 1px solid #29aeec;  width: 24px; height: 24px;  box-sizing: content-box; display: inline-block; line-height: 27px;}
 }
