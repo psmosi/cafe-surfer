@@ -1,15 +1,17 @@
 @import url("reset.css");
-
+@import url(https://fonts.googleapis.com/earlyaccess/jejugothic.css);
+body{font-family: 'Jeju Gothic', sans-serif;}
+header{position: fixed; width: 100%; height: 120px; box-shadow: 0 7px 10px -3px rgba(132, 155, 156, 0.8); background-color: #fff; z-index: 1000; top: 0; }
 @media screen and (min-width:961px) {
     
-  body{font-family:  sans-serif, Arial,"맑은 고딕"}
-  header{position: fixed; width: 100%; height: 120px; box-shadow: 0 7px 10px -3px rgba(132, 155, 156, 0.8); background-color: #fff; z-index: 1000; top: 0; }
-  .header_top_wrap {width: 100%; height:120px;  }
-  .header_logo_home_evt{width: 220px; height: 37px; text-align: center; position: absolute; top: 40px; left: 50px;}
+  .header_top_wrap {width: 100%; height:100%; display: flex; justify-content: space-between; align-items: center; }
+  .header_logo_home_wrap{width: 220px; height: 37px; margin-left: 40px; }
   .logo{width:100%; height: 100%; background-size: cover; background-image: url("../img/logo/logo-color.png");  display: block; overflow: hidden; text-indent: -20000px; }
-  .header_util_evt{position: absolute; right: 55px; top: 50px; }
-  .header_util_evt>a:first-child{margin-right: 3px; color:#29aeec;}
-  .header_util_evt>a:last-child{border-left: 1px solid #aaa; padding-left: 5px; color:#29aeec;}
+  .header_util_wrap{margin-right: 40px; display: flex;}
+  .util-btn-wrap{width: 100px; height: 37px;  margin: 0 10px; text-align: center; border: 1px solid transparent; border-radius: 30px; background-image: linear-gradient(#fff, #fff), linear-gradient(to bottom, #8cc841 , #29aeec 50%);background-origin: border-box;background-clip:padding-box, border-box ; }
+  .util-btn{line-height: 38px; padding:0 10px}
+  
+  
 
   .container{width: 97%; height: auto; margin: 120px auto 0; min-width: 961px; max-width: 1200px; display: block; }
   .util-wrap{display: flex; justify-content: center; align-items: center; flex-direction: column;  letter-spacing: 2px; padding: 80px 0;}
@@ -21,6 +23,7 @@
   .detail-box{position:absolute; left:25px;top:20px; }
   .detail-icon{width: 13px; height: 10px; background-size: cover; background-image: url("../icon/icon-triangle_inverted.png"); display: block; overflow: hidden; text-indent: -20000px;}
   .search-input{width: 50vw; min-width: 500px; max-width: 650px; flex: 1 1 0%; border-radius: 2rem; padding: 1rem 4rem; font-size: 1rem; border: 1px solid #fff; box-shadow: 0 1px 2px 1px rgba(132, 155, 156, 0.8); }
+  .search-input:focus{outline: none;}
   .search-box{position: absolute; right: 25px; top: 17px; }
   .search-icon{width: 16px; height: 17px; background-size: cover; background-image: url("../icon/icon-search.png"); display: block; overflow: hidden; text-indent: -20000px;}
 
