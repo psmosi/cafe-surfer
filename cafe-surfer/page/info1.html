@@ -10,11 +10,16 @@
 <body>
   <header>
     <div class="header_top_wrap">
-      <div class="header_logo_home_evt">
+      <div class="header_logo_home_wrap">
         <a class="logo" href="#" title="로고 이미지">로고</a>
       </div>
-      <div class="header_util_evt">
-        <a href="javascript:void(0)">Log out</a>
+      <div class="header_util_wrap">
+        <div class="util-btn-wrap login-btn-wrap ">
+          <a href="#" class="util-btn login-btn">로그인</a>
+        </div>
+        <div class="util-btn-wrap signin-btn-wrap">
+          <a href="#" class="util-btn signin-btn">회원가입</a>
+        </div>
       </div>
     </div>
   </header>
@@ -31,7 +36,7 @@
           <ul class="nav-list-wrap">
             <li class="nav-list-each my-history " >
               <a href="javascript:void(0)" class="my-history">나의 활동 내역</a>
-              <ul>
+              <ul class="nav-list-sub-wrap">
                 <li>
                   <a href="javascript:void(0)">- 내가 작성한 리뷰</a>
                 </li>
@@ -42,7 +47,7 @@
             </li>
             <li class="nav-list-each">
               <a href="javascript:void(0)">커피숍 정보 관리</a>
-              <ul>
+              <ul class="nav-list-sub-wrap">
                 <li>
                     <a href="javascript:void(0)">- 커피숍 정보 등록 요청하기</a>
                 </li>
@@ -56,7 +61,7 @@
             </li>
             <li class="nav-list-each">
               <a href="javascript:void(0)">관리자 메뉴</a>
-              <ul class="admin-tab">
+              <ul class="nav-list-sub-wrap admin-tab">
                 <li>
                   <a href="javascript:void(0)">- 커피숍 정보관리 </a>
                 </li>

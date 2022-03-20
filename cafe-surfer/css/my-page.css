@@ -1,20 +1,19 @@
 @import url("reset.css");
 
-body{font-family:  sans-serif, Arial,"맑은 고딕";  }
+@import url(https://fonts.googleapis.com/earlyaccess/jejugothic.css);
+body{font-family: 'Jeju Gothic', sans-serif;}
+header{position: fixed; width: 100%; height: 120px; box-shadow: 0 7px 10px -3px rgba(132, 155, 156, 0.8); background-color: #fff; z-index: 1000; top: 0; }
 
-/* header{position: fixed; width: 100%; height: 120px; } */
+@media screen and (min-width: 961px) {
+/* Home Page */
 
-@media screen and (min-width:961px) {
-
-  /* Header */
-  
-  body{font-family:  sans-serif, Arial,"맑은 고딕"}
-  header{position: fixed; width: 100%; height: 120px; box-shadow: 0 7px 10px -3px rgba(132, 155, 156, 0.8); background-color: #fff; z-index: 1000; top: 0; }
+/* Contents Page */
+  /* Header*/
   .header_top_wrap {width: 100%; height:100%; display: flex; justify-content: space-between; align-items: center; }
-  .header_logo_home_wrap{width: 220px; height: 37px; margin-left: 30px; }
+  .header_logo_home_wrap{width: 220px; height: 37px; margin-left: 40px; }
   .logo{width:100%; height: 100%; background-size: cover; background-image: url("../img/logo/logo-color.png");  display: block; overflow: hidden; text-indent: -20000px; }
   .header_util_wrap{margin-right: 40px; display: flex;}
-  .util-btn-wrap{width: 100px; height: 37px;  margin: 0 10px; text-align: center; border: 1px solid transparent; border-radius: 15px; background-image: linear-gradient(#fff, #fff), linear-gradient(to bottom, #8cc841 , #29aeec 50%);background-origin: border-box;background-clip:padding-box, border-box ; }
+  .util-btn-wrap{width: 100px; height: 37px;  margin: 0 10px; text-align: center; border: 1px solid transparent; border-radius: 30px; background-image: linear-gradient(#fff, #fff), linear-gradient(to bottom, #8cc841 , #29aeec 50%);background-origin: border-box;background-clip:padding-box, border-box ; }
   .util-btn{line-height: 38px; padding:0 10px}
   
 
@@ -29,7 +28,8 @@ body{font-family:  sans-serif, Arial,"맑은 고딕";  }
   
   .nav-tab{margin-left: 10px;}
   
-  .nav-list-each{padding-top: 20px ; }  
+  .nav-list-each{padding-top: 20px; font-size: 15px;}  
+  .nav-list-sub-wrap{font-size: 13px;}
   .nav-list-each>a{margin-left: 20px; }
   .nav-list-each>ul>li{margin: 20px 0 0 30px; }
   .nav-list-each>a:hover, .nav-list-each>ul>li>a:hover{border-bottom: 1px solid #aaa;}
@@ -47,13 +47,15 @@ body{font-family:  sans-serif, Arial,"맑은 고딕";  }
   .shop-each_img{width: 90%; height: 170px;  }
   .shop-each_img > img{width: 100%; height: 100%; object-fit: cover;}
   .shop-each_title{font-size: 1rem; margin: 10px auto; text-align: center; word-break: keep-all; line-height: 23px;}
-  .shop-each_hashtag{font-size: 0.8rem; }
+  .shop-each_hashtag{font-size: 0.7rem; }
 
   .jj-icon{
     position: absolute; right: 40px; bottom: 7px;
     width: 30px; height: 30px; background-size: cover; background-image: url("../icon/icon-heart-red.png"); display: block; overflow: hidden; text-indent: -20000px;}
 
 
-  .page{text-align: center; margin: 40px 0;}
-  .page>a{font-size: 16px; margin: 3px; border: 1px solid #29aeec;  width: 24px; height: 24px;  box-sizing: content-box; display: inline-block; line-height: 27px;}
+  .page{display: flex; justify-content: center;  margin: 20px 0;}
+  .page>a{ margin: 5px;   width: 24px; height: 24px; text-align: center; line-height: 28px; }
+  .page>a:nth-child(3){border: 1px solid #29aeec;}
+  .page-util-btn{font-size: 10px; }
 }

@@ -1,19 +1,20 @@
 @import url("reset.css");
 
-body{font-family:  sans-serif, Arial,"맑은 고딕";  }
+@import url(https://fonts.googleapis.com/earlyaccess/jejugothic.css);
+body{font-family: 'Jeju Gothic', sans-serif;}
+header{position: fixed; width: 100%; height: 120px; box-shadow: 0 7px 10px -3px rgba(132, 155, 156, 0.8); background-color: #fff; z-index: 1000; top: 0; }
 
-/* header{position: fixed; width: 100%; height: 120px; } */
+@media screen and (min-width: 961px) {
+/* Home Page */
 
-@media screen and (min-width:961px) {
-
-  /* Header */
-  
-  .header_top_wrap {position: fixed; width: 100%; height:120px; box-shadow: 0 7px 10px -3px rgba(132, 155, 156, 0.8); background-color: #fff; z-index: 1000; top: 0;  }
-  .header_logo_home_evt{width: 220px; height: 37px; text-align: center; position: absolute; top: 40px; left: 50px;}
+/* Contents Page */
+  /* Header*/
+  .header_top_wrap {width: 100%; height:100%; display: flex; justify-content: space-between; align-items: center; }
+  .header_logo_home_wrap{width: 220px; height: 37px; margin-left: 40px; }
   .logo{width:100%; height: 100%; background-size: cover; background-image: url("../img/logo/logo-color.png");  display: block; overflow: hidden; text-indent: -20000px; }
-  .header_util_evt{position: absolute; right: 55px; top: 50px; }
-  .header_util_evt>a:last-child{ color:#29aeec;}
-
+  .header_util_wrap{margin-right: 40px; display: flex;}
+  .util-btn-wrap{width: 100px; height: 37px;  margin: 0 10px; text-align: center; border: 1px solid transparent; border-radius: 30px; background-image: linear-gradient(#fff, #fff), linear-gradient(to bottom, #8cc841 , #29aeec 50%);background-origin: border-box;background-clip:padding-box, border-box ; }
+  .util-btn{line-height: 38px; padding:0 10px}
   /* body */
   .body-wrap{ max-width: 1200px; margin: 119px auto 0; height: 100%; }
   .body-wrap::after{display: block; content: ""; clear: both;}
@@ -25,7 +26,8 @@ body{font-family:  sans-serif, Arial,"맑은 고딕";  }
   
   .nav-tab{margin-left: 10px;}
   
-  .nav-list-each{padding-top: 20px ; }  
+  .nav-list-each{padding-top: 20px; font-size: 15px;}  
+  .nav-list-sub-wrap{font-size: 13px;}   
   .nav-list-each>a{margin-left: 20px; }
   .nav-list-each>ul>li{margin: 20px 0 0 30px; }
   .nav-list-each>a:hover, .nav-list-each>ul>li>a:hover{border-bottom: 1px solid #aaa;}
@@ -48,12 +50,15 @@ body{font-family:  sans-serif, Arial,"맑은 고딕";  }
   }
   th {
     border: 1px solid #444444;
-    background-color: orangered;
+    background-color: skyblue;
+    vertical-align: middle;
     
   } td {
     padding-top: 3px;
     padding-bottom: 3px;
     border: 1px solid #444444;
+    vertical-align: middle;
+
   }
   .box1{
     text-align: center;
