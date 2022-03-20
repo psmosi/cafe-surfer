@@ -9,7 +9,7 @@ header{position: fixed; width: 100%; height: 120px; box-shadow: 0 7px 10px -3px 
 /* Contents Page */
   /* Header*/
   .header_top_wrap {width: 100%; height:100%; display: flex; justify-content: space-between; align-items: center; }
-  .header_logo_home_wrap{width: 220px; height: 37px; margin-left: 40px; }
+  .header_logo_home_wrap{width: 220px; height: 37px; margin-left: 70px; }
   .logo{width:100%; height: 100%; background-size: cover; background-image: url("../img/logo/logo-color.png");  display: block; overflow: hidden; text-indent: -20000px; }
   .header_util_wrap{margin-right: 40px; display: flex;}
   .util-btn-wrap{width: 100px; height: 37px;  margin: 0 10px; text-align: center; border: 1px solid transparent; border-radius: 30px; background-image: linear-gradient(#fff, #fff), linear-gradient(to bottom, #8cc841 , #29aeec 50%);background-origin: border-box;background-clip:padding-box, border-box ; }

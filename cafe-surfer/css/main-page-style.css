@@ -5,7 +5,7 @@ header{position: fixed; width: 100%; height: 120px; box-shadow: 0 7px 10px -3px 
 @media screen and (min-width:961px) {
     
   .header_top_wrap {width: 100%; height:100%; display: flex; justify-content: space-between; align-items: center; }
-  .header_logo_home_wrap{width: 220px; height: 37px; margin-left: 40px; }
+  .header_logo_home_wrap{width: 220px; height: 37px; margin-left: 70px; }
   .logo{width:100%; height: 100%; background-size: cover; background-image: url("../img/logo/logo-color.png");  display: block; overflow: hidden; text-indent: -20000px; }
   .header_util_wrap{margin-right: 40px; display: flex;}
   .util-btn-wrap{width: 100px; height: 37px;  margin: 0 10px; text-align: center; border: 1px solid transparent; border-radius: 30px; background-image: linear-gradient(#fff, #fff), linear-gradient(to bottom, #8cc841 , #29aeec 50%);background-origin: border-box;background-clip:padding-box, border-box ; }
@@ -83,7 +83,7 @@ header{position: fixed; width: 100%; height: 120px; box-shadow: 0 7px 10px -3px 
   .shop-each_title{font-size: 1rem; margin: 18px auto; text-align: center; word-break: keep-all; }
   .shop-each_hashtag{font-size: 0.7rem; }
 
-  
+
   .page{display: flex; justify-content: center;  margin: 20px 0;}
   .page>a{ margin: 5px;   width: 24px; height: 24px; text-align: center; line-height: 28px; }
   .page>a:nth-child(3){border: 1px solid #29aeec;}
