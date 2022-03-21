@@ -38,7 +38,7 @@ header{position: fixed; width: 100%; height: 120px; box-shadow: 0 7px 10px -3px 
   .main-nav-title{font-size: 23px; padding: 49px 30px; }
   
   
-  .content{
+  .form-content{
     display: flex;
     justify-content: center;
   }
@@ -50,7 +50,7 @@ header{position: fixed; width: 100%; height: 120px; box-shadow: 0 7px 10px -3px 
   }
   th {
     border: 1px solid #444444;
-    background-color: skyblue;
+    background-color: #56c9ff;
     vertical-align: middle;
     font-size: 15px;
     
@@ -65,7 +65,7 @@ header{position: fixed; width: 100%; height: 120px; box-shadow: 0 7px 10px -3px 
   
   .box1{
     text-align: center;
-    background-color: skyblue;
+    
   }
   .box2{
     padding-left: 10px;
