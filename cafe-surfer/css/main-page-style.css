@@ -69,9 +69,9 @@
 
 
   /* shop-list-wrap */
-  .shop-list-box{margin: 0 auto ; width: 100%; max-width: 1200px; min-width: 961px; height: auto; outline: 1px solid tomato; display: block;}
+  .shop-list-box{margin: 0 auto ; width: 100%; max-width: 1200px; min-width: 961px; height: auto;  display: block;}
   
-  .shops-box{width: 100%; outline: 1px solid tomato; position: relative; margin-right:auto}
+  .shops-box{width: 100%;  position: relative; margin-right:auto}
   .shops-box::after{content: "";display: block;clear: both; }
 
   .shop-each{float: left; width: 260px; height: 300px; display: list-item;  border-radius: 0 0 80px 0; margin: 0 20px 40px; box-shadow: 0px 2px 14px -2px rgba(153, 162, 180, 0.8);  }
