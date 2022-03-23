@@ -22,7 +22,7 @@ public class MemberShipController {
   private final MemberShipSVC memberShipSVC;
 
   //성별
-  @ModelAttribute("gender")
+  @ModelAttribute("memberGender")
   public MemberGender[] genter(){
 
     return MemberGender.values();  //[MALE, FEMALE]

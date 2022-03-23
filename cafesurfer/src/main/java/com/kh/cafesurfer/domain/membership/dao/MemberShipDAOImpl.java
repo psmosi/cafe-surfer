@@ -6,12 +6,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -54,7 +56,7 @@ public class MemberShipDAOImpl implements MemberShipDAO{
         return pstmt;
       }
     },keyHolder);
-
+    
     long member_id = keyHolder.getKey().longValue();
     log.info("신규회원등록={} 후 member_id반환값={}",memberShip, keyHolder.getKey());
 
@@ -202,5 +204,27 @@ public class MemberShipDAOImpl implements MemberShipDAO{
     );
 
     return (count == 1) ? true : false;
+  }
+  
+  //이름으로 아이디 찾기
+  @Override
+  public String findEmailByName(String memberName) {
+    StringBuffer sql  = new StringBuffer();
+    sql.append("SELECT member_email ");
+    sql.append("  from MemberShip ");
+    sql.append(" where member_name = ? ");
+
+    List<String> result = jdbcTemplate.query(
+        sql.toString(),
+        new RowMapper<String>() {
+          @Override
+          public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+            return rs.getNString("member_email");
+          }
+        },
+        memberName
+    );
+
+    return (result.size() == 1) ? result.get(0) : null;
   }
 }

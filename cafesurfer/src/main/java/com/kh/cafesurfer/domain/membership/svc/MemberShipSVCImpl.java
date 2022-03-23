@@ -102,4 +102,14 @@ public class MemberShipSVCImpl implements MemberShipSVC{
   public boolean isMember(String memberEmail, String memberPasswd) {
     return memberShipDAO.isMember(memberEmail,memberPasswd);
   }
+
+  /**
+   * 이름으로 이메일 찾기
+   * @param memberName
+   * @return
+   */
+  @Override
+  public String findEmailByName(String memberName) {
+    return memberShipDAO.findEmailByName(memberName);
+  }
 }

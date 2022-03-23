@@ -93,14 +93,12 @@ class MemberShipDAOImplTest {
 
     Assertions.assertThat(memberShip).isNotNull();
   }
-
   @Test
-  void existMember() {
-
-  }
-
-  @Test
-  void isMember() {
+  @DisplayName("이름으로 이메일찾기")
+  void findEmailByNickname() {
+    String memberName ="테스터abc";
+    String findedEmail = memberShipDAO.findEmailByName(memberName);
+    Assertions.assertThat(findedEmail).isEqualTo("test3@kh.com");
 
   }
 

@@ -25,4 +25,6 @@ public interface MemberShipDAO {
   //비밀번호 일치여부 체크
   boolean isMember(String memberEmail, String memberPasswd);
 
+  //아이디 찾기
+  String findEmailByName(String nickname);
 }
