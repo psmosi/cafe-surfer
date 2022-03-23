@@ -43,9 +43,9 @@ public class MemberShipController {
       RedirectAttributes redirectAttributes){
 
     log.info("join() 호출됨!");
-    log.info("MemberEmail={}, MemberPasswd={}, MemberPasswdChk={}, MemberName={}",
+    log.info("MemberEmail={}, MemberPasswd={}, MemberPasswdChk={}, MemberName={},MemberGender={},MemberAge={},MemberTel={}",
         joinForm.getMemberEmail(),joinForm.getMemberPasswd(),
-        joinForm.getMemberPasswdChk(),joinForm.getMemberName());
+        joinForm.getMemberPasswdChk(),joinForm.getMemberName(),joinForm.getMemberGender(),joinForm.getMemberAge(),joinForm.getMemberTel());
 
     //1)유효성체크 - 필드오류
     if(bindingResult.hasErrors()){

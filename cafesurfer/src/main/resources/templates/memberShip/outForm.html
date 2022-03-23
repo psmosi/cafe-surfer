@@ -13,17 +13,17 @@
 <h3>회원탈퇴</h3>
 <hr>
 <form id="frm" action="/members/out" method="post" th:object="${outForm}">
-  <input type="hidden" th:field="*{email}" th:value="${session.loginMember.email}">
+  <input type="hidden" th:field="*{memberEmail}" th:value="${session.loginMemberShip.memberEmail}">
   <ul>
     <li>
       <p>탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가하오니 신중하게 선택하시기 바랍니다.</p>
     </li>
     <li>
       <label for="">비밀번호</label>
-      <input type="password" name="passwd" th:field="*{passwd}">
+      <input type="password" name="memberPasswd" th:field="*{memberPasswd}">
     </li>
-    <li th:if="${#fields.hasErrors('passwd')}">
-      <p th:errors="*{passwd}" th:errorclass="fieldError"></p>
+    <li th:if="${#fields.hasErrors('memberPasswd')}">
+      <p th:errors="*{memberPasswd}" th:errorclass="fieldError"></p>
     </li>
     <li>
       <input type="checkbox" name="agree" id="" th:field="*{agree}">

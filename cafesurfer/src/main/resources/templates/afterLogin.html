@@ -17,14 +17,19 @@
 </head>
 <body class="body">
 
+
+
   <header>
     <div class="header-wrap">
       <div class="header-box">
         <div class="header-content header-login">
           <a class="login-btn" href="/logout">Log Out</a>
         </div>
+        <h3 th:if="${!session.isEmpty()}">
+          <span th:text="${session.loginMemberShip.memberName}"></span>님 환영합니다.
+        </h3>
         <div class="header-content header-signin">
-          <a class="signin-btn" href="#">Sign In</a>
+          <a class="signin-btn" href="/members/myinfo">마이페이지</a>
         </div>
       </div>
     </div>

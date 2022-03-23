@@ -30,7 +30,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
 
     //세션정보가 있으면 반환 없으면 null반환
     HttpSession session = request.getSession(false);
-    if(session == null || session.getAttribute("loginMember") == null ){
+    if(session == null || session.getAttribute("loginMemberShip") == null ){
       log.info("미인증 요청");
       response.sendRedirect("/login?redirectUrl=" + redirectUrl);
       return false;

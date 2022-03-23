@@ -62,7 +62,7 @@ public class LoginController {
     }
 
     //회원 세션 정보
-    LoginMemberShip loginMemberShip = new LoginMemberShip(memberShip.getMemberEmail(), memberShip.getMemberPasswd());
+    LoginMemberShip loginMemberShip = new LoginMemberShip(memberShip.getMemberEmail(), memberShip.getMemberName());
 
     //인증성공
     //세션이 있으면 세션 반환, 없으면 새로이 생성
