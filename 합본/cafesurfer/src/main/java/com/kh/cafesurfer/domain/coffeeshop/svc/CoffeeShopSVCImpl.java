@@ -1,7 +1,7 @@
-package com.kh.cafesurfer.domain.membership.domain.svc;
+package com.kh.cafesurfer.domain.coffeeshop.svc;
 
-import com.kh.cafesurfer.domain.membership.domain.CoffeeShop;
-import com.kh.cafesurfer.domain.membership.domain.dao.CoffeeShopDAO;
+import com.kh.cafesurfer.domain.coffeeshop.CoffeeShop;
+import com.kh.cafesurfer.domain.coffeeshop.dao.CoffeeShopDAO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

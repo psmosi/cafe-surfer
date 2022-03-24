@@ -1,6 +1,6 @@
-package com.kh.cafesurfer.domain.membership.domain.dao;
+package com.kh.cafesurfer.domain.coffeeshop.dao;
 
-import com.kh.cafesurfer.domain.membership.domain.CoffeeShop;
+import com.kh.cafesurfer.domain.coffeeshop.CoffeeShop;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataAccessException;

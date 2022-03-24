@@ -1,6 +1,6 @@
-package com.kh.cafesurfer.domain.membership.domain.svc;
+package com.kh.cafesurfer.domain.coffeeshop.svc;
 
-import com.kh.cafesurfer.domain.membership.domain.CoffeeShop;
+import com.kh.cafesurfer.domain.coffeeshop.CoffeeShop;
 
 import java.util.List;
 

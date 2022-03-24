@@ -1,4 +1,4 @@
-package com.kh.cafesurfer.domain.membership.domain;
+package com.kh.cafesurfer.domain.coffeeshop;
 
 import lombok.Data;
 

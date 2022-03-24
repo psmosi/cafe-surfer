@@ -1,4 +1,4 @@
-package com.kh.cafesurfer.coffeeShop.web.form;
+package com.kh.cafesurfer.web.form.coffeshop;
 
 import lombok.Data;
 

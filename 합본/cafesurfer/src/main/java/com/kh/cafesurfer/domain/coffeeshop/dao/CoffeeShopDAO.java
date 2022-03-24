@@ -1,6 +1,6 @@
-package com.kh.cafesurfer.domain.membership.domain.dao;
+package com.kh.cafesurfer.domain.coffeeshop.dao;
 
-import com.kh.cafesurfer.domain.membership.domain.CoffeeShop;
+import com.kh.cafesurfer.domain.coffeeshop.CoffeeShop;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
 package com.kh.cafesurfer.web;
+
 import com.kh.cafesurfer.domain.membership.MemberShip;
 import com.kh.cafesurfer.domain.membership.svc.MemberShipSVC;
 import com.kh.cafesurfer.web.form.memberShip.*;
-import com.kh.cafesurfer.web.interceptor.memberShip.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

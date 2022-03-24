@@ -1,10 +1,8 @@
-package com.kh.cafesurfer.coffeeShop.web;
+package com.kh.cafesurfer.web;
 
-import com.kh.cafesurfer.domain.membership.domain.CoffeeShop;
-import com.kh.cafesurfer.domain.membership.domain.svc.CoffeeShopSVC;
-import com.kh.cafesurfer.coffeeShop.web.form.CoffeeShopDetailForm;
-import com.kh.cafesurfer.coffeeShop.web.form.CoffeeShopJoinForm;
-import com.kh.cafesurfer.coffeeShop.web.form.CoffeeShopModifyForm;
+import com.kh.cafesurfer.domain.coffeeshop.CoffeeShop;
+import com.kh.cafesurfer.domain.coffeeshop.svc.CoffeeShopSVC;
+import com.kh.cafesurfer.web.form.coffeshop.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
