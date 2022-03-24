@@ -1,0 +1,73 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="ko"-->
+<!--      xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--  <title>커피숍등록</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--  <h3>커피숍등록</h3>-->
+<!--  <hr>-->
+<!--  <form th:method="post" th:object="${coffeeShopJoinForm}">-->
+<!--    <li>-->
+<!--      <p>@상호명<input type="text" id="name" th:field="*{shopName}"></p>-->
+<!--    </li>-->
+
+<!--    <li>-->
+<!--      <p>@@주소<input type="text" id="address" th:field="*{shopAddress}"></p>-->
+<!--    </li>-->
+<!--    <li>-->
+<!--      <p>전화번호<input type="text" id="tel" th:field="*{shopTel}"></p>-->
+<!--    </li>-->
+
+
+<!--    <li><span>주차여부</span>-->
+<!--      <th:block th:each=" ele : ${parking} ">-->
+<!--        <label for="yesParking" th:for="${#ids.next('parking')}" th:text="${ele}"></label>-->
+<!--        <input type="radio" th:field="*{parking}" th:value="${ele.name()}">-->
+<!--      </th:block>-->
+<!--      <th:block th:remove="all">-->
+<!--      <label for="yesParking">쌉가능</label>-->
+<!--      <input type="radio" name="gender" id="yesParking" value="1">-->
+<!--      <label for="noParking">불가능</label>-->
+<!--      <input type="radio" name="gender" id="noParking" value="0">-->
+<!--      </th:block>-->
+<!--    </li>-->
+
+<!--    <li>-->
+<!--      <span>@24시간</span>-->
+<!--      <th:block th:each=" ele : ${allDay} ">-->
+<!--        <label for="yesAllDay" th:for="${#ids.next('gender')}" th:text="${ele}"></label>-->
+<!--        <input type="radio" th:field="*{gender}" th:value="${ele}">-->
+<!--      </th:block>-->
+<!--      <th:block th:remove="all">-->
+<!--        <label for="yesAllDay">@@예</label>-->
+<!--        <input type="radio" name="" id="yesAllDay" value="1">-->
+<!--        <label for="noAllDay">아니오</label>-->
+<!--        <input type="radio" name="gender" id="noAllDay" value="0">-->
+<!--      </th:block>-->
+
+<!--    </li>-->
+
+<!--    <li>-->
+<!--      <button type="button" id="writeBtn">등록</button>-->
+<!--      <button type="button" id="listBtn">조회</button>-->
+<!--    </li>-->
+<!--  </form>-->
+
+
+<!--  <script>-->
+<!--    writeBtn.addEventListener('click', e=>{-->
+<!--      e.target.closest('form').submit();-->
+<!--    });-->
+<!--    listBtn.addEventListener('click', e=>{-->
+<!--      const url = `/product/all`;-->
+<!--      location.href = url;-->
+<!--    });-->
+
+<!--  </script>-->
+
+<!--</body>-->
+<!--</html>-->
