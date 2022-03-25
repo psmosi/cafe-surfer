@@ -1,7 +1,7 @@
 package com.kh.cafesurfer.web;
 
-import com.kh.cafesurfer.domain.membership.MemberShip;
-import com.kh.cafesurfer.domain.membership.svc.MemberShipSVC;
+import com.kh.cafesurfer.domain.memberShip.MemberShip;
+import com.kh.cafesurfer.domain.memberShip.svc.MemberShipSVC;
 import com.kh.cafesurfer.web.api.ApiResult;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

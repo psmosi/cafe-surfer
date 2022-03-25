@@ -1,7 +1,7 @@
 package com.kh.cafesurfer.web;
 
-import com.kh.cafesurfer.domain.membership.MemberShip;
-import com.kh.cafesurfer.domain.membership.svc.MemberShipSVC;
+import com.kh.cafesurfer.domain.memberShip.MemberShip;
+import com.kh.cafesurfer.domain.memberShip.svc.MemberShipSVC;
 import com.kh.cafesurfer.web.form.login.LoginForm;
 import com.kh.cafesurfer.web.form.login.LoginMemberShip;
 import lombok.RequiredArgsConstructor;
@@ -62,7 +62,7 @@ public class LoginController {
     }
 
     //회원 세션 정보
-    LoginMemberShip loginMemberShip = new LoginMemberShip(memberShip.getMemberEmail(), memberShip.getMemberName());
+    LoginMemberShip loginMemberShip = new LoginMemberShip(memberShip.getMemberEmail(), memberShip.getMemberName(),memberShip.getMemberId());
 
     //인증성공
     //세션이 있으면 세션 반환, 없으면 새로이 생성

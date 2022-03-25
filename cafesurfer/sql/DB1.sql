@@ -75,12 +75,23 @@ create sequence review_review_id_seq
     nocycle
     nocache;
 
--- 테이블 생성
+---- 테이블 생성
+--CREATE TABLE bookmark (
+--    bookmark_checked NUMBER DEFAULT 0 NOT NULL,
+--    bookmark_chkdate TIMESTAMP,
+--    member_id        NUMBER(5) NOT NULL,
+--    shop_id          NUMBER(5) NOT NULL
+--);
+drop TABLE bookmark;
 CREATE TABLE bookmark (
-    bookmark_chkdate TIMESTAMP,
+    bookmark_checked NUMBER DEFAULT 0 NOT NULL,
+    bookmark_chkdate timestamp default systimestamp,
     member_id        NUMBER(5) NOT NULL,
     shop_id          NUMBER(5) NOT NULL
 );
+
+COMMENT ON COLUMN bookmark.bookmark_checked IS
+    '북마크 체크 여부';
 
 COMMENT ON COLUMN bookmark.bookmark_chkdate IS
     '북마크 체크 일자';
@@ -100,7 +111,7 @@ CREATE TABLE coffeeshop (
     shop_bookmark_count NUMBER(5) DEFAULT 0,
     shop_review_count   NUMBER(5) DEFAULT 0,
     parking             NUMBER DEFAULT 0 NOT NULL,
-    allday              NUMBER DEFAULT 0 NOT NULL,
+    "24HOURS"           NUMBER DEFAULT 0 NOT NULL,
     shop_cdate          TIMESTAMP DEFAULT systimestamp NOT NULL
 );
 
@@ -128,7 +139,7 @@ COMMENT ON COLUMN coffeeshop.shop_review_count IS
 COMMENT ON COLUMN coffeeshop.parking IS
     '주차시설 여부';
 
-COMMENT ON COLUMN coffeeshop.allday IS
+COMMENT ON COLUMN coffeeshop."24HOURS" IS
     '24시간 운영 여부';
 
 COMMENT ON COLUMN coffeeshop.shop_cdate IS
@@ -175,7 +186,7 @@ COMMENT ON COLUMN membership.member_email IS
 
 COMMENT ON COLUMN membership.member_passwd IS
     '멤버 비밀번호';
-
+    
 COMMENT ON COLUMN membership.member_name IS
     '멤버 이름';
 
@@ -192,8 +203,6 @@ COMMENT ON COLUMN membership.member_owner IS
     '점주회원 식별';
 
 ALTER TABLE membership ADD CONSTRAINT membership_pk PRIMARY KEY ( member_id );
-
-ALTER TABLE membership ADD CONSTRAINT membership_uk UNIQUE ( member_email );
 
 CREATE TABLE photo (
     photo   BLOB,
@@ -301,3 +310,141 @@ ALTER TABLE shop_hashtag
 ALTER TABLE shop_hashtag
     ADD CONSTRAINT shop_hashtag_coffeeshop_fk FOREIGN KEY ( shop_id )
         REFERENCES coffeeshop ( shop_id );
+        
+
+-------------------------------------------------------------------
+
+-- 데이터 CRUD
+
+ -- 회원정보
+ -- insert
+ insert into membership
+ values(membership_member_id_seq.nextval,  'hong3@kh.com','1234','홍길순', '여', 20, '010-5678-7891', default);
+  insert into membership
+ values(membership_member_id_seq.nextval,  'hong8@kh.com','1234','홍길동', '남', 70, '010-5767-4561', default);
+
+ -- update
+ update membership set member_tel='010-4567-8901'
+ where member_id = 1;
+
+ -- delete
+ delete from membership
+ where member_id = 4;
+
+-- read
+ select * from membership;
+
+ -- 커피숍 정보
+ -- insert
+ insert into coffeeshop
+ values(coffeeshop_shop_id_seq.nextval, '카페 솔츠', '울산 남구 봉월로8번길 18 1층', '052-710-5252', default, default, default, 1, 0, default);
+ insert into coffeeshop
+ values(coffeeshop_shop_id_seq.nextval, '카페 솔츠2', '울산 남구 봉월로8번길 18 2층', '052-888-8888', default, default, default, 1, 0, default); 
+ insert into coffeeshop
+ values(coffeeshop_shop_id_seq.nextval, '카페 솔츠3', '울산 남구 봉월로8번길 18 3층', '052-777-5252', default, default, default, 1, 0, default); 
+ insert into coffeeshop
+ values(coffeeshop_shop_id_seq.nextval, '카페 솔츠4', '울산 남구 봉월로8번길 18 4층', '052-555-5252', default, default, default, 1, 0, default);
+  insert into coffeeshop
+ values(coffeeshop_shop_id_seq.nextval, '카페 솔츠5', '울산 남구 봉월로8번길 18 5층', '052-111-5252', default, default, default, 1, 0, default);
+ 
+ commit;
+ -- update
+ update coffeeshop set shop_name = '스타벅스'
+ where shop_id = 1;
+
+ -- delete
+ delete from coffeeshop
+ where shop_id = 1;
+
+ -- read
+ select * from coffeeshop;
+
+ -- 리뷰
+ -- insert
+ insert into review
+ values(review_review_id_seq.nextval, '홍길순이 카페 솔츠에 남긴 댓글2', default, default, 2, 2);
+
+ -- delete
+ delete from review
+ where review_id = 1;
+
+ select * from review;
+
+ -- 신고 유형 (값 고정)
+ -- insert
+ insert into report_type
+ values(0, '스팸(부적절한 홍보)');
+
+ insert into report_type
+ values(1, '음란물');
+
+ insert into report_type
+ values(2, '혐오표현');
+
+ insert into report_type
+ values(3, '욕설 및 비방');
+
+ --read
+ select * from report_type;
+
+ -- 리뷰 신고
+ -- insert
+ insert into report
+ values(5, 0);
+
+ -- 신고를 받을 경우 review테이블의 repot_count증가
+
+ -- read (신고된 리뷰의 내용과 신고 유형 확인)
+ select t1.review_content "리뷰 내용", t2.report_type_name "신고 사유"
+ from review t1, report_type t2, report t3
+ where t1.review_id = t3.review_id
+ and t3.report_type_code_id = t2.report_type_code;
+
+ -- 찜하기
+ -- insert
+ insert into bookmark
+ values(DEFAULT, default, 3, 2);
+ 
+--DELETE
+DELETE FROM bookmark
+WHERE   
+        member_id = 2
+    AND shop_id = 2;   
+    
+--select
+ select * from bookmark
+    WHERE member_id = 1;
+
+ select * from bookmark;
+ 
+commit;
+ -- 해시태그 식별
+ -- (메뉴 1001-2000)
+ -- insert
+ insert into hashtag_classification
+ values(hashtag_menu_id_seq.nextval, '캬라멜 마끼아또', default);
+
+ -- read
+ select * from hashtag_classification;
+
+ -- (지역 2001-3000)
+ insert into hashtag_classification
+ values(hashtag_loc_id_seq.nextval, '울산 울주군', default);
+
+ -- (분위기 3001-4000)
+ insert into hashtag_classification
+ values(hashtag_mood_id_seq.nextval, '따뜻함', default);
+
+ -- (뷰 4001-5000)
+ insert into hashtag_classification
+ values(hashtag_view_id_seq.nextval, '오션뷰', default);
+
+  -- read
+ select * from hashtag_classification
+ order by hashtag_id;
+
+ -- 커피숍 해시태그
+ -- insert
+ insert into shop_hashtag
+ values(1, 1002);
+        
