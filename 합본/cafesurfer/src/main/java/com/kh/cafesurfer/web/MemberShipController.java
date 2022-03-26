@@ -24,7 +24,7 @@ public class MemberShipController {
 
   //성별
   @ModelAttribute("memberGender")
-  public MemberGender[] genter(){
+  public MemberGender[] gender(){
 
     return MemberGender.values();  //[MALE, FEMALE]
   }

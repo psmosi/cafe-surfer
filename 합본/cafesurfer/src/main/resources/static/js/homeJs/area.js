@@ -1,4 +1,4 @@
-// const $body = document.querySelector('.body');
+
 $body?.addEventListener('click', click_f, true);
 
 const $tab1box = document.querySelector('.asd1');

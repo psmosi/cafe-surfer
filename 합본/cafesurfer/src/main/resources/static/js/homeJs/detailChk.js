@@ -1,4 +1,4 @@
-const $body = document.querySelector('.body');
+const $body = document.querySelector('.util-wrap');
 $body?.addEventListener('click', click_f, true);
 
 const $detail_icon = document.querySelector('.detail-icon');
