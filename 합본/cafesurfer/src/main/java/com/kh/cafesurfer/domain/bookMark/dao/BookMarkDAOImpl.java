@@ -21,7 +21,7 @@ public class BookMarkDAOImpl implements BookMarkDAO{
     StringBuffer sql = new StringBuffer();
 
     sql.append("insert into bookmark " );
-    sql.append("values( default, default, ? , ?) " );
+    sql.append("values( default, ? , ?) " );
 
     jdbcTemplate.update(sql.toString(), memberId, shopId);
   }

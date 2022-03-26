@@ -75,23 +75,12 @@ create sequence review_review_id_seq
     nocycle
     nocache;
 
----- 테이블 생성
---CREATE TABLE bookmark (
---    bookmark_checked NUMBER DEFAULT 0 NOT NULL,
---    bookmark_chkdate TIMESTAMP,
---    member_id        NUMBER(5) NOT NULL,
---    shop_id          NUMBER(5) NOT NULL
---);
-drop TABLE bookmark;
+-- 테이블 생성
 CREATE TABLE bookmark (
-    bookmark_checked NUMBER DEFAULT 0 NOT NULL,
-    bookmark_chkdate timestamp default systimestamp,
+    bookmark_chkdate TIMESTAMP DEFAULT systimestamp NOT NULL,
     member_id        NUMBER(5) NOT NULL,
     shop_id          NUMBER(5) NOT NULL
 );
-
-COMMENT ON COLUMN bookmark.bookmark_checked IS
-    '북마크 체크 여부';
 
 COMMENT ON COLUMN bookmark.bookmark_chkdate IS
     '북마크 체크 일자';
@@ -111,7 +100,7 @@ CREATE TABLE coffeeshop (
     shop_bookmark_count NUMBER(5) DEFAULT 0,
     shop_review_count   NUMBER(5) DEFAULT 0,
     parking             NUMBER DEFAULT 0 NOT NULL,
-    "24HOURS"           NUMBER DEFAULT 0 NOT NULL,
+    allday              NUMBER DEFAULT 0 NOT NULL,
     shop_cdate          TIMESTAMP DEFAULT systimestamp NOT NULL
 );
 
@@ -139,7 +128,7 @@ COMMENT ON COLUMN coffeeshop.shop_review_count IS
 COMMENT ON COLUMN coffeeshop.parking IS
     '주차시설 여부';
 
-COMMENT ON COLUMN coffeeshop."24HOURS" IS
+COMMENT ON COLUMN coffeeshop.allday IS
     '24시간 운영 여부';
 
 COMMENT ON COLUMN coffeeshop.shop_cdate IS
@@ -186,7 +175,7 @@ COMMENT ON COLUMN membership.member_email IS
 
 COMMENT ON COLUMN membership.member_passwd IS
     '멤버 비밀번호';
-    
+
 COMMENT ON COLUMN membership.member_name IS
     '멤버 이름';
 
@@ -203,6 +192,8 @@ COMMENT ON COLUMN membership.member_owner IS
     '점주회원 식별';
 
 ALTER TABLE membership ADD CONSTRAINT membership_pk PRIMARY KEY ( member_id );
+
+ALTER TABLE membership ADD CONSTRAINT membership_uk UNIQUE ( member_email );
 
 CREATE TABLE photo (
     photo   BLOB,
@@ -310,7 +301,8 @@ ALTER TABLE shop_hashtag
 ALTER TABLE shop_hashtag
     ADD CONSTRAINT shop_hashtag_coffeeshop_fk FOREIGN KEY ( shop_id )
         REFERENCES coffeeshop ( shop_id );
-        
+
+commit;
 
 -------------------------------------------------------------------
 

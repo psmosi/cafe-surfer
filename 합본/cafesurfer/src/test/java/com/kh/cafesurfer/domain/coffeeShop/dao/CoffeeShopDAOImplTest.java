@@ -1,7 +1,6 @@
-package com.kh.cafesurfer.coffeeShop.domain.dao;
+package com.kh.cafesurfer.domain.coffeeShop.dao;
 
 import com.kh.cafesurfer.domain.coffeeShop.CoffeeShop;
-import com.kh.cafesurfer.domain.coffeeShop.dao.CoffeeShopDAO;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
