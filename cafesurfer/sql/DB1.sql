@@ -395,7 +395,7 @@ commit;
  -- 찜하기
  -- insert
  insert into bookmark
- values(DEFAULT, default, 3, 2);
+ values( default, 2, 5);
  
 --DELETE
 DELETE FROM bookmark
