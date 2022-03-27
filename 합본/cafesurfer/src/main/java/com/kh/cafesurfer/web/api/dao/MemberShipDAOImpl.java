@@ -1,4 +1,4 @@
-package com.kh.cafesurfer.domain.memberShip.dao;
+package com.kh.cafesurfer.web.api.dao;
 
 import com.kh.cafesurfer.domain.memberShip.MemberShip;
 import lombok.RequiredArgsConstructor;

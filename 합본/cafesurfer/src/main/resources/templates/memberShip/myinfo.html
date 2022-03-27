@@ -6,12 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>마이페이지</title>
-</head>th:with="loginMemberShip = ${session.loginMemberShip}">
+</head>
+<body th:with="loginMemberShip = ${session.loginMemberShip}">
+
 <ul>
-  <li><a th:href="@{|/members/${loginMemberShip.memberEmail}/detail|}">내정보조회</a></li>
-  <li><a th:href="@{|/members/${loginMemberShip.memberEmail}/modifyForm|}">내정보수정</a></li>
-  <li><a th:href="@{|/members/${loginMemberShip.memberEmail}/out|}">탈퇴</a></li>
+  <li><a th:href="@{|/members/${s_email}/detail|}">내정보조회</a></li>
+  <li><a th:href="@{|/members/${s_email}/modifyForm|}">내정보수정</a></li>
+  <li><a th:href="@{|/members/${s_email}/out|}">탈퇴</a></li>
 </ul>
+
 </body>
-<body
 </html>

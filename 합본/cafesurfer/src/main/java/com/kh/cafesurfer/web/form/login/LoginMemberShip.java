@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class LoginMemberShip {
+  private Long memberId;
   private String memberEmail;
   private String memberName;
-  private Long memberId;
 }

@@ -62,12 +62,17 @@ public class LoginController {
     }
 
     //회원 세션 정보
-    LoginMemberShip loginMemberShip = new LoginMemberShip(memberShip.getMemberEmail(), memberShip.getMemberName(),memberShip.getMemberId());
+    LoginMemberShip loginMemberShip = new LoginMemberShip(memberShip.getMemberId(),  memberShip.getMemberEmail(), memberShip.getMemberName());
+
+
+
 
     //인증성공
     //세션이 있으면 세션 반환, 없으면 새로이 생성
     HttpSession session = request.getSession(true);
     session.setAttribute(SessionConst.LOGIN_MEMBER, loginMemberShip);
+
+    log.info("LOGIN_MEMBER={}",SessionConst.LOGIN_MEMBER);
 
     return "redirect:"+redirectUrl;  //url재요청
   }
