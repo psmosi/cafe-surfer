@@ -43,10 +43,7 @@ public class bookMarkController {
 
   //작성처리
   @PostMapping("/join")
-  public String add(
-//                    @Valid
-      @ModelAttribute BookMarkJoinForm bookMarkJoinForm,  // @Valid : 유효성체크
-    
+  public String add(@ModelAttribute BookMarkJoinForm bookMarkJoinForm,
       HttpSession session,
       RedirectAttributes redirectAttributes) throws IOException {
     log.info("bookMarkJoinForm={}",bookMarkJoinForm);
@@ -72,11 +69,27 @@ public class bookMarkController {
 
   //삭제
   @DeleteMapping("/{memberId}/del")
-  public String del(@ModelAttribute BookMarkOutForm bookMarkOutForm){
+  public String del(@ModelAttribute BookMarkOutForm bookMarkOutForm,
+                    HttpSession session,
+                    RedirectAttributes redirectAttributes) throws IOException {
+    log.info("bookMarkOutForm={}",bookMarkOutForm);
+
+    BookMark bookMark = new BookMark();
+    BeanUtils.copyProperties(bookMarkOutForm,bookMark);
+
+    //세션 가져오기
+    LoginMemberShip LoginMemberShip = (LoginMemberShip)session.getAttribute(SessionConst.LOGIN_MEMBER);
+
+    //세션 정보가 없으면 로그인페이지로 이동
+    if(LoginMemberShip == null){
+      return "redirect:/login";
+    }
+    //세션에서 아이디가져오기
+    bookMark.setMemberId(LoginMemberShip.getMemberId());
 
     bookMarkSVC.deleteBookMark(bookMarkOutForm.getMemberId(), bookMarkOutForm.getShopId());
 
-    return "redirect:/bookMark";
+    return "redirect:/bookMark/{memberId}";
   }
 
 
