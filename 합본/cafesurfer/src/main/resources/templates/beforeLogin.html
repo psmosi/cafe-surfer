@@ -4,10 +4,10 @@
 
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragment/main::main(
+      th:replace="~{fragment/home::home(
         ~{::title},       <!--/* title */-->
         ~{},              <!--/* styles */-->
-        ~{::script},              <!--/* scripts */-->
+        ~{::script},      <!--/* scripts */-->
         ~{},              <!--/* style */-->
         ~{},              <!--/* script */-->
         ~{::.upm-inner},  <!--/* upm */-->
@@ -23,12 +23,12 @@
   <title>로그인 전</title>
 
 <!--  <link rel="stylesheet" href="" th:href="@{/css/common.css}">-->
-<!--    <link rel="stylesheet" href="" th:href="@{/css/home/home-page-style2.css}">-->
 
-  <script defer src="" th:src="@{/js/homeJs/detailChk.js}"></script>
-  <script defer src="" th:src="@{/js/homeJs/area.js}"></script>
-  <script defer src="" th:src="@{/js/homeJs/hashtagbox.js}"></script>
-  <script defer src="" th:src="@{/js/homeJs/reset.js}"></script>
+
+  <script defer src="" th:src="@{/js/homeJs/afterDetailChk.js}"></script>
+  <script defer src="" th:src="@{/js/homeJs/afterArea.js}"></script>
+  <script defer src="" th:src="@{/js/homeJs/afterHashtagbox.js}"></script>
+  <script defer src="" th:src="@{/js/homeJs/afterReset.js}"></script>
 
 
 </head>
@@ -36,7 +36,7 @@
   <div class="global-wrap">
     <div class="upm">
       <div class="inner upm-inner">
-        <th:block th:replace="~{fragment/uppermost::beforeLoginUpm}"></th:block>
+        <th:block th:replace="~{fragment/homeUppermost::beforeLoginUpm}"></th:block>
       </div>
     </div>
     <div class="hdr">

@@ -23,7 +23,9 @@ public class AppConfig implements WebMvcConfigurer {
             "/img/**",
             "/error/**",
             "/api/**",
-            "/members/joinSuccess"
+            "/members/joinSuccess",
+            "/main/**",
+            "/cotentItem/**"
 
         );  // 인테셉터에서 제외되는 url패턴
   }

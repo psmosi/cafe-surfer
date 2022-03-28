@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragment/main::main(
+      th:replace="~{fragment/home::home(
         ~{::title},       <!--/* title */-->
         <!--/*--------------------------*/-->
         <!--/*외부파일로 정의시*/-->
@@ -31,7 +31,7 @@
 <div class="global-wrap">
   <div class="upm">
     <div class="inner upm-inner">
-      <th:block th:replace="~{fragment/uppermost::afterLoginUpm}"></th:block>
+      <th:block th:replace="~{fragment/homeUppermost::afterLoginUpm}"></th:block>
     </div>
   </div>
   <div class="hdr">
