@@ -54,8 +54,10 @@ public class ReviewController {
   
     List<Review> list = reviewSVC.findAll();
     model.addAttribute("list", list);
-    
-    return "review/reviewList";
+
+
+//    return "review/reviewList";
+    return "admin/member/reviews";
   }
   
   

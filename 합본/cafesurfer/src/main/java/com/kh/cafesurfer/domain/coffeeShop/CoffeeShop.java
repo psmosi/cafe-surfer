@@ -1,10 +1,12 @@
 package com.kh.cafesurfer.domain.coffeeShop;
 
 import lombok.Data;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
 @Data
+@ToString
 public class CoffeeShop {
   
   private Long shopId;                  // SHOP_ID	            NUMBER(5,0)

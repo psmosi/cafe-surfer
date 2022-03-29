@@ -27,7 +27,9 @@ public class AppConfig implements WebMvcConfigurer {
             "/main/**",
             "/cotentItem/**",
             "/memberJoin/**",
-            "/admin/**"
+            "/admin/**",
+            "/review/**",
+            "/shop/**"
 
         );  // 인테셉터에서 제외되는 url패턴
   }

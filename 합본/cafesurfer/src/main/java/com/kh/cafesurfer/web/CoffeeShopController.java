@@ -131,7 +131,8 @@ public class CoffeeShopController {
     List<CoffeeShop> list = coffeeShopSVC.findAll();
     model.addAttribute("list", list);
 
-    return "coffeeShop/coffeeShopList";
+//    return "coffeeShop/coffeeShopList";
+    return "shop/member/coffeeshops";
   }
 
 

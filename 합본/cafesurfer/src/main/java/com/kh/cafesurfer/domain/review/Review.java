@@ -1,10 +1,12 @@
 package com.kh.cafesurfer.domain.review;
 
 import lombok.Data;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
 @Data
+@ToString
 
 public class Review {
   private Long reviewId;               // REVIEW_ID	        NUMBER(5,0)
