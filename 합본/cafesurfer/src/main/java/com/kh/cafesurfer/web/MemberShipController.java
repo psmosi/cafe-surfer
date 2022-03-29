@@ -33,7 +33,8 @@ public class MemberShipController {
   @GetMapping("/join")
   public String joinForm(@ModelAttribute JoinForm joinForm){
     log.info("joinForm() 호출됨!");
-    return "memberShip/joinForm";
+//    return "memberShip/joinForm";
+    return "memberJoin/memberJoinpage";
   }
 
   //회원가입처리
@@ -51,19 +52,19 @@ public class MemberShipController {
     //1)유효성체크 - 필드오류
     if(bindingResult.hasErrors()){
       log.info("error={}", bindingResult);
-      return "memberShip/joinForm";
+      return "memberJoin/memberJoinpage";
     }
     //2)아이디 중복체크
     if(memberShipSVC.existMember(joinForm.getMemberEmail())){
       bindingResult.rejectValue("getMemberEmail","joinForm.MemberEmail.dup");
       log.info("error={}", bindingResult);
-      return "memberShip/joinForm";
+      return "memberJoin/memberJoinpage";
     }
     //3)유효성체크 - global 오류 (2개이상의 필드체크, 백앤드로직 수행시 발생오류)
     //비밀번호 != 비빌번호체크
     if(!joinForm.getMemberPasswd().equals(joinForm.getMemberPasswdChk()))   {
       bindingResult.reject("member.MemberPasswdChk");
-      return "memberShip/joinForm";
+      return "memberJoin/memberJoinpage";
     }
 
     //4)정상처리로직
@@ -76,7 +77,7 @@ public class MemberShipController {
     log.info("MemberEmail={}, MemberPasswd={}, MemberName={}",
         joinedMember.getMemberEmail(),joinedMember.getMemberPasswd(),joinedMember.getMemberName());
 
-    return "redirect:/members/joinSuccess";
+    return "redirect:/login/loginForm";
   }
 
 //  //문자열 리스트를 ','를 구분자로하는 문자열 변환

@@ -25,7 +25,7 @@ public class MainController {
   }
 
   @RequestMapping("/cotentItem")
-  public String comtentItem(HttpServletRequest request){
+  public String cotentItem(HttpServletRequest request){
 
     log.info("info={}","main()호출됨");
 

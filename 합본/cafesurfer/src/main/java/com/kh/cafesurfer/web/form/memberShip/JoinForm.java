@@ -7,6 +7,7 @@ import javax.validation.constraints.Size;
 
 @Data
 public class JoinForm {
+
   @NotBlank
   @Email
   @Size(min = 4, max = 50)
