@@ -4,10 +4,10 @@
 
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragment/content::content(
+      th:replace="~{memberJoin/memberJoin::memberJoin(
         ~{::title},       <!--/* title */-->
         ~{},              <!--/* styles */-->
-        ~{::script},              <!--/* scripts */-->
+        ~{::script},      <!--/* scripts */-->
         ~{},              <!--/* style */-->
         ~{},              <!--/* script */-->
         ~{::.upm-inner},  <!--/* upm */-->
@@ -20,27 +20,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>로그인 전</title>
-
-<!--  <link rel="stylesheet" href="" th:href="@{/css/common.css}">-->
-
+  <title>회원가입</title>
 
   <script defer src="" th:src="@{/js/homeJs/beforeDetailChk.js}"></script>
   <script defer src="" th:src="@{/js/homeJs/beforeArea.js}"></script>
   <script defer src="" th:src="@{/js/homeJs/beforeHashtagbox.js}"></script>
   <script defer src="" th:src="@{/js/homeJs/beforeReset.js}"></script>
-
-<!--  <script defer type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=410b3a83564f0bac127be038fded443b"></script>-->
-<!--  <script defer>-->
-<!--      var mapContainer = document.getElementById('map'), // 지도를 표시할 div-->
-<!--      mapOption = {-->
-<!--        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표-->
-<!--        level: 3, // 지도의 확대 레벨-->
-<!--      };-->
-
-<!--      // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다-->
-<!--      var map = new kakao.maps.Map(mapContainer, mapOption);-->
-<!--    </script>-->
 
 </head>
 <body>
@@ -62,7 +47,7 @@
     </div>
     <div class="main">
       <div class="inner main-inner">
-        <main th:replace="~{fragment/contentItem::contentItem}"></main>
+        <main th:replace="~{memberJoin/memberJoinBox::memberJoinBox}"></main>
       </div>
     </div>
       <div class="foot">

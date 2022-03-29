@@ -3,11 +3,12 @@ package com.kh.cafesurfer.domain.memberShip;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor   // 디폴트 생성자 자동 생성해준다.
 @AllArgsConstructor  // 모든멤버필드를 매개값으로 받아 생성자를 자동 만들어준다.
-
+@ToString
 public class MemberShip {
 
  private Long memberId;          //  MEMBER_ID	NUMBER(5,0)

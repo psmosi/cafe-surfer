@@ -10,7 +10,7 @@ function click_f(evt) {
         const $areaReset = document.querySelector('.condition-reset-wrap');
     
         
-        if ((evt.target.matches('.area') || evt.target.matches('.hashtagbox')) && !flagReset) {
+        if ((evt.target.matches('.area') || evt.target.matches('.hash_com')) && !flagReset) {
          
           const $Ele = makeElement('div', { 'class': 'reset-icon-box', 'id': '' },
             
@@ -23,11 +23,11 @@ function click_f(evt) {
          if(evt.target.matches('.reset-icon')){       
            
            for(i=0; i<10; i++){
-             document.querySelector('.reset').click();  
+             const $item4 = document.querySelector('.reset-icon-box');
+             $areaReset.removeChild($item4);
+             document.querySelector('.reset').click();
              document.querySelector('.All').click();
-    
-             const $item4 = document.querySelector('.reset-icon-box');        
-             $areaReset.removeChild($item4);        
+
              console.log('삭제');
              flagReset = false;
             }
