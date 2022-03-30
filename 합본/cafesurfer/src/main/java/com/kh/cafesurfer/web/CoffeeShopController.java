@@ -132,7 +132,7 @@ public class CoffeeShopController {
     model.addAttribute("list", list);
 
 //    return "coffeeShop/coffeeShopList";
-    return "shop/member/coffeeshops";
+    return "admin/member/coffeeshops";
   }
 
 
