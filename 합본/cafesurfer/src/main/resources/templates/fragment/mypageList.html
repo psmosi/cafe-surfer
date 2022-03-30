@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마이페이지</title>
+  <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=자신의 앱키 복사"></script> -->
+  <style>
+    .first-row{
+      background-Color:yellow;
+    }
+  </style>
+
+</head>
+
+<body>
+  <main th:fragment="mypageList">
+
+    <div class="main-sub">
+      <div class="main-nav-title">
+        <span>내가 찜한 커피숍</span>
+      </div>
+      <ul class="shop-box">
+        <li class="shop-each">
+          <div class="shop-container">
+            <div class="shop-container-util shop-each_img shop-img-rd ">
+              <img src="../cafeImg/001-스타벅스-울산국가정원점/coffeshop_screenshot/img3.png" alt="">
+            </div>
+
+            <div class="shop-container-util shop-each_title">
+              <span>스타벅스 울산 국가정원점</span>
+            </div>
+            <div class="shop-container-util shop-each_hashtag">
+              <ul>
+                <li class="shop-hashtag-rep rep1">
+                  <div>
+                    <span>#콜드브루</span>
+                    <span>#울산중구</span>
+                  </div>
+                </li>
+                <br>
+                <li class="shop-hashtag-rep rep2">
+                  <div>
+                    <span>#포근함</span>
+                    <span>#공원뷰</span>
+                  </div>
+                </li>
+              </ul>
+              <a href="javascript:void(0)" class="jj-icon">찜</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+  </main>
+</body>
+
+</html>

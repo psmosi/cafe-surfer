@@ -15,8 +15,9 @@ public class BookMarkSVCImpl implements BookMarkSVC{
   
   //등록
   @Override
-  public void insertBookMark(Long memberId, Long shopId) {
+  public BookMark insertBookMark(Long memberId, Long shopId) {
     bookMarkDAO.insertBookMark(memberId,shopId);
+    return bookMarkDAO.insertBookMark(memberId,shopId);
   }
   
   //삭제

@@ -5,6 +5,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
+
 public class CoffeeShopDetailForm {
 
   private Long shopId;                   // SHOP_ID	              NUMBER(5,0)

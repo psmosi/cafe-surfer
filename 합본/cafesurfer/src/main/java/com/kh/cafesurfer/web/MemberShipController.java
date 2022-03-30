@@ -230,7 +230,7 @@ public class MemberShipController {
   @GetMapping("/myinfo")
   public String myinfo(){
     log.info("myinfo() 호출됨");
-    return "memberShip/myinfo";
+    return "mypage";
   }
 
   //아이디 찾기

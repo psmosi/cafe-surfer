@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
@@ -140,11 +142,12 @@ public class CoffeeShopController {
   // 5-B) 조회(개별)_조회수 증가 미반영
   @GetMapping("/detail/{shopId}")
   public String member(
+      HttpServletRequest request,
       @PathVariable("shopId") Long shopId,
       Model model){
 
     CoffeeShop coffeeShop = coffeeShopSVC.findByShopId(shopId);
-    log.info("coffeeShop={}", coffeeShop);
+//    log.info("coffeeShop={}", coffeeShop);
 
     CoffeeShopDetailForm coffeeShopDetailForm = new CoffeeShopDetailForm();
 
@@ -162,7 +165,11 @@ public class CoffeeShopController {
     log.info("coffeeShopDetailForm={}", coffeeShopDetailForm);
     model.addAttribute("coffeeShopDetailForm", coffeeShopDetailForm);
 
-    return "coffeeShop/detailForm";
+    String view = null;
+    HttpSession session = request.getSession(false);
+    view = (session == null) ? "contentBeforeLogin" : "contentAfterLogin" ;
+
+    return view;
   }
 
 

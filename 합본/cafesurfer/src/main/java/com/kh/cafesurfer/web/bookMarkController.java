@@ -3,6 +3,7 @@ package com.kh.cafesurfer.web;
 
 import com.kh.cafesurfer.domain.bookMark.BookMark;
 import com.kh.cafesurfer.domain.bookMark.svc.BookMarkSVC;
+import com.kh.cafesurfer.domain.coffeeShop.svc.CoffeeShopSVC;
 import com.kh.cafesurfer.web.form.bookMark.BookMarkJoinForm;
 import com.kh.cafesurfer.web.form.bookMark.BookMarkListForm;
 import com.kh.cafesurfer.web.form.bookMark.BookMarkOutForm;
@@ -13,7 +14,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -26,27 +26,18 @@ public class bookMarkController {
 
     private final BookMarkSVC bookMarkSVC;
 
-////등록
-//@GetMapping("/join")
-//public String joinForm(Model model,
-//                      HttpSession session){
-//  LoginMemberShip loginMemberShip = (LoginMemberShip)session.getAttribute(SessionConst.LOGIN_MEMBER);
-//
-//  BookMarkJoinForm bookMarkJoinForm = new BookMarkJoinForm();
-//
-//  bookMarkJoinForm.setMemberId(loginMemberShip.getMemberId());
-//
-//  model.addAttribute("bookMarkJoinForm", bookMarkJoinForm);
-//
-//  return "bookMark/joinForm";
-//}
+  private final CoffeeShopSVC coffeeShopSVC;
 
-  //작성처리
-  @PostMapping("/join")
+//  작성처리
+
+  @PostMapping("/join/{shopId}")
   public String add(@ModelAttribute BookMarkJoinForm bookMarkJoinForm,
+//      HttpServletRequest request,
       HttpSession session,
-      RedirectAttributes redirectAttributes) throws IOException {
-    log.info("bookMarkJoinForm={}",bookMarkJoinForm);
+                    @PathVariable Long shopId
+//      @RequestParam(value = "shopId", required=false) Long shopId
+       ) throws IOException {
+
 
     BookMark bookMark = new BookMark();
     BeanUtils.copyProperties(bookMarkJoinForm,bookMark);
@@ -59,19 +50,51 @@ public class bookMarkController {
       return "redirect:/login";
     }
     //세션에서 아이디가져오기
-    bookMark.setMemberId(LoginMemberShip.getMemberId());
+//    bookMark.setMemberId(LoginMemberShip.getMemberId());
+    Long memberId = LoginMemberShip.getMemberId();
 
-    bookMarkSVC.insertBookMark(bookMarkJoinForm.getMemberId(), bookMarkJoinForm.getShopId());
 
-    return "redirect:/bookMark/{memberId}";
+//    log.info("shopId={}",byShopId);
+    log.info("MemberId={}",memberId);
+    log.info("shopId={}",shopId);
+
+    bookMarkSVC.insertBookMark(memberId, shopId);
+//    bookMarkSVC.insertBookMark(bookMarkJoinForm.getMemberId(), bookMarkJoinForm.getShopId());
+
+    return "/shop/detail/{shopId}";
   }
+
+  //상품 등록
+//  @ResponseBody
+//  @PostMapping("/join")
+//  public ApiResult<BookMark> save(@RequestBody BookMark bookMark,
+//                                  HttpSession session) {
+//
+//    //세션 가져오기
+//    LoginMemberShip LoginMemberShip = (LoginMemberShip)session.getAttribute(SessionConst.LOGIN_MEMBER);
+//
+//    //세션 정보가 없으면 로그인페이지로 이동
+//    if(LoginMemberShip == null){
+//      return "redirect:/login";
+//    }
+//    //세션에서 아이디가져오기
+//    bookMark.setMemberId(LoginMemberShip.getMemberId());
+//
+//    BookMark savedItem = bookMarkSVC.insertBookMark(bookMark.getMemberId(), bookMark.getShopId());
+//
+//
+//    ApiResult<BookMark> result = new ApiResult<>("00", "success", savedItem);
+//
+//    return result;
+
+//  }
 
 
   //삭제
   @DeleteMapping("/{memberId}/del")
   public String del(@ModelAttribute BookMarkOutForm bookMarkOutForm,
-                    HttpSession session,
-                    RedirectAttributes redirectAttributes) throws IOException {
+                    HttpSession session
+                   ) throws IOException {
     log.info("bookMarkOutForm={}",bookMarkOutForm);
 
     BookMark bookMark = new BookMark();
@@ -108,4 +131,15 @@ public class bookMarkController {
       return "bookMark/bookMarkList";
     }
 
+//  private static String converMapToURLParameters(Map<String,String[]> paramMap)
+//  throws UnsupportedEncodingException{
+//    String paarmeterString = "";
+//    for (Map.Entry<String, String[]> mapEntry : paramMap.entrySet()) {
+//      for (String value : mapEntry.getValue()) {
+//        paarmeterString += (paarmeterString.isEmpty() ? "?" : "&") + mapEntry.getKey() + "=" +
+//            URLEncoder.encode(value, "UTF-8");
+//      }
+//    }
+//    return paarmeterString;
+//  }
 }

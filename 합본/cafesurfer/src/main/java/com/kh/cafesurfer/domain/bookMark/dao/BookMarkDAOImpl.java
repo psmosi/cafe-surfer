@@ -16,7 +16,7 @@ public class BookMarkDAOImpl implements BookMarkDAO{
 
   //등록
   @Override
-  public void insertBookMark(Long memberId, Long shopId ){
+  public BookMark insertBookMark(Long memberId, Long shopId ){
 
     StringBuffer sql = new StringBuffer();
 
@@ -24,6 +24,7 @@ public class BookMarkDAOImpl implements BookMarkDAO{
     sql.append("values( default, ? , ?) " );
 
     jdbcTemplate.update(sql.toString(), memberId, shopId);
+    return null;
   }
 
   //삭제
