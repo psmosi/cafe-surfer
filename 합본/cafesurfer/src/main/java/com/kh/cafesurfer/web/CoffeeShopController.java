@@ -45,14 +45,14 @@ public class CoffeeShopController {
   }
 
   // 1-1) 등록화면
-  @GetMapping("/join")
+  @GetMapping("/{memberEmail}/shopAdd")
   public String joinForm(@ModelAttribute CoffeeShopJoinForm coffeeShopJoinForm) {
-
-    return "coffeeShop/addForm";
+    log.info("shopAdd() 호출됨");
+    return "/shopAdd";
   }
 
   // 1-2) 등록처리
-  @PostMapping("/join")
+  @PostMapping("/shopAdd")
   public String join(
       @Valid
       @ModelAttribute CoffeeShopJoinForm coffeeShopJoinForm,
@@ -77,7 +77,7 @@ public class CoffeeShopController {
 
 
   // 2-1) 수정화면
-  @GetMapping("/modify")
+  @GetMapping("/{shopId}/shopModify")
   public String modifyForm(@PathVariable("shopId") Long shopId,
                            Model model) {
 
@@ -92,11 +92,11 @@ public class CoffeeShopController {
 
     model.addAttribute("coffeeShopModifyForm", coffeeShopModifyForm);
 
-    return "shop/modifyForm";
+    return "shopModify";
   }
 
   // 2-2) 수정처리
-  @PatchMapping("/modify")
+  @PatchMapping("/shopModify")
   public String modify(@PathVariable Long shopId,
                        @Valid @ModelAttribute CoffeeShopModifyForm coffeeShopModifyForm,
                        RedirectAttributes redirectAttributes) {

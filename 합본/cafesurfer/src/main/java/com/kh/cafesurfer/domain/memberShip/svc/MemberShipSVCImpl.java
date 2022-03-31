@@ -1,7 +1,7 @@
 package com.kh.cafesurfer.domain.memberShip.svc;
 
 import com.kh.cafesurfer.domain.memberShip.MemberShip;
-import com.kh.cafesurfer.web.api.dao.MemberShipDAO;
+import com.kh.cafesurfer.domain.memberShip.dao.MemberShipDAO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

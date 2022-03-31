@@ -39,10 +39,10 @@
               <a href="javascript:void(0)" class="my-history">회원정보</a>
               <ul>
                 <li>
-                  <a href="" th:href="@{/members/memberModify}">- 회원 수정</a>
+                  <a href="" th:href="@{/members/{email}/memberModifypage(email=${s_email})}">- 회원 수정</a>
                 </li>
                 <li>
-                  <a href="" th:href="@{/members/memberDel}">- 회원 탈퇴</a>
+                  <a href="" th:href="@{/members/{email}/memberDel(email=${s_email})}">- 회원 탈퇴</a>
                 </li>
               </ul>
             </li>
@@ -51,7 +51,7 @@
               <a href="javascript:void(0)">커피숍 정보 관리</a>
               <ul>
                 <li>
-                  <a href="" th:href="@{/members/shopAdd}">- 커피숍 정보 등록 요청하기</a>
+                  <a href="" th:href="@{/shop/{email}/shopAdd(email=${s_email})}">- 커피숍 정보 등록 요청하기</a>
                 </li>
                 <li>
                   <a href="" th:href="@{/members/shopModify}">- 커피숍 정보 수정 요청하기</a>

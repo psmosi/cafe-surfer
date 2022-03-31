@@ -96,8 +96,15 @@ public class MemberShipController {
     return "memberShip/joinSuccess";
   }
 
+  //회원 수정
+  @GetMapping("/memberModify")
+  public String memberModify(){
+    log.info("memberModify() 호출됨");
+    return "memberJoin/memberModifypage";
+  }
+
   //회원수정
-  @GetMapping("/{memberEmail}/modify")
+  @GetMapping("/{memberEmail}/memberModify")
   public String modifyForm(
       @PathVariable("MemberEmail") String MemberEmail,
       Model model){
@@ -113,7 +120,7 @@ public class MemberShipController {
 
     model.addAttribute("modifyForm", modifyForm);
 
-    return "memberShip/modifyForm";
+    return "memberJoin/memberModifypage";
   }
 
   //문자열로 Enum객체에서 상수요소 찾아오기
@@ -128,7 +135,7 @@ public class MemberShipController {
     return finded;
   }
   //회원수정 처리
-  @PostMapping("/modify")
+  @PostMapping("/memberModify")
   public String modify(
       @Valid @ModelAttribute ModifyForm modifyForm,
       BindingResult bindingResult,
@@ -137,14 +144,14 @@ public class MemberShipController {
     //1) 유효성 체크  - 필드오류
     if(bindingResult.hasErrors()){
       log.info("bindingResult={}", bindingResult);
-      return "memberShip/modifyForm";
+      return "/memberJoin/memberModifypage";
     }
 
     //2) 비밀번호가 일치하는지 체크
     if(!memberShipSVC.isMember(modifyForm.getMemberEmail(), modifyForm.getMemberPasswd())){
       bindingResult.rejectValue("MemberPasswd","memberShip.MemberPasswdChk");
       log.info("bindingResult={}", bindingResult);
-      return "memberShip/modifyForm";
+      return "/memberJoin/memberModifypage";
     }
 
     //3) 회원정보 수정
@@ -157,11 +164,11 @@ public class MemberShipController {
     memberShipSVC.updateMember(memberShip);
     redirectAttributes.addAttribute("MemberEmail", memberShip.getMemberEmail());
 
-    return "redirect:/members/{memberEmail}/detail";  //회원 상세화면 이동
+    return "redirect:/members/{memberEmail}/memberModifypage";  //회원 상세화면 이동
   }
 
   //회원상세
-  @GetMapping("/{memberEmail}/detail")
+  @GetMapping("/{memberEmail}/memberModifypage")
   public String detail(@PathVariable String memberEmail, Model model){
 
     MemberShip memberShip = memberShipSVC.selectMemberByEmail(memberEmail);
@@ -175,39 +182,39 @@ public class MemberShipController {
 
     model.addAttribute("detailForm", detailForm);
 
-    return "memberShip/detailForm";
+    return "memberJoin/memberModifypage";
   }
 
   //회원탈퇴
-  @GetMapping("/{memberEmail}/out")
-  public String outForm(@ModelAttribute OutForm outForm ){
-    log.info("outForm 호출됨!");
-    return "memberShip/outForm";
+  @GetMapping("/{memberEmail}/memberDel")
+  public String memberDel(@ModelAttribute OutForm outForm ){
+    log.info("memberDel 호출됨!");
+    return "memberJoin/memberDelpage";
   }
 
-  @PostMapping("/out")
-  public String out(
+  @PostMapping("/memberDel")
+  public String memberDel(
       @Valid @ModelAttribute OutForm outForm,
       BindingResult bindingResult,
       HttpSession session){
 
-    log.info("out 호출됨");
+    log.info("memberDel 호출됨");
     //1)유효성체크
     if(bindingResult.hasErrors()){
       log.info("bindingResult={}",bindingResult);
-      return "/memberShip/outForm";
+      return "/memberJoin/memberDelpage";
     }
     //2)동의 체크여부
     if(!outForm.getAgree()){
       bindingResult.rejectValue("agree",null, "탈퇴 안내를 확인하고 동의해 주세요.");
-      return "/memberShip/outForm";
+      return "/memberJoin/memberDelpage";
     }
 
     //3) 비밀번호가 일치하는지 체크
     if(!memberShipSVC.isMember(outForm.getMemberEmail(), outForm.getMemberPasswd())){
       bindingResult.rejectValue("MemberPasswd","memberShip.MemberPasswdChk");
       log.info("bindingResult={}", bindingResult);
-      return "memberShip/outForm";
+      return "/memberJoin/memberDelpage";
     }
 
     //4) 탈퇴로직 수행
@@ -232,36 +239,21 @@ public class MemberShipController {
     log.info("myinfo() 호출됨");
     return "mypage";
   }
-  //회원 수정
-  @GetMapping("/memberModify")
-  public String memberModify(){
-    log.info("memberModify() 호출됨");
-    return "memberJoin/memberModifypage";
-  }
-  //회원 탈퇴 memberDelBox
-  @GetMapping("/memberDel")
-  public String memberDel(){
-    log.info("memberDel() 호출됨");
-    return "memberJoin/memberDelpage";
-  }
-  //커피숍 등록
-  @GetMapping("/shopAdd")
-  public String shopAdd(){
-    log.info("shopAdd() 호출됨");
-    return "shopAdd";
-  }
+
   //커피숍 수정
   @GetMapping("/shopModify")
   public String shopModify(){
     log.info("shopModify() 호출됨");
     return "shopModify";
   }
+
   //커피숍 삭제
   @GetMapping("/shopDel")
   public String shopDel(){
     log.info("shopDel() 호출됨");
     return "shopDel";
   }
+
   //리뷰 목록
   @GetMapping("/review")
   public String review(){

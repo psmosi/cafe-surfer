@@ -1,6 +1,6 @@
 package com.kh.cafesurfer.domain.memberShip.svc;
 
-import com.kh.cafesurfer.web.api.dao.MemberShipDAO;
+import com.kh.cafesurfer.domain.memberShip.dao.MemberShipDAO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
