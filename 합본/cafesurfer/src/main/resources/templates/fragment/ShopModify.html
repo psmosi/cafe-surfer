@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
-      th:fragment="ShopModify(title,styles,scripts,style,script,upm,header,nav,main,footer)"
+      th:fragment="shopModify(title,styles,scripts,style,script,upm,header,nav,main,footer)"
       th:with="s_id=${session?.loginMemberShip?.memberId},
                s_email=${session?.loginMemberShip?.memberEmail},
                s_name=${session?.loginMemberShip?.memberName}">

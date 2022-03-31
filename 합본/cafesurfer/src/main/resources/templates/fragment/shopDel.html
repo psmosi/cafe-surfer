@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
-      th:fragment="review(title,styles,scripts,style,script,upm,header,nav,main,footer)"
+      th:fragment="shopDel(title,styles,scripts,style,script,upm,header,nav,main,footer)"
       th:with="s_id=${session?.loginMemberShip?.memberId},
                s_email=${session?.loginMemberShip?.memberEmail},
                s_name=${session?.loginMemberShip?.memberName}">
@@ -9,11 +9,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title th:replace=${title}>리뷰 목록</title>
+  <title th:replace=${title}>커피숍 삭제</title>
 
   <!--common style-->
   <link rel="stylesheet" href="" th:href="@{/css/common.css}">
-  <link rel="stylesheet" href="" th:href="@{/css/page/review-page.css}">
+  <link rel="stylesheet" href="" th:href="@{/css/page/info1.css}">
 
 
   <!--common script-->

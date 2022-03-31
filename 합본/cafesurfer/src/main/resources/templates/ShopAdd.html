@@ -4,7 +4,7 @@
 
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragment/ShopAdd::ShopAdd(
+      th:replace="~{fragment/shopAdd::shopAdd(
         ~{::title},       <!--/* title */-->
         ~{},              <!--/* styles */-->
         ~{::script},      <!--/* scripts */-->
@@ -63,7 +63,7 @@
     </div>
     <div class="main">
       <div class="inner main-inner">
-        <main th:replace="~{fragment/ShopAddForm::ShopAddForm}"></main>
+        <main th:replace="~{fragment/shopAddForm::shopAddForm}"></main>
       </div>
     </div>
       <div class="foot">

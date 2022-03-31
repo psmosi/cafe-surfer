@@ -11,7 +11,7 @@ body{font-family:  sans-serif, Arial,"맑은 고딕";  }
   
   .header_top_wrap {position: fixed; width: 100%; height:120px; box-shadow: 0 7px 10px -3px rgba(132, 155, 156, 0.8); background-color: #fff; z-index: 1000; top: 0;  }
   .header_logo_home_evt{width: 220px; height: 37px; text-align: center; position: absolute; top: 40px; left: 50px;}
-  .logo{width:100%; height: 100%; background-size: cover; background-image: url("../img/logo/logo-color.png");  display: block; overflow: hidden; text-indent: -20000px; }
+  .logo{width:100%; height: 100%; background-size: cover; background-image: url("img/img/logo/logo-color.png");  display: block; overflow: hidden; text-indent: -20000px; }
   .header_util_evt{position: absolute; right: 55px; top: 50px; }
   .header_util_evt>a:last-child{ color:#29aeec;}
 
@@ -53,9 +53,9 @@ body{font-family:  sans-serif, Arial,"맑은 고딕";  }
   .review-date{font-size: 13px; color: #aaa; margin-left: 15px;}
   
   .review-btn>a{margin: 0 10px;}
-  .rev-modify-btn{width: 15px; height: 15px; background-size: cover; background-image: url("../icon/icon-modify-black.png");  display: inline-block; overflow: hidden; text-indent: -20000px; }
-  .rev-report-btn{width: 20px; height: 17px; background-size: cover; background-image: url("../icon/icon-report.png");  display: inline-block; overflow: hidden; text-indent: -20000px; }
-  .rev-del-btn{width: 13px; height: 13px; background-size: cover; background-image: url("../icon/icon-ex-black.png");  display: inline-block; overflow: hidden; text-indent: -20000px; }
+  .rev-modify-btn{width: 15px; height: 15px; background-size: cover; background-image: url("img/icon/icon-modify-black.png");  display: inline-block; overflow: hidden; text-indent: -20000px; }
+  .rev-report-btn{width: 20px; height: 17px; background-size: cover; background-image: url("img/icon/icon-report.png");  display: inline-block; overflow: hidden; text-indent: -20000px; }
+  .rev-del-btn{width: 13px; height: 13px; background-size: cover; background-image: url("img/icon/icon-ex-black.png");  display: inline-block; overflow: hidden; text-indent: -20000px; }
   .review-content{padding: 15px; margin: 5px; height: 100px; overflow: scroll;}
 
   

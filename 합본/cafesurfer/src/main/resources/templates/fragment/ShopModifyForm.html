@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>커피숍 수정</title>
-  <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=자신의 앱키 복사"></script> -->
   <style>
     .first-row {
       background-Color: yellow;
@@ -16,64 +15,7 @@
 </head>
 
 <body>
-  <div th:fragment="ShopModifyForm">
-
-    <div class="body-wrap">
-      <aside class="page-aside-wrap">
-        <div class="aside-menu-tab">
-          <div class="aside-title">
-            <a href="javascript:void(0)">
-              <span>마이페이지</span>
-            </a>
-          </div>
-          <nav class="nav-tab">
-            <ul class="nav-list-wrap">
-              <li class="nav-list-each my-history ">
-                <a href="javascript:void(0)" class="my-history">나의 활동 내역</a>
-                <ul>
-                  <li>
-                    <a href="javascript:void(0)">- 내가 작성한 리뷰</a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">- 내가 찜한 커피숍</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-list-each">
-                <a href="javascript:void(0)">커피숍 정보 관리</a>
-                <ul>
-                  <li>
-                    <a href="javascript:void(0)">- 커피숍 정보 등록 요청하기</a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">- 커피숍 정보 수정 요청하기</a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">- 커피숍 정보 삭제 요청하기</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-list-each">
-                <a href="javascript:void(0)">관리자 메뉴</a>
-                <ul class="admin-tab">
-                  <li>
-                    <a href="javascript:void(0)">- 커피숍 정보관리 </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">- 리뷰 신고 관리</a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">- 공지사항 관리</a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">- 게시판 관리</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </aside>
+  <div th:fragment="shopModifyForm">
 
       <main class="page-main-wrap">
         <div class="main-sub">
@@ -148,17 +90,24 @@
                   요구사항
                 </td>
                 <td class="box2">
-                  <textarea cols="60" rows="10" th:field="*{content}"></textarea>
+                  <textarea cols="60" rows="10" ></textarea>
                 </td>
               </tr>
             </table>
           </div>
+
           <div class="Btn">
             <input type="button" id="del-offer" value="삭제요청">
             <input type="button" id="cancel" value="취소">
           </div>
+
         </div>
-        <script>
+
+
+
+
+
+  <script>
           // 등록증 사본 파일 미리보기
           function setThumbnail(event) {
             var reader = new FileReader();
@@ -277,8 +226,6 @@
         </script>
 
       </main>
-
-    </div>
   </div>
 </body>
 

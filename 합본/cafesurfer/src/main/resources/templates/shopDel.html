@@ -4,7 +4,7 @@
 
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragment/review::review(
+      th:replace="~{fragment/shopDel::shopDel(
         ~{::title},       <!--/* title */-->
         ~{},              <!--/* styles */-->
         ~{::script},      <!--/* scripts */-->
@@ -20,7 +20,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>리뷰 목록</title>
+  <title>커피숍 삭제</title>
 
 <!--  <link rel="stylesheet" href="" th:href="@{/css/common.css}">-->
 
@@ -63,7 +63,7 @@
     </div>
     <div class="main">
       <div class="inner main-inner">
-        <main th:replace="~{fragment/reviewForm::reviewForm}"></main>
+        <main th:replace="~{fragment/shopDelForm::shopDelForm}"></main>
       </div>
     </div>
       <div class="foot">

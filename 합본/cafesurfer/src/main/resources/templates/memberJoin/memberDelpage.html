@@ -4,7 +4,7 @@
 
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragment/review::review(
+      th:replace="~{memberJoin/memberDel::memberDel(
         ~{::title},       <!--/* title */-->
         ~{},              <!--/* styles */-->
         ~{::script},      <!--/* scripts */-->
@@ -20,35 +20,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>리뷰 목록</title>
+  <title>회원 수정</title>
 
-<!--  <link rel="stylesheet" href="" th:href="@{/css/common.css}">-->
-
-
-  <script defer src="" th:src="@{/js/homeJs/afterDetailChk.js}"></script>
-  <script defer src="" th:src="@{/js/homeJs/afterArea.js}"></script>
-  <script defer src="" th:src="@{/js/homeJs/afterHashtagbox.js}"></script>
-  <script defer src="" th:src="@{/js/homeJs/afterReset.js}"></script>
-
-<!--  <script defer type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=410b3a83564f0bac127be038fded443b"></script>-->
-<!--  <script defer>-->
-<!--      var mapContainer = document.getElementById('map'), // 지도를 표시할 div-->
-<!--      mapOption = {-->
-<!--        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표-->
-<!--        level: 3, // 지도의 확대 레벨-->
-<!--      };-->
-
-<!--      // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다-->
-<!--      var map = new kakao.maps.Map(mapContainer, mapOption);-->
-<!--    </script>-->
-
+  <script defer src="" th:src="@{/js/homeJs/beforeDetailChk.js}"></script>
+  <script defer src="" th:src="@{/js/homeJs/beforeArea.js}"></script>
+  <script defer src="" th:src="@{/js/homeJs/beforeHashtagbox.js}"></script>
+  <script defer src="" th:src="@{/js/homeJs/beforeReset.js}"></script>
 
 </head>
 <body>
   <div class="global-wrap">
     <div class="upm">
       <div class="inner upm-inner">
-        <th:block th:replace="~{fragment/uppermost::afterLoginUpm}"></th:block>
+        <th:block th:replace="~{fragment/uppermost::beforeLoginUpm}"></th:block>
       </div>
     </div>
     <div class="hdr">
@@ -58,12 +42,12 @@
     </div>
     <div class="gnb">
       <div class="inner gnb-inner">
-        <nav th:replace="~{fragment/mypageSide::mypageSide}"></nav>
+        <nav></nav>
       </div>
     </div>
     <div class="main">
       <div class="inner main-inner">
-        <main th:replace="~{fragment/reviewForm::reviewForm}"></main>
+        <main th:replace="~{memberJoin/memberDelBox::memberDelBox}"></main>
       </div>
     </div>
       <div class="foot">

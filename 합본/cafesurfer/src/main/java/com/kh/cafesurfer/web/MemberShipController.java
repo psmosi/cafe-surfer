@@ -232,6 +232,43 @@ public class MemberShipController {
     log.info("myinfo() 호출됨");
     return "mypage";
   }
+  //회원 수정
+  @GetMapping("/memberModify")
+  public String memberModify(){
+    log.info("memberModify() 호출됨");
+    return "memberJoin/memberModifypage";
+  }
+  //회원 탈퇴 memberDelBox
+  @GetMapping("/memberDel")
+  public String memberDel(){
+    log.info("memberDel() 호출됨");
+    return "memberJoin/memberDelpage";
+  }
+  //커피숍 등록
+  @GetMapping("/shopAdd")
+  public String shopAdd(){
+    log.info("shopAdd() 호출됨");
+    return "shopAdd";
+  }
+  //커피숍 수정
+  @GetMapping("/shopModify")
+  public String shopModify(){
+    log.info("shopModify() 호출됨");
+    return "shopModify";
+  }
+  //커피숍 삭제
+  @GetMapping("/shopDel")
+  public String shopDel(){
+    log.info("shopDel() 호출됨");
+    return "shopDel";
+  }
+  //리뷰 목록
+  @GetMapping("/review")
+  public String review(){
+    log.info("review() 호출됨");
+    return "review";
+  }
+
 
   //아이디 찾기
   @GetMapping("/findEmail")
