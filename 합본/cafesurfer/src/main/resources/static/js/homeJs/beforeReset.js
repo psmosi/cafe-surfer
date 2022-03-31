@@ -1,4 +1,4 @@
-
+'use strict';
 // 초기화 버튼  데이터 선택시 생성 / 초기화버튼 클릭시 삭제
 $body?.addEventListener('click', click_f, true);
 flagReset = false;

@@ -1,4 +1,4 @@
-
+'use strict';
 $body?.addEventListener('click', click_f, true);
 
 const $tab1box = document.querySelector('.asd1');

@@ -1,3 +1,4 @@
+'use strict';
 // Event in Search-Bar
 // 검색창 안 이벤트 (상세검색 / 검색 버튼)
 

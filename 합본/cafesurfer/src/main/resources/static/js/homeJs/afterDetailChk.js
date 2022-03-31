@@ -1,3 +1,4 @@
+'use strict';
 const $body = document.querySelector('.util-wrap');
 $body?.addEventListener('click', click_f, true);
 

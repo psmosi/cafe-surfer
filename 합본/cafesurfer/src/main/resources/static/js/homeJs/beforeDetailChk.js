@@ -1,3 +1,4 @@
+'use strict';
 const $body = document.querySelector('.header_top_wrap');
 $body?.addEventListener('click', click_f, true);
 

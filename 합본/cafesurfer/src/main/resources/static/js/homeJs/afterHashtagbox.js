@@ -1,3 +1,5 @@
+'use strict';
+
 $body?.addEventListener('click', click_f, true);
 
 const $hashtag = document.querySelector('.hashtags');
