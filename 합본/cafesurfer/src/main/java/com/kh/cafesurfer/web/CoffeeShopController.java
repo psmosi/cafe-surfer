@@ -3,6 +3,7 @@ package com.kh.cafesurfer.web;
 import com.kh.cafesurfer.domain.coffeeShop.CoffeeShop;
 import com.kh.cafesurfer.domain.coffeeShop.svc.CoffeeShopSVC;
 import com.kh.cafesurfer.web.form.coffeShop.*;
+import com.kh.cafesurfer.web.form.memberShip.MemberGender;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -14,7 +15,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -25,23 +25,58 @@ public class CoffeeShopController {
   private final CoffeeShopSVC coffeeShopSVC;
 
   // 주차가능여부
-  @ModelAttribute("parking")
-  public List<String> parking() {
-    List<String> parking = new ArrayList<>();
-    parking.add("0");   // 불가능
-    parking.add("1");   // 가능
+//  @ModelAttribute("parking")
+//  public List<String> parking() {
+//    List<String> parking = new ArrayList<>();
+//    parking.add("아니요");   // 불가능
+//    parking.add("예");   // 가능
+//
+//    return parking;
+//  }
+  @ModelAttribute("ynParking")
+  public ynParking[] ynParking(){
 
-    return parking;
+    return ynParking.values();
   }
 
   // 24시간운영
-  @ModelAttribute("allDay")
-  public List<String> allDay() {
-    List<String> allDay = new ArrayList<>();
-    allDay.add("0");   // 불가능
-    allDay.add("1");   // 가능
+//  @ModelAttribute("allDay")
+//  public List<String> allDay() {
+//    List<String> allDay = new ArrayList<>();
+//    allDay.add("아니요");   // 불가능
+//    allDay.add("예");   // 가능
+//
+//    return allDay;
+//  }
 
-    return allDay;
+
+  @ModelAttribute("ynAllDay")
+  public ynAllDay[] ynAllDay(){
+
+    return ynAllDay.values();
+  }
+
+  //문자열로 Enum객체에서 상수요소 찾아오기
+  private MemberGender ynAllDay(String allDay) {
+    MemberGender finded = null;
+    for(MemberGender g : MemberGender.values()){
+      if(g.getDescription().equals(allDay)){
+        finded = MemberGender.valueOf(g.name());
+        break;
+      }
+    }
+    return finded;
+  }
+  //문자열로 Enum객체에서 상수요소 찾아오기
+  private MemberGender ynParking(String parking) {
+    MemberGender finded = null;
+    for(MemberGender g : MemberGender.values()){
+      if(g.getDescription().equals(parking)){
+        finded = MemberGender.valueOf(g.name());
+        break;
+      }
+    }
+    return finded;
   }
 
   // 1-1) 등록화면
@@ -52,7 +87,7 @@ public class CoffeeShopController {
   }
 
   // 1-2) 등록처리
-  @PostMapping("/shopAdd")
+  @PostMapping("/{memberEmail}/shopAdd")
   public String join(
       @Valid
       @ModelAttribute CoffeeShopJoinForm coffeeShopJoinForm,

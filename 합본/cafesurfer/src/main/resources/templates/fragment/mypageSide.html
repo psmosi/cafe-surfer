@@ -27,10 +27,10 @@
               <a href="javascript:void(0)" class="my-history">나의 활동 내역</a>
               <ul>
                 <li>
-                  <a href=""  th:href="@{/members/review}">- 내가 작성한 리뷰</a>
+                  <a href="" th:href="@{/members/myinfo}">- 내가 찜한 커피숍</a>
                 </li>
                 <li>
-                  <a href="" th:href="@{/members/myinfo}">- 내가 찜한 커피숍</a>
+                  <a href=""  th:href="@{/members/review}">- 내가 작성한 리뷰</a>
                 </li>
               </ul>
             </li>
@@ -39,7 +39,8 @@
               <a href="javascript:void(0)" class="my-history">회원정보</a>
               <ul>
                 <li>
-                  <a href="" th:href="@{/members/{email}/memberModifypage(email=${s_email})}">- 회원 수정</a>
+                  <a href="" th:href="@{/members/{MemberEmail}/memberModify(MemberEmail=${s_email})}">- 회원 수정</a>
+<!--                  <a href="" th:href="@{/members/{email}/memberModify(email=${s_email})}">- 회원 수정</a>-->
                 </li>
                 <li>
                   <a href="" th:href="@{/members/{email}/memberDel(email=${s_email})}">- 회원 탈퇴</a>
@@ -50,6 +51,9 @@
             <li class="nav-list-each">
               <a href="javascript:void(0)">커피숍 정보 관리</a>
               <ul>
+                <li>
+                  <a href=""> 내 커피숍 목록</a>
+                </li>
                 <li>
                   <a href="" th:href="@{/shop/{email}/shopAdd(email=${s_email})}">- 커피숍 정보 등록 요청하기</a>
                 </li>

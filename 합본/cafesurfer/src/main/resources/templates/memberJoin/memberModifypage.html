@@ -32,7 +32,7 @@
   <div class="global-wrap">
     <div class="upm">
       <div class="inner upm-inner">
-        <th:block th:replace="~{fragment/uppermost::beforeLoginUpm}"></th:block>
+        <th:block th:replace="~{fragment/uppermost::afterLoginUpm}"></th:block>
       </div>
     </div>
     <div class="hdr">
@@ -42,7 +42,7 @@
     </div>
     <div class="gnb">
       <div class="inner gnb-inner">
-        <nav></nav>
+        <nav th:replace="~{fragment/mypageSide::mypageSide}"></nav>
       </div>
     </div>
     <div class="main">

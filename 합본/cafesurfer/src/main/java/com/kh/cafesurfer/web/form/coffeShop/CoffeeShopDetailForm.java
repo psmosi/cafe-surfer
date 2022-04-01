@@ -15,8 +15,8 @@ public class CoffeeShopDetailForm {
   private Long viewCnt;                  // VIEW_COUNT	          NUMBER(5,0)
   private Long shopBookmarkCnt;          // SHOP_BOOKMARK_COUNT 	NUMBER(5,0)
   private Long shopReviewCnt;            // SHOP_REVIEW_COUNT     NUMBER(5,0)
-  private int ynParking;                 // PARKING	              NUMBER
-  private int ynAllDay;                  // 24HOURS	              NUMBER
+  private String ynParking;                 // PARKING	              NUMBER
+  private String ynAllDay;                  // 24HOURS	              NUMBER
   private LocalDateTime shopCdate;       // SHOP_CDATE            TIMESTAMP(6)
 
 //  // 전체목록

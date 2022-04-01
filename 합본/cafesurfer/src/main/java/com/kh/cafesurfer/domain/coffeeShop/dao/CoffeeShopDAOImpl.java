@@ -50,8 +50,8 @@ public class CoffeeShopDAOImpl implements CoffeeShopDAO {
         pstmt.setString(1, coffeeShop.getShopName());
         pstmt.setString(2, coffeeShop.getShopAddress());
         pstmt.setString(3, coffeeShop.getShopTel());
-        pstmt.setInt(4, coffeeShop.getYnParking());
-        pstmt.setInt(5, coffeeShop.getYnAllDay());
+        pstmt.setString(4, coffeeShop.getYnParking());
+        pstmt.setString(5, coffeeShop.getYnAllDay());
         
         return pstmt;
       }
@@ -93,8 +93,8 @@ public class CoffeeShopDAOImpl implements CoffeeShopDAO {
         pstmt.setString(1, coffeeShop.getShopName());
         pstmt.setString(2, coffeeShop.getShopAddress());
         pstmt.setString(3, coffeeShop.getShopTel());
-        pstmt.setLong(4, coffeeShop.getYnParking());
-        pstmt.setLong(5, coffeeShop.getYnAllDay());
+        pstmt.setString(4, coffeeShop.getYnParking());
+        pstmt.setString(5, coffeeShop.getYnAllDay());
         pstmt.setLong(6, coffeeShop.getShopId());
         
         return pstmt;

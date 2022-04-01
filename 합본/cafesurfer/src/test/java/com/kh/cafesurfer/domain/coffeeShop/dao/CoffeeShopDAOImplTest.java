@@ -26,8 +26,8 @@ class CoffeeShopDAOImplTest {
     coffeeShop.setShopName("다방3");
     coffeeShop.setShopAddress("학원옆");
     coffeeShop.setShopTel("052-355-3113");
-    coffeeShop.setYnParking(0);
-    coffeeShop.setYnAllDay(0);
+    coffeeShop.setYnParking("예");
+    coffeeShop.setYnAllDay("아니요");
   
     CoffeeShop insertCoffeeShop = coffeeShopDAO.insertCoffeeShop(coffeeShop);
     Assertions.assertThat(insertCoffeeShop.getShopName()).isEqualTo("다방3");
@@ -45,8 +45,8 @@ class CoffeeShopDAOImplTest {
     beforeUpdateCoffeeShop.setShopName("커피숍2");
     beforeUpdateCoffeeShop.setShopAddress("서울");
     beforeUpdateCoffeeShop.setShopTel("02-7355-3113");
-    beforeUpdateCoffeeShop.setYnParking(1);
-    beforeUpdateCoffeeShop.setYnAllDay(0);
+    beforeUpdateCoffeeShop.setYnParking("예");
+    beforeUpdateCoffeeShop.setYnAllDay("아니요");
 
     coffeeShopDAO.updateCoffeeShop(shopId, beforeUpdateCoffeeShop);
 

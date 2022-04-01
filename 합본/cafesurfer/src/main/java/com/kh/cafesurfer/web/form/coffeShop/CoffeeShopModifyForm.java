@@ -16,9 +16,9 @@ public class CoffeeShopModifyForm {
   @NotBlank @Size(min = 8, max = 15)
   private String shopTel;               // SHOP_TEL	              VARCHAR2(15 BYTE)
   @NotBlank
-  private int ynParking;                // PARKING	              NUMBER
+  private String ynParking;                // PARKING	              NUMBER
   @NotBlank
-  private int ynAllDay;                 // 24HOURS	              NUMBER
+  private String ynAllDay;                 // 24HOURS	              NUMBER
 
 
 

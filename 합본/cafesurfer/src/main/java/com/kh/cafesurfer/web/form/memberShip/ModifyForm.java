@@ -18,13 +18,15 @@ public class ModifyForm {
   private String memberPasswd;    //  MEMBER_PASSWD	VARCHAR2(20 BYTE)
 
   @NotBlank
+  @Size(min = 4, max = 12)
+  private String memberPasswdChk;    //  MEMBER_PASSWD	VARCHAR2(20 BYTE)
+
+  @NotBlank
   @Size(min = 4, max = 30)
   private String memberName;      //  MEMBER_NAME	VARCHAR2(15 BYTE)
 
-
   private MemberGender memberGender;    // 남 여
 
-  @NotBlank
   private Long memberAge;         //  MEMBER_AGE	NUMBER(3,0)
 
   @NotBlank

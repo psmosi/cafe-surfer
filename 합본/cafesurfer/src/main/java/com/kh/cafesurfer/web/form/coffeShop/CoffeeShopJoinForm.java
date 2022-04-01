@@ -8,18 +8,21 @@ import javax.validation.constraints.Size;
 @Data
 public class CoffeeShopJoinForm {
 
-  @NotBlank @Size(min = 1, max = 30)
+  @NotBlank
+  @Size(min = 1, max = 30)
   private String shopName;                // SHOP_NAME	          NVARCHAR2(30 CHAR)
-  @NotBlank @Size(min = 1, max = 105)
+  @NotBlank
+  @Size(min = 1, max = 105)
   private String shopAddress;             // SHOP_ADDRESS         VARCHAR2(105 BYTE)
-  @NotBlank @Size(min = 8, max = 15)
+  @NotBlank
+  @Size(min = 8, max = 15)
   private String shopTel;                 // SHOP_TEL	            VARCHAR2(15 BYTE)
 
-  private int ynParking;                  // PARKING	            NUMBER
+  private String ynParking;                  // PARKING	            NUMBER
 
-  private int ynAllDay;                    // 24HOURS	              NUMBER
+  private String ynAllDay;                    // 24HOURS	              NUMBER
 
-
+//  private List<MultipartFile> files;   //첨부파일
 
 //  // 전체목록
 //  private Long shopId;                  // SHOP_ID	            NUMBER(5,0)

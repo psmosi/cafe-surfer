@@ -96,23 +96,24 @@ public class MemberShipController {
     return "memberShip/joinSuccess";
   }
 
-  //회원 수정
-  @GetMapping("/memberModify")
-  public String memberModify(){
-    log.info("memberModify() 호출됨");
-    return "memberJoin/memberModifypage";
-  }
+//  //회원 수정
+//  @GetMapping("/{memberEmail}/memberModify")
+//  public String memberModify(){
+//    log.info("memberModify() 호출됨");
+//    return "memberJoin/memberModifypage";
+//  }
 
   //회원수정
-  @GetMapping("/{memberEmail}/memberModify")
+  @GetMapping("/{MemberEmail}/memberModify")
   public String modifyForm(
       @PathVariable("MemberEmail") String MemberEmail,
       Model model){
-
+    log.info("memberModify() 호출됨");
     MemberShip memberShip = memberShipSVC.selectMemberByEmail(MemberEmail);
 
     ModifyForm modifyForm = new ModifyForm();
     modifyForm.setMemberEmail(memberShip.getMemberEmail());
+    modifyForm.setMemberPasswd(memberShip.getMemberPasswd());
     modifyForm.setMemberName(memberShip.getMemberName());
     modifyForm.setMemberGender(getGender(memberShip.getMemberGender()));
     modifyForm.setMemberAge(memberShip.getMemberAge());
@@ -135,7 +136,7 @@ public class MemberShipController {
     return finded;
   }
   //회원수정 처리
-  @PostMapping("/memberModify")
+  @PostMapping("/{MemberEmail}/memberModify")
   public String modify(
       @Valid @ModelAttribute ModifyForm modifyForm,
       BindingResult bindingResult,
@@ -144,14 +145,15 @@ public class MemberShipController {
     //1) 유효성 체크  - 필드오류
     if(bindingResult.hasErrors()){
       log.info("bindingResult={}", bindingResult);
-      return "/memberJoin/memberModifypage";
+      return "memberJoin/memberModifypage";
+
     }
 
     //2) 비밀번호가 일치하는지 체크
     if(!memberShipSVC.isMember(modifyForm.getMemberEmail(), modifyForm.getMemberPasswd())){
       bindingResult.rejectValue("MemberPasswd","memberShip.MemberPasswdChk");
       log.info("bindingResult={}", bindingResult);
-      return "/memberJoin/memberModifypage";
+      return "memberJoin/memberModifypage";
     }
 
     //3) 회원정보 수정
@@ -164,11 +166,11 @@ public class MemberShipController {
     memberShipSVC.updateMember(memberShip);
     redirectAttributes.addAttribute("MemberEmail", memberShip.getMemberEmail());
 
-    return "redirect:/members/{memberEmail}/memberModifypage";  //회원 상세화면 이동
+    return "redirect:/members/{MemberEmail}/memberModifypage";  //회원 상세화면 이동
   }
 
   //회원상세
-  @GetMapping("/{memberEmail}/memberModifypage")
+  @GetMapping("/{memberEmail}/detailForm")
   public String detail(@PathVariable String memberEmail, Model model){
 
     MemberShip memberShip = memberShipSVC.selectMemberByEmail(memberEmail);
@@ -182,7 +184,7 @@ public class MemberShipController {
 
     model.addAttribute("detailForm", detailForm);
 
-    return "memberJoin/memberModifypage";
+    return "memberJoin/detailForm";
   }
 
   //회원탈퇴
@@ -233,7 +235,7 @@ public class MemberShipController {
     return "memberShip/outCompleted"; //탈퇴수행 완료 view
   }
 
-  //마이페이지
+  //마이페이지(찜)
   @GetMapping("/myinfo")
   public String myinfo(){
     log.info("myinfo() 호출됨");
@@ -260,6 +262,10 @@ public class MemberShipController {
     log.info("review() 호출됨");
     return "review";
   }
+
+  //커피숍 조회
+
+  //
 
 
   //아이디 찾기

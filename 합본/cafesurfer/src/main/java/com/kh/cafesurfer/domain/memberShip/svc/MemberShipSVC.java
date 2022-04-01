@@ -12,7 +12,7 @@ public interface MemberShipSVC {
   //수정
   void updateMember(MemberShip memberShip);
 
-  // 조회 by email
+  // 조회 by emailz
   MemberShip selectMemberByEmail(String memberEmail);
 
   // 조회 by member_id
