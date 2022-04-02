@@ -22,11 +22,11 @@ public interface UploadFileDAO {
 
   /**
    * 업로드파일조회
-   * @param code
+
    * @param rid
    * @return
    */
-  List<UploadFile> getFilesByCodeWithRid(String code,Long rid);
+  List<UploadFile> getFilesByCodeWithRid(Long rid);
 
   /**
    * 첨부파일조회
@@ -44,11 +44,11 @@ public interface UploadFileDAO {
   int deleteFileByUploadFildId(Long uploadfileId);
 
   /**
-   * 첨부파일 삭제 By code, rid
-   * @param code 첨부파일 분류코드
+   * 첨부파일 삭제 By  rid
+
    * @param rid 첨부파일아이디
    * @return 삭제한 레코드수
    */
-  int deleteFileByCodeWithRid(String code, Long rid);
+  int deleteFileByCodeWithRid( Long rid);
 
 }

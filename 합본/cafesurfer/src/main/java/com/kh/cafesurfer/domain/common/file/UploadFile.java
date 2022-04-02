@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 @Data
 public class UploadFile {
  private Long uploadfileId;      //  UPLOADFILE_ID	NUMBER(10,0)
- private String code;            //  CODE	VARCHAR2(11 BYTE)
  private Long rid;               //  RID	NUMBER(10,0)
  private String store_filename;  //  STORE_FILENAME	VARCHAR2(50 BYTE)
  private String upload_filename; //  UPLOAD_FILENAME	VARCHAR2(50 BYTE)

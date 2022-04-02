@@ -1,9 +1,11 @@
 package com.kh.cafesurfer.web.form.coffeShop;
 
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Data
 public class CoffeeShopModifyForm {
@@ -20,6 +22,12 @@ public class CoffeeShopModifyForm {
   @NotBlank
   private String ynAllDay;                 // 24HOURS	              NUMBER
 
+  private Long memberId;                    //  MEMBER_ID	NUMBER(5,0)
+  private Long shopId;                      //  SHOP_ID	NUMBER(5,0)
+  private String memberEmail;
+  private String memberName;
+
+  private List<MultipartFile> files;   //첨부파일
 
 
 //  // 전체목록

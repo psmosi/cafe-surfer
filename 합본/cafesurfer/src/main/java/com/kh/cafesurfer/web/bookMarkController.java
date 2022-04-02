@@ -3,7 +3,6 @@ package com.kh.cafesurfer.web;
 
 import com.kh.cafesurfer.domain.bookMark.BookMark;
 import com.kh.cafesurfer.domain.bookMark.svc.BookMarkSVC;
-import com.kh.cafesurfer.domain.coffeeShop.svc.CoffeeShopSVC;
 import com.kh.cafesurfer.web.form.bookMark.BookMarkJoinForm;
 import com.kh.cafesurfer.web.form.bookMark.BookMarkListForm;
 import com.kh.cafesurfer.web.form.bookMark.BookMarkOutForm;
@@ -26,7 +25,6 @@ public class bookMarkController {
 
     private final BookMarkSVC bookMarkSVC;
 
-  private final CoffeeShopSVC coffeeShopSVC;
 
 //  작성처리
 

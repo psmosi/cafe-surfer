@@ -1,8 +1,10 @@
 package com.kh.cafesurfer.web.form.coffeShop;
 
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 
@@ -18,6 +20,12 @@ public class CoffeeShopDetailForm {
   private String ynParking;                 // PARKING	              NUMBER
   private String ynAllDay;                  // 24HOURS	              NUMBER
   private LocalDateTime shopCdate;       // SHOP_CDATE            TIMESTAMP(6)
+
+  private Long memberId;                    //  MEMBER_ID	NUMBER(5,0)
+  private String memberEmail;
+  private String memberName;
+
+  private List<MultipartFile> files;   //첨부파일
 
 //  // 전체목록
 //  private Long shopId;                  // SHOP_ID	            NUMBER(5,0)

@@ -194,7 +194,7 @@ public class MemberShipController {
     return "memberJoin/memberDelpage";
   }
 
-  @PostMapping("/memberDel")
+  @PostMapping("/{memberEmail}/memberDel")
   public String memberDel(
       @Valid @ModelAttribute OutForm outForm,
       BindingResult bindingResult,

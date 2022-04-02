@@ -1,6 +1,8 @@
 package com.kh.cafesurfer.domain.coffeeShop.dao;
 
-import com.kh.cafesurfer.domain.coffeeShop.CoffeeShop;
+
+import com.kh.cafesurfer.domain.bbs.dao.CoffeeShopBbs;
+import com.kh.cafesurfer.domain.bbs.dao.CoffeeShopBbsDAO;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -10,27 +12,30 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
+
 @Slf4j
 @SpringBootTest
 class CoffeeShopDAOImplTest {
   
   @Autowired
-  CoffeeShopDAO coffeeShopDAO;
+  CoffeeShopBbsDAO coffeeShopBbsDAO;
   
   @Test
   @DisplayName("커피숍 등록")
   void insertCoffeeShop() {
-  
-    CoffeeShop coffeeShop = new CoffeeShop();
+
+    CoffeeShopBbs coffeeShop = new CoffeeShopBbs();
     
     coffeeShop.setShopName("다방3");
     coffeeShop.setShopAddress("학원옆");
     coffeeShop.setShopTel("052-355-3113");
     coffeeShop.setYnParking("예");
     coffeeShop.setYnAllDay("아니요");
-  
-    CoffeeShop insertCoffeeShop = coffeeShopDAO.insertCoffeeShop(coffeeShop);
-    Assertions.assertThat(insertCoffeeShop.getShopName()).isEqualTo("다방3");
+
+    Long saveOriginId = coffeeShopBbsDAO.saveOrigin(coffeeShop);
+    Assertions.assertThat(saveOriginId).isEqualTo(5);
+    log.info("saveOriginId={}", saveOriginId);
+
   }
 
   @Test
@@ -39,7 +44,7 @@ class CoffeeShopDAOImplTest {
 
     Long shopId = 1L;
 
-    CoffeeShop beforeUpdateCoffeeShop = coffeeShopDAO.selectOne(shopId);
+    CoffeeShopBbs beforeUpdateCoffeeShop = coffeeShopBbsDAO.findByBbsId(shopId);
     log.info("beforeUpdateCoffeeShop{}", beforeUpdateCoffeeShop);
 
     beforeUpdateCoffeeShop.setShopName("커피숍2");
@@ -48,9 +53,9 @@ class CoffeeShopDAOImplTest {
     beforeUpdateCoffeeShop.setYnParking("예");
     beforeUpdateCoffeeShop.setYnAllDay("아니요");
 
-    coffeeShopDAO.updateCoffeeShop(shopId, beforeUpdateCoffeeShop);
+    coffeeShopBbsDAO.updateByBbsId(shopId, beforeUpdateCoffeeShop);
 
-    CoffeeShop afterUpdateCoffeeShop = coffeeShopDAO.selectOne(shopId);
+    CoffeeShopBbs afterUpdateCoffeeShop = coffeeShopBbsDAO.findByBbsId(shopId);
 
     Assertions.assertThat(beforeUpdateCoffeeShop.getShopName()).isEqualTo(afterUpdateCoffeeShop.getShopName());
     Assertions.assertThat(beforeUpdateCoffeeShop.getShopAddress()).isEqualTo(afterUpdateCoffeeShop.getShopAddress());
@@ -66,15 +71,18 @@ class CoffeeShopDAOImplTest {
 
     Long shopId = 1L;
 
-    CoffeeShop deleteCoffeeShop = coffeeShopDAO.deleteCoffeeShop(shopId);
-    Assertions.assertThat(coffeeShopDAO.selectOne(1L)).isNull();
+    int deleteCoffeeShop = coffeeShopBbsDAO.deleteBbsId(shopId);
+
+    CoffeeShopBbs findedBbsItem = coffeeShopBbsDAO.findByBbsId(shopId);
+    Assertions.assertThat(findedBbsItem).isNull();
+
   }
   
   @Test
   @DisplayName("커피숍 전체조회")
   void selectAll() {
     
-    List<CoffeeShop> list = coffeeShopDAO.selectAll();
+    List<CoffeeShopBbs> list = coffeeShopBbsDAO.findAll();
     Assertions.assertThat(list.size()).isEqualTo(3);
   }
   
@@ -83,7 +91,7 @@ class CoffeeShopDAOImplTest {
   void selectOne() {
 
     Long shopId = 1L;
-    CoffeeShop findedCoffeeShop = coffeeShopDAO.selectOne(shopId);
+    CoffeeShopBbs findedCoffeeShop = coffeeShopBbsDAO.findByBbsId(shopId);
     Assertions.assertThat(findedCoffeeShop.getShopName()).isEqualTo("다방1");
     log.info("findedCoffeeShop={}", findedCoffeeShop);
   }
@@ -94,36 +102,15 @@ class CoffeeShopDAOImplTest {
 
     Long shopId = 1L;
     // 조회 전 조회수
-    Long beforeUpdateViewCnt = coffeeShopDAO.selectOne(shopId).getViewCnt();
+    Long beforeUpdateViewCnt = coffeeShopBbsDAO.findByBbsId(shopId).getViewCnt();
     // 조회
-    coffeeShopDAO.updateViewCnt(3L);
+    coffeeShopBbsDAO.updateViewCnt(3L);
     // 조회 후 조회수
-    Long afterUpdateViewCnt = coffeeShopDAO.selectOne(shopId).getViewCnt();
+    Long afterUpdateViewCnt = coffeeShopBbsDAO.findByBbsId(shopId).getViewCnt();
     // 조회 후 조회수 = 조회 전 조회수 +1
     Assertions.assertThat(afterUpdateViewCnt-beforeUpdateViewCnt).isEqualTo(1);
   }
 
-//    // when
-//    Long shopId = 3L;
-//
-//    CoffeeShop coffeeShop = coffeeShopDAO.selectOne(shopId);
-//    Long currentView = coffeeShop.getViewCnt();
-//
-//    // try
-//    coffeeShopDAO.updateViewCnt(coffeeShop.getShopId());
-//
-//    // then
-//    CoffeeShop viewCntAfterUpdate = coffeeShopDAO.selectOne(shopId);
-//    Assertions.assertThat(viewCntAfterUpdate.getViewCnt()).isEqualTo(currentView+1);
-//  }
 
-  @Test
-  @DisplayName("북마크 카운트")
-  void bookmarkCnt() {
-  }
 
-  @Test
-  @DisplayName("리뷰 카운트")
-  void shopReviewCnt() {
-  }
 }

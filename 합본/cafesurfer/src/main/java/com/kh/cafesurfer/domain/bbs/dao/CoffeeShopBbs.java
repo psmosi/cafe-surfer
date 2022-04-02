@@ -1,14 +1,11 @@
-package com.kh.cafesurfer.domain.coffeeShop;
+package com.kh.cafesurfer.domain.bbs.dao;
 
 import lombok.Data;
-import lombok.ToString;
 
 import java.time.LocalDateTime;
 
 @Data
-@ToString
-public class CoffeeShop {
-  
+public class CoffeeShopBbs {
   private Long shopId;                  // SHOP_ID	            NUMBER(5,0)
   private String shopName;              // SHOP_NAME	          NVARCHAR2(30 CHAR)
   private String shopAddress;           // SHOP_ADDRESS         VARCHAR2(105 BYTE)
@@ -19,5 +16,7 @@ public class CoffeeShop {
   private String ynParking;                // PARKING	            NUMBER
   private String ynAllDay;                // 24HOURS	              NUMBER
   private LocalDateTime shopCdate;      // SHOP_CDATE           TIMESTAMP(6)
-
+  private String memberEmail;
+  private String memberName;
+  private Long memberId;                    //  MEMBER_ID	NUMBER(5,0)
 }

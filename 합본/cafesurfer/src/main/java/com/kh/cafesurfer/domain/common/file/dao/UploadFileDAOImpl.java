@@ -32,7 +32,7 @@ public class UploadFileDAOImpl implements UploadFileDAO{
     StringBuffer sql = new StringBuffer();
     sql.append("INSERT INTO uploadfile ( ");
     sql.append("  uploadfile_id, ");
-    sql.append("  code, ");
+
     sql.append("  rid, ");
     sql.append("  store_filename, ");
     sql.append("  upload_filename, ");
@@ -53,12 +53,12 @@ public class UploadFileDAOImpl implements UploadFileDAO{
       @Override
       public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
         PreparedStatement pstmt = con.prepareStatement(sql.toString(),new String[]{"uploadfile_id"});
-        pstmt.setString(1, uploadFile.getCode());
-        pstmt.setLong(2,uploadFile.getRid());
-        pstmt.setString(3, uploadFile.getStore_filename());
-        pstmt.setString(4, uploadFile.getUpload_filename());
-        pstmt.setString(5, uploadFile.getFsize());
-        pstmt.setString(6, uploadFile.getFtype());
+
+        pstmt.setLong(1,uploadFile.getRid());
+        pstmt.setString(2, uploadFile.getStore_filename());
+        pstmt.setString(3, uploadFile.getUpload_filename());
+        pstmt.setString(4, uploadFile.getFsize());
+        pstmt.setString(5, uploadFile.getFtype());
         return pstmt;
       }
     },keyHolder);
@@ -73,7 +73,7 @@ public class UploadFileDAOImpl implements UploadFileDAO{
     StringBuffer sql = new StringBuffer();
     sql.append("INSERT INTO uploadfile ( ");
     sql.append("  uploadfile_id, ");
-    sql.append("  code, ");
+
     sql.append("  rid, ");
     sql.append("  store_filename, ");
     sql.append("  upload_filename, ");
@@ -93,12 +93,12 @@ public class UploadFileDAOImpl implements UploadFileDAO{
     jdbcTemplate.batchUpdate(sql.toString(), new BatchPreparedStatementSetter() {
       @Override
       public void setValues(PreparedStatement ps, int i) throws SQLException {
-        ps.setString(1, uploadFile.get(i).getCode());
-        ps.setLong(2,uploadFile.get(i).getRid());
-        ps.setString(3, uploadFile.get(i).getStore_filename());
-        ps.setString(4, uploadFile.get(i).getUpload_filename());
-        ps.setString(5, uploadFile.get(i).getFsize());
-        ps.setString(6, uploadFile.get(i).getFtype());
+
+        ps.setLong(1,uploadFile.get(i).getRid());
+        ps.setString(2, uploadFile.get(i).getStore_filename());
+        ps.setString(3, uploadFile.get(i).getUpload_filename());
+        ps.setString(4, uploadFile.get(i).getFsize());
+        ps.setString(5, uploadFile.get(i).getFtype());
       }
 
       //배치처리할 건수
@@ -112,12 +112,11 @@ public class UploadFileDAOImpl implements UploadFileDAO{
 
   //조회
   @Override
-  public List<UploadFile> getFilesByCodeWithRid(String code, Long rid) {
+  public List<UploadFile> getFilesByCodeWithRid( Long rid) {
     StringBuffer sql = new StringBuffer();
 
     sql.append("SELECT  ");
     sql.append("   uploadfile_id, ");
-    sql.append("   code, ");
     sql.append("   rid,  ");
     sql.append("   store_filename, ");
     sql.append("   upload_filename,  ");
@@ -126,11 +125,11 @@ public class UploadFileDAOImpl implements UploadFileDAO{
     sql.append("   cdate,  ");
     sql.append("   udate ");
     sql.append("  FROM  uploadfile  ");
-    sql.append(" WHERE CODE = ?  ");
-    sql.append("   AND RID = ?  ");
+    sql.append(" WHERE RID = ?  ");
+
 
     List<UploadFile> list = jdbcTemplate.query(sql.toString(),
-        new BeanPropertyRowMapper<>(UploadFile.class), code, rid);
+        new BeanPropertyRowMapper<>(UploadFile.class), rid);
     log.info("list={}",list);
     return list;
   }
@@ -168,12 +167,12 @@ public class UploadFileDAOImpl implements UploadFileDAO{
 
   // 첨부파일 삭제 by uplaodfileId
   @Override
-  public int deleteFileByCodeWithRid(String code, Long rid) {
+  public int deleteFileByCodeWithRid( Long rid) {
     StringBuffer sql = new StringBuffer();
     sql.append("delete from uploadfile ");
-    sql.append(" where code = ? ");
-    sql.append("   and rid = ? ");
+    sql.append(" where rid = ? ");
 
-    return jdbcTemplate.update(sql.toString(), code, rid);
+
+    return jdbcTemplate.update(sql.toString(), rid);
   }
 }

@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+
+/* ckeditor style 지정 */
+#bcontent {display:none;}
+.coffeeShopBbs-wrap .ck-editor__editable{min-height:20rem;}
+
+  main {display:flex; justify-content: center;}
+    .coffeeShopBbs-wrap * {
+      /* outline:1px solid red; */
+      box-sizing: border-box;
+    }
+    .coffeeShopBbs-wrap {width:80%}
+    .coffeeShopBbs-wrap .coffeeShopBbs-hit{
+      display: flex;
+      justify-content: end;
+    }
+    .coffeeShopBbs-wrap .coffeeShopBbs-hit .coffeeShopBbs-hit-content {
+      width:50px;
+      font-weight: bold;
+    }
+    .coffeeShopBbs-wrap .coffeeShopBbs-hit .coffeeShopBbs-hit-content.coffeeShopBbs-hit-cnt {
+      text-align: right;
+    }
+    .coffeeShopBbs-wrap .coffeeShopBbs-title {
+      text-align: center; padding:20px 0;
+    }
+    .coffeeShopBbs-wrap .coffeeShopBbs-content,
+    .coffeeShopBbs-wrap .coffeeShopBbs-attach{
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 5px;
+    }
+    .coffeeShopBbs-wrap .coffeeShopBbs-content .w100 {
+      width:100%; padding:3px;
+    }
+    .coffeeShopBbs-wrap .coffeeShopBbs-btngrp {
+      display:flex;
+      justify-content: flex-end;
+    }
+    .coffeeShopBbs-wrap .coffeeShopBbs-attach .fa-solid.fa-trash-can {
+       cursor:pointer;
+    }
+    .coffeeShopBbs-wrap .coffeeShopBbs-attach .fa-solid.fa-trash-can:hover{
+       color:red;
