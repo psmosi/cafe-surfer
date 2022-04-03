@@ -1,8 +1,8 @@
 package com.kh.cafesurfer.web;
 
-import com.kh.cafesurfer.domain.bbs.dao.CoffeeShopBbs;
-import com.kh.cafesurfer.domain.bbs.dao.CoffeeShopBbsFirterCondition;
-import com.kh.cafesurfer.domain.bbs.svc.CoffeeShopBbsSVC;
+import com.kh.cafesurfer.domain.CoffeeShopBbs.dao.CoffeeShopBbs;
+import com.kh.cafesurfer.domain.CoffeeShopBbs.dao.CoffeeShopBbsFirterCondition;
+import com.kh.cafesurfer.domain.CoffeeShopBbs.svc.CoffeeShopBbsSVC;
 import com.kh.cafesurfer.domain.common.file.UploadFile;
 import com.kh.cafesurfer.domain.common.file.svc.UploadFileSVC;
 import com.kh.cafesurfer.domain.common.paging.FindCriteria;
@@ -182,7 +182,8 @@ public class CoffeeShopBbsController {
     }
 
 //      return detailForm;
-    return "coffeeShopBbs/detailForm";
+//    return "coffeeShopBbs/detailForm";
+    return "/contentAfterLogin";
   }
 
   //삭제

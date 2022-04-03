@@ -1,4 +1,4 @@
-package com.kh.cafesurfer.domain.bbs.dao;
+package com.kh.cafesurfer.domain.CoffeeShopBbs.dao;
 
 public enum CoffeeShopBbsStatus {
   D("삭제"), I("임시저장"), W("경고");

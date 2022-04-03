@@ -1,8 +1,8 @@
-package com.kh.cafesurfer.domain.bbs.svc;
+package com.kh.cafesurfer.domain.CoffeeShopBbs.svc;
 
 
-import com.kh.cafesurfer.domain.bbs.dao.CoffeeShopBbs;
-import com.kh.cafesurfer.domain.bbs.dao.CoffeeShopBbsFirterCondition;
+import com.kh.cafesurfer.domain.CoffeeShopBbs.dao.CoffeeShopBbs;
+import com.kh.cafesurfer.domain.CoffeeShopBbs.dao.CoffeeShopBbsFirterCondition;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;

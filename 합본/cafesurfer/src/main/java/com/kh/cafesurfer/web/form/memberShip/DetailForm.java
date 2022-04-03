@@ -20,4 +20,6 @@ public class DetailForm {
 
   private Long memberOwner;       //  MEMBER_OWNER	NUMBER
 
+
+
 }

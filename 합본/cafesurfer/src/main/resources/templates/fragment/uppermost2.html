@@ -24,7 +24,7 @@
 <!--      <img  th:src="@{/api/members/{memberId}/pfimg(memberId=${s_memberId})}" alt=""-->
 <!--            onerror="this.src='/img/noprofile.jpg'" ></div>-->
     <div class="mypage"><a href="" th:href="@{/members/mypage}"}>내정보</a></div>
-    <div th:text="|[${s_nickname}]|"></div>
+    <div th:text="|[${s_name}]|"></div>
     <div class="logout"><a href="" th:href="@{/logout}">로그아웃</a></div>
   </div>
 </th:block>
