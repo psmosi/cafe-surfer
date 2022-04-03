@@ -1,9 +1,9 @@
-package com.kh.cafesurfer.domain.bbs.svc;
+package com.kh.cafesurfer.domain.CoffeeShopBbs.svc;
 
 
-import com.kh.cafesurfer.domain.bbs.dao.CoffeeShopBbs;
-import com.kh.cafesurfer.domain.bbs.dao.CoffeeShopBbsDAO;
-import com.kh.cafesurfer.domain.bbs.dao.CoffeeShopBbsFirterCondition;
+import com.kh.cafesurfer.domain.CoffeeShopBbs.dao.CoffeeShopBbs;
+import com.kh.cafesurfer.domain.CoffeeShopBbs.dao.CoffeeShopBbsDAO;
+import com.kh.cafesurfer.domain.CoffeeShopBbs.dao.CoffeeShopBbsFirterCondition;
 import com.kh.cafesurfer.domain.common.file.svc.UploadFileSVC;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.kh.cafesurfer.domain.bbs.dao;
+package com.kh.cafesurfer.domain.CoffeeShopBbs.dao;
 
 
 import lombok.RequiredArgsConstructor;

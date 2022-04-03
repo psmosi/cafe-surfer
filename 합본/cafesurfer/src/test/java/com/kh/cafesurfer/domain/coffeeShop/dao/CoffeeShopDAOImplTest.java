@@ -1,8 +1,8 @@
 package com.kh.cafesurfer.domain.coffeeShop.dao;
 
 
-import com.kh.cafesurfer.domain.bbs.dao.CoffeeShopBbs;
-import com.kh.cafesurfer.domain.bbs.dao.CoffeeShopBbsDAO;
+import com.kh.cafesurfer.domain.CoffeeShopBbs.dao.CoffeeShopBbs;
+import com.kh.cafesurfer.domain.CoffeeShopBbs.dao.CoffeeShopBbsDAO;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
