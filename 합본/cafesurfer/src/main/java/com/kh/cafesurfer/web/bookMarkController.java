@@ -21,7 +21,7 @@ import java.io.IOException;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/bookMark")
-public class bookMarkController {
+public class BookMarkController {
 
     private final BookMarkSVC bookMarkSVC;
 

@@ -5,7 +5,7 @@
 //const category = ($coffeeShopBbs?.dataset.code)? $coffeeShopBbs.dataset.code : '';
 
     writeBtn?.addEventListener('click', e => {
-        const url = `/coffeeShopBbs/add?category=${category}`
+        const url = `/coffeeShopBbs/add`
         location.href= url;   // get /bbs/add
     });
 

@@ -30,10 +30,10 @@ public class UploadFileSVCImpl implements UploadFileSVC{
   private String ROOT_DIR;  //첨부파일 루트경로
 
   @Override
-  public boolean addFile(Long fid, MultipartFile file) {
+  public boolean addFile(String code, Long fid, MultipartFile file) {
     try {
       UploadFile uploadFile = new UploadFile();
-
+      uploadFile.setCode(code);
       uploadFile.setRid(fid);
 
       String originalFileName = file.getOriginalFilename();
@@ -58,7 +58,7 @@ public class UploadFileSVCImpl implements UploadFileSVC{
   }
 
   @Override
-  public boolean addFile(Long fid, List<MultipartFile> files) {
+  public boolean addFile(String code, Long fid, List<MultipartFile> files) {
     //1) uploadfile 테이블에 첨부파일 메타정보 저장
     //2) 파일시스템에 물리적 파일 저장
     try {
@@ -66,7 +66,7 @@ public class UploadFileSVCImpl implements UploadFileSVC{
 
       for(MultipartFile file: files) {
         UploadFile uploadFile = new UploadFile();
-
+        uploadFile.setCode(code);
         uploadFile.setRid(fid);
 
         String originalFileName = file.getOriginalFilename();
@@ -90,14 +90,16 @@ public class UploadFileSVCImpl implements UploadFileSVC{
 
   //첨부파일조회
   @Override
-  public List<UploadFile> getFilesByCodeWithRid(Long rid) {
-    return uploadFileDAO.getFilesByCodeWithRid(rid);
+  public List<UploadFile> getFilesByCodeWithRid(String code, Long rid) {
+    return uploadFileDAO.getFilesByCodeWithRid(code,rid);
   }
 
   //파일시스템에 물리적 파일 저장
   private void storeFile(UploadFile uploadFile, MultipartFile file) {
     try {
-      file.transferTo(Path.of(uploadFile.getStore_filename()));
+      
+      //체크
+      file.transferTo(Path.of(getFullPath(uploadFile.getCode(),uploadFile.getRid()), uploadFile.getStore_filename()));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -112,11 +114,14 @@ public class UploadFileSVCImpl implements UploadFileSVC{
 
   //파일저장경로
   @Override
-  public String getFullPath(Long rid) {
+  public String getFullPath(String code,Long rid) {
     StringBuffer path = new StringBuffer();
-    path = path.append(ROOT_DIR).append(rid).append("/");
+//    path = path.append(ROOT_DIR).append(rid).append(code).append("/");
+    path = path.append(ROOT_DIR).append(rid).append("/").append(code).append("/");
     //경로가 없으면 생성
+
     createFolder(path.toString());
+
     log.info("파일저장위치={}", path.toString());
     return path.toString();
   }
@@ -133,7 +138,7 @@ public class UploadFileSVCImpl implements UploadFileSVC{
 
     //1)물리파일삭제
     UploadFile uploadFile = uploadFileDAO.findFileByUploadFileId(uploadfileId);
-    deleteFile(uploadFile.getRid(), uploadFile.getStore_filename());
+    deleteFile(uploadFile.getCode(),uploadFile.getRid(), uploadFile.getStore_filename());
 
     //2)메타정보삭제
     int affectedRow = uploadFileDAO.deleteFileByUploadFildId(uploadfileId);
@@ -141,17 +146,17 @@ public class UploadFileSVCImpl implements UploadFileSVC{
     return affectedRow;
   }
 
-  // 첨부파일 삭제 By  rid
-  public int deleteFileByCodeWithRid( Long rid){
+  // 첨부파일 삭제 By code, rid
+  public int deleteFileByCodeWithRid(String code, Long rid){
 
     //1)물리파일삭제
-    List<UploadFile> uploadFiles = uploadFileDAO.getFilesByCodeWithRid( rid);
+    List<UploadFile> uploadFiles = uploadFileDAO.getFilesByCodeWithRid(code, rid);
     for (UploadFile uploadFile : uploadFiles) {
-      uploadFile.getStore_filename();
+      deleteFile(uploadFile.getCode(), uploadFile.getRid(), uploadFile.getStore_filename());
     }
 
     //2)메타정보삭제
-    uploadFileDAO.deleteFileByCodeWithRid( rid);
+    uploadFileDAO.deleteFileByCodeWithRid(code, rid);
 
     return uploadFiles.size();
   }
@@ -160,14 +165,15 @@ public class UploadFileSVCImpl implements UploadFileSVC{
 
   /**
    * 서버 보관 파일 삭제
+   * @param code
    * @param sfname
    * @return
    */
-  private boolean deleteFile(Long rid ,String sfname) {
+  private boolean deleteFile(String code,Long rid ,String sfname) {
 
     boolean isDeleted = false;
 
-    File file = new File(getFullPath(rid)+sfname);
+    File file = new File(getFullPath(code,rid)+sfname);
 
     if(file.exists()) {
       if(file.delete()) {
@@ -178,13 +184,13 @@ public class UploadFileSVCImpl implements UploadFileSVC{
     return isDeleted;
   }
 
-  private boolean deleteFiles(Long rid, List<String> fnames ) {
+  private boolean deleteFiles(String code, Long rid, List<String> fnames ) {
 
     boolean isDeleted = false;
     int deletedFileCount = 0;
 
     for(String sfname : fnames) {
-      if(deleteFile(rid, sfname)) {
+      if(deleteFile(code, rid, sfname)) {
         deletedFileCount++;
       };
     }
@@ -198,7 +204,7 @@ public class UploadFileSVCImpl implements UploadFileSVC{
   private void createFolder(String path) {
     File folder = new File(path);
     if(!folder.exists()){
-      folder.mkdir();
+      folder.mkdirs();
     }
   }
 

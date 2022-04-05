@@ -6,9 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Title</title>
-  <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=자신의 앱키 복사"></script> -->
-
-
 
 
 </head>
@@ -17,7 +14,7 @@
 <main th:fragment="contentItem">
 
 
-  <form action="" method="post" th:object="${coffeeShopDetailForm}">
+  <form  method="post" th:object="${coffeeShopDetailForm}">
     <input type="hidden" th:field="*{shopId}" id="shopId">
     <!-- container -->
     <!-- width : standard -->
@@ -38,58 +35,38 @@
             <!-- 개별 로고 / 타이틀 사용시 이미지로 대체 -->
           </div>
         </div>
-
+<!--        테스트-->
+<!--        <img src="/attach/73/B0101/499fc8d2-d7d6-4f7e-8d11-72141de6ed6a.png"/>-->
+<!--  <div><img  th:src="@{|/attach/*{shopId}/B0101/${uploadFile.store_filename}|}"/></div>-->
         <!-- End of shop_title_wrap -->
         <div class="shop-info">
           <div class="shop-info_img">
 
             <div class="info-img-box">
               <div class="shop-img-slide-box">
-                <div class="shop-img fade">
-                  <img
-                      src="/Users/mo/Documents/cafe-시나리오/img/starbucks/coffeshop_screenshot/img1.png"
-                  />
-                </div>
-                <div class="shop-img fade">
-                  <img
-                      src="/Users/mo/Documents/cafe-시나리오/img/starbucks/coffeshop_screenshot/img2.png"
-                  />
-                </div>
-                <div class="shop-img fade">
-                  <img
-                      src="/Users/mo/Documents/cafe-시나리오/img/starbucks/coffeshop_screenshot/img3.png"
-                  />
-                </div>
-                <div class="shop-img fade">
-                  <img
-                      src="/Users/mo/Documents/cafe-시나리오/img/starbucks/coffeshop_screenshot/img4.png"
-                  />
-                </div>
-                <div class="shop-img fade">
-                  <img
-                      src="/Users/mo/Documents/cafe-시나리오/img/starbucks/coffeshop_screenshot/img5.png"
-                  />
-                </div>
-                <div class="shop-img fade">
-                  <img
-                      src="/Users/mo/Documents/cafe-시나리오/img/starbucks/coffeshop_screenshot/img6.png"
-                  />
-                </div>
-                <div class="shop-img fade">
-                  <img
-                      src="/Users/mo/Documents/cafe-시나리오/img/starbucks/coffeshop_screenshot/img7.png"
-                  />
-                </div>
-                <div class="shop-img fade">
-                  <img
-                      src="/Users/mo/Documents/cafe-시나리오/img/starbucks/coffeshop_screenshot/img8.png"
-                  />
-                </div>
-                <div class="shop-img fade">
-                  <img
-                      src="/Users/mo/Documents/cafe-시나리오/img/starbucks/coffeshop_screenshot/img9.png"
-                  />
-                </div>
+
+<!--                <div class="shop-img fade" style="display: block;">-->
+<!--테스트2-->
+
+                  <div class="shop-img fade" style="display: block;" th:each="uploadFile : ${attachFiles1}">
+<!--                    <th:block th:if="${uploadFileStat.first}">-->
+                    <th:block th:if="${uploadFileStat.first}">
+<!--                      <div class="first-row" th:text="${uploadFileStat.count}"></div>-->
+                      <div class="first-row" > <img style="width: 50px;height: 50px;" th:src="@{|/attach/*{shopId}/B0101/${uploadFile.store_filename}|}"/></div>
+<!--                      <div class="first-row" th:text="${uploadFile.upload_filename}"></div>-->
+                    </th:block>
+                    <th:block th:unless="${uploadFileStat.first}">
+<!--                      <div th:text="${uploadFileStat.count}"></div>-->
+<!--                      <img th:src="C:/attach/*{shopId}/B0101/*{store_filename}"/>-->
+                      <div><img style="width: 50px;height: 50px;" th:src="@{|/attach/*{shopId}/B0101/${uploadFile.store_filename}|}"/></div>
+<!--                      <div th:text="${uploadFile.upload_filename}"></div>-->
+
+                    </th:block>
+                  </div>
+
+<!--                  </div>-->
+
+
 
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -127,7 +104,7 @@
             </div>
             <div class="shop-info-content shop-hashtag-sub-box">
               <div class="shop-hashtag-icon-box icon-box">
-                <img src="img/icon/icon-hashtag.png" class="hashtag-icon"></img>
+                <img src="img/icon/icon-hashtag.png" class="hashtag-icon">
               </div>
               <div class="hashtag-txt txt-box">
                 <div>
@@ -188,48 +165,24 @@
           <ul class="item">
             <li class="item-list-set">
               <div class="item-img">
-                <img
-                    src="/Users/mo/Documents/cafe-시나리오/img/starbucks/goods/리저브 뉴블랙 머그 355ml.png"
-                />
-              </div>
-              <div class="item-info">
-                <span class="item-info-menu-title"
-                >리저브 뉴블랙 머그 355ml</span
-                >
-              </div>
-            </li>
-            <li class="item-list-set">
-              <div class="item-img">
-                <img
-                    src="/Users/mo/Documents/cafe-시나리오/img/starbucks/goods/블랙 링 머그 355ml.png"
-                />
-              </div>
-              <div class="item-info">
-                <span class="item-info-menu-title">블랙 링 머그 355ml</span>
-              </div>
-            </li>
-            <li class="item-list-set">
-              <div class="item-img">
-                <img
-                    src="/Users/mo/Documents/cafe-시나리오/img/starbucks/goods/블랙 앤 골드 머그 473ml.png"
-                />
-              </div>
-              <div class="item-info">
-                <span class="item-info-menu-title"
-                >블랙 앤 골드 머그 473ml</span
-                >
-              </div>
-            </li>
-            <li class="item-list-set">
-              <div class="item-img">
-                <img
-                    src="/Users/mo/Documents/cafe-시나리오/img/starbucks/goods/SS 블랙 데비 머그 414ml.png"
-                />
-              </div>
-              <div class="item-info">
-                <span class="item-info-menu-title"
-                >SS 블랙 데비 머그 414ml</span
-                >
+
+                <tbody>
+                <tr th:each="uploadFile : ${attachFiles2}">
+                  <th:block th:if="${uploadFileStat.first}">
+                    <td class="first-row" th:text="${uploadFileStat.count}"></td>
+                    <td class="first-row" ><img th:src="@{|/attach/*{shopId}/B0102/${uploadFile.store_filename}|}"/></td>
+                    <td class="first-row" th:text="${uploadFile.upload_filename}"></td>
+
+                  </th:block>
+
+                  <th:block th:unless="${uploadFileStat.first}">
+                    <td th:text="${uploadFileStat.count}"></td>
+                    <td><img th:src="@{|/attach/*{shopId}/B0102/${uploadFile.store_filename}|}"/></td>
+                    <td th:text="${uploadFile.upload_filename}"></td>
+
+                  </th:block>
+                </tr>
+                </tbody>
               </div>
             </li>
           </ul>
@@ -250,48 +203,25 @@
           <ul class="item">
             <li class="item-list-set">
               <div class="item-img">
-                <img
-                    src="/Users/mo/Documents/cafe-시나리오/img/starbucks/goods/리저브 뉴블랙 머그 355ml.png"
-                />
-              </div>
-              <div class="item-info">
-                <span class="item-info-menu-title"
-                >리저브 뉴블랙 머그 355ml</span
-                >
-              </div>
-            </li>
-            <li class="item-list-set">
-              <div class="item-img">
-                <img
-                    src="/Users/mo/Documents/cafe-시나리오/img/starbucks/goods/블랙 링 머그 355ml.png"
-                />
-              </div>
-              <div class="item-info">
-                <span class="item-info-menu-title">블랙 링 머그 355ml</span>
-              </div>
-            </li>
-            <li class="item-list-set">
-              <div class="item-img">
-                <img
-                    src="/Users/mo/Documents/cafe-시나리오/img/starbucks/goods/블랙 앤 골드 머그 473ml.png"
-                />
-              </div>
-              <div class="item-info">
-                <span class="item-info-menu-title"
-                >블랙 앤 골드 머그 473ml</span
-                >
-              </div>
-            </li>
-            <li class="item-list-set">
-              <div class="item-img">
-                <img
-                    src="/Users/mo/Documents/cafe-시나리오/img/starbucks/goods/SS 블랙 데비 머그 414ml.png"
-                />
-              </div>
-              <div class="item-info">
-                <span class="item-info-menu-title"
-                >SS 블랙 데비 머그 414ml</span
-                >
+                <tbody>
+                <tr th:each="uploadFile : ${attachFiles3}">
+                  <th:block th:if="${uploadFileStat.first}">
+
+                    <td class="first-row" th:text="${uploadFileStat.count}"></td>
+                    <td class="first-row" ><img th:src="@{|/attach/*{shopId}/B0103/${uploadFile.store_filename}|}"/></td>
+                    <td class="first-row" th:text="${uploadFile.upload_filename}"></td>
+
+                  </th:block>
+
+                  <th:block th:unless="${uploadFileStat.first}">
+
+                    <td th:text="${uploadFileStat.count}"></td>
+                    <td><img th:src="@{|/attach/*{shopId}/B0103/${uploadFile.store_filename}|}"/></td>
+                    <td th:text="${uploadFile.upload_filename}"></td>
+
+                  </th:block>
+                </tr>
+                </tbody>
               </div>
             </li>
           </ul>
@@ -312,46 +242,26 @@
           <ul class="item">
             <li class="item-list-set">
               <div class="item-img">
-                <img
-                    src="/Users/mo/Documents/cafe-시나리오/img/starbucks/goods/리저브 뉴블랙 머그 355ml.png"
-                />
-              </div>
-              <div class="item-info">
-                <span class="item-info-menu-title"
-                >리저브 뉴블랙 머그 355ml</span
-                >
-              </div>
-            </li>
-            <li class="item-list-set">
-              <div class="item-img">
-                <img
-                    src="/Users/mo/Documents/cafe-시나리오/img/starbucks/goods/블랙 링 머그 355ml.png"
-                />
-              </div>
-              <div class="item-info">
-                <span class="item-info-menu-title">블랙 링 머그 355ml</span>
-              </div>
-            </li>
-            <li class="item-list-set">
-              <div class="item-img">
-                <img
-                    src="/Users/mo/Documents/cafe-시나리오/img/starbucks/goods/블랙 앤 골드 머그 473ml.png"
-                />
-              </div>
-              <div class="item-info">
-                <span class="item-info-menu-title"
-                >블랙 앤 골드 머그 473ml</span
-                >
-              </div>
-            </li>
-            <li class="item-list-set">
-              <div class="item-img">
-                <img
-                    src="/Users/mo/Documents/cafe-시나리오/img/starbucks/goods/SS 블랙 데비 머그 414ml.png"
-                />
-              </div>
-              <div class="item-info">
-                <span class="item-info-menu-title">SS 블랙 데비 머그 414ml</span>
+                <tbody>
+                <tr th:each="uploadFile : ${attachFiles4}">
+                  <th:block th:if="${uploadFileStat.first}">
+
+                    <td class="first-row" th:text="${uploadFileStat.count}"></td>
+                    <td class="first-row"><img th:src="@{|/attach/*{shopId}/B0104/${uploadFile.store_filename}|}"/></td>
+
+                    <td class="first-row" th:text="${uploadFile.upload_filename}"></td>
+
+                  </th:block>
+
+                  <th:block th:unless="${uploadFileStat.first}">
+
+                    <td th:text="${uploadFileStat.count}"></td>
+                    <td><img th:src="@{|/attach/*{shopId}/B0104/${uploadFile.store_filename}|}"/></td>
+                    <td th:text="${uploadFile.upload_filename}"></td>
+
+                  </th:block>
+                </tr>
+                </tbody>
               </div>
             </li>
           </ul>
@@ -440,9 +350,10 @@
 
       // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
       var map = new kakao.maps.Map(mapContainer, mapOption);
-    </script>
 
-<script>
+  </script>
+
+  <script>
   heartBtn.addEventListener('click', create_f);
 
   function create_f(e) {
@@ -486,7 +397,8 @@
         }
 
 
-    </script>
+
+  </script>
 </main>
 </body>
 </html>

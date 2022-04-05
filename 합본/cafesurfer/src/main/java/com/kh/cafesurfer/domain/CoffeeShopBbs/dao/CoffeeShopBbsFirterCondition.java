@@ -8,14 +8,14 @@ import lombok.ToString;
 @Getter
 @ToString
 public class CoffeeShopBbsFirterCondition {
-  private Long shopId;          // SHOP_ID	            NUMBER(5,0)
+  private String category;      //분류코드
   private int startRec;         //시작레코드
   private int endRec;           //종료레코드
   private String searchType;    //검색유형
   private String keyword;       //검색어
 
-  public CoffeeShopBbsFirterCondition(Long shopId, String searchType, String keyword) {
-    this.shopId = shopId;
+  public CoffeeShopBbsFirterCondition(String category, String searchType, String keyword) {
+    this.category = category;
     this.searchType = searchType;
     this.keyword = keyword;
   }

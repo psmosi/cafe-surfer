@@ -63,7 +63,7 @@ public class AttachFileController {
   private String getStoreFilePath(UploadFile metaInofOfuploadFile) {
     StringBuffer storeFilePath = new StringBuffer();
     storeFilePath.append("file:")
-        .append(uploadFileSVC.getFullPath(metaInofOfuploadFile.getUploadfileId()))
+        .append(uploadFileSVC.getFullPath(metaInofOfuploadFile.getCode(),metaInofOfuploadFile.getRid()))
         .append(metaInofOfuploadFile.getStore_filename());
     return storeFilePath.toString();
   }

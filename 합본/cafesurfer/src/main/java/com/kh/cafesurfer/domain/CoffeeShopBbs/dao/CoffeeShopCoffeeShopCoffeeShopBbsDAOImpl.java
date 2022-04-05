@@ -20,7 +20,7 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor
 
-public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
+public class CoffeeShopCoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
 
   private final JdbcTemplate jdbcTemplate;
 
@@ -29,9 +29,8 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
   public Long saveOrigin(CoffeeShopBbs coffeeShopBbs) {
     // SQL 작성
     StringBuffer sql = new StringBuffer();
-
-    sql.append("insert into coffeeshop (shop_id, shop_name, shop_address, shop_tel, parking, allday ) ");
-    sql.append(" values(coffeeshop_shop_id_seq.nextval, ? , ? , ? , ? , ? ) ");
+    sql.append("insert into coffeeshop (shop_id, shop_name, shop_address, shop_tel, parking, allday, bcategoryB0101, bcategoryB0102, bcategoryB0103, bcategoryB0104 ) ");
+    sql.append(" values(coffeeshop_shop_id_seq.nextval, ? , ? , ? , ? , ? , ? , ?, ?, ? ) ");
 
     // SQL 실행
     KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -47,6 +46,10 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
         pstmt.setString(3, coffeeShopBbs.getShopTel());
         pstmt.setString(4, coffeeShopBbs.getYnParking());
         pstmt.setString(5, coffeeShopBbs.getYnAllDay());
+        pstmt.setString(6, coffeeShopBbs.getBcategoryB0101());
+        pstmt.setString(7, coffeeShopBbs.getBcategoryB0102());
+        pstmt.setString(8, coffeeShopBbs.getBcategoryB0103());
+        pstmt.setString(9, coffeeShopBbs.getBcategoryB0104());
         return pstmt;
       }
     }, keyHolder);
@@ -60,17 +63,8 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
   public List<CoffeeShopBbs> findAll() {
     StringBuffer sql = new StringBuffer();
 
-    sql.append("select ");
-    sql.append("    shop_id, ");
-    sql.append("    shop_name, ");
-    sql.append("    shop_address, ");
-    sql.append("    shop_tel, ");
-    sql.append("    view_count, ");
-    sql.append("    shop_bookmark_count, ");
-    sql.append("    shop_review_count, ");
-    sql.append("    parking, ");
-    sql.append("    allday, ");
-    sql.append("    shop_cdate ");
+    sql.append("select * ");
+
     sql.append("from coffeeshop ");
     sql.append(" order by shop_id desc ");
 
@@ -81,7 +75,6 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
 
     return list;
   }
-
 
 
   @Override
@@ -101,7 +94,11 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
     sql.append("    shop_review_count, ");
     sql.append("    parking, ");
     sql.append("    allday, ");
-    sql.append("    shop_cdate ");
+    sql.append("    shop_cdate, ");
+    sql.append("    bcategoryB0101, ");
+    sql.append("    bcategoryB0102, ");
+    sql.append("    bcategoryB0103, ");
+    sql.append("    bcategoryB0104 ");
     sql.append("     FROM ");
     sql.append("     coffeeshop) t1 ");
     sql.append(" where t1.no BETWEEN ? and ? ");
@@ -133,10 +130,13 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
     sql.append("    shop_review_count, ");
     sql.append("    parking, ");
     sql.append("    allday, ");
-    sql.append("    shop_cdate ");
+    sql.append("    shop_cdate, ");
+    sql.append("    bcategoryB0101, ");
+    sql.append("    bcategoryB0102, ");
+    sql.append("    bcategoryB0103, ");
+    sql.append("    bcategoryB0104 ");
     sql.append("     FROM coffeeshop ");
     sql.append("     where ");
-
     //분류
     sql = dynamicQuery(coffeeShopBbsFirterCondition, sql);
     ;
@@ -148,7 +148,7 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
     List<CoffeeShopBbs> list = null;
 
     //게시판 전체
-    if (StringUtils.isEmpty(String.valueOf(coffeeShopBbsFirterCondition.getShopId()))) {
+    if (StringUtils.isEmpty(coffeeShopBbsFirterCondition.getCategory())) {
       list = jdbcTemplate.query(
           sql.toString(),
           new BeanPropertyRowMapper<>(CoffeeShopBbs.class),
@@ -160,7 +160,7 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
       list = jdbcTemplate.query(
           sql.toString(),
           new BeanPropertyRowMapper<>(CoffeeShopBbs.class),
-          coffeeShopBbsFirterCondition.getShopId(),
+          coffeeShopBbsFirterCondition.getCategory(),
           coffeeShopBbsFirterCondition.getStartRec(),
           coffeeShopBbsFirterCondition.getEndRec()
       );
@@ -175,7 +175,6 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
   public CoffeeShopBbs findByBbsId(Long shopId) {
 
     StringBuffer sql = new StringBuffer();
-
     sql.append(" SELECT ");
     sql.append("    shop_id, ");
     sql.append("    shop_name, ");
@@ -186,7 +185,11 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
     sql.append("    shop_review_count, ");
     sql.append("    parking, ");
     sql.append("    allday, ");
-    sql.append("    shop_cdate ");
+    sql.append("    shop_cdate, ");
+    sql.append("    bcategoryB0101, ");
+    sql.append("    bcategoryB0102, ");
+    sql.append("    bcategoryB0103, ");
+    sql.append("    bcategoryB0104 ");
     sql.append(" FROM ");
     sql.append("     coffeeshop ");
     sql.append(" where shop_id = ? ");
@@ -231,7 +234,11 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
     sql.append("    shop_review_count, ");
     sql.append("    parking, ");
     sql.append("    allday, ");
-    sql.append("    shop_cdate ");
+    sql.append("    shop_cdate, ");
+    sql.append("    bcategoryB0101, ");
+    sql.append("    bcategoryB0102, ");
+    sql.append("    bcategoryB0103, ");
+    sql.append("    bcategoryB0104 ");
     sql.append(" where shop_id = ? ");
 
     int updatedItemCount = jdbcTemplate.update(
@@ -246,6 +253,10 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
         coffeeShopBbs.getYnParking(),
         coffeeShopBbs.getYnAllDay(),
         coffeeShopBbs.getShopCdate(),
+        coffeeShopBbs.getBcategoryB0101(),
+        coffeeShopBbs.getBcategoryB0102(),
+        coffeeShopBbs.getBcategoryB0103(),
+        coffeeShopBbs.getBcategoryB0104(),
         shopId
     );
 
@@ -259,10 +270,12 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
 
     String sql = "select count(*) from coffeeshop";
 
+
     Integer cnt = jdbcTemplate.queryForObject(sql, Integer.class);
 
     return cnt;
   }
+
 
   @Override
   public int totalCount(CoffeeShopBbsFirterCondition coffeeShopBbsFirterCondition) {
@@ -277,15 +290,9 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
 
     Integer cnt = 0;
     //게시판 전체 검색 건수
-    if(StringUtils.isEmpty(String.valueOf(coffeeShopBbsFirterCondition.getShopId()))) {
+    if(StringUtils.isEmpty(coffeeShopBbsFirterCondition.getCategory())) {
       cnt = jdbcTemplate.queryForObject(
           sql.toString(), Integer.class
-      );
-      //게시판 분류별 검색 건수
-    }else{
-      cnt = jdbcTemplate.queryForObject(
-          sql.toString(), Integer.class,
-          coffeeShopBbsFirterCondition.getShopId()
       );
     }
 
@@ -294,21 +301,21 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
 
   private StringBuffer dynamicQuery(CoffeeShopBbsFirterCondition coffeeShopBbsFirterCondition, StringBuffer sql) {
     //분류
-    if(StringUtils.isEmpty(String.valueOf(coffeeShopBbsFirterCondition.getShopId()))){
+    if(StringUtils.isEmpty(coffeeShopBbsFirterCondition.getCategory())){
 
     }else{
       sql.append("       shop_id = ? ");
     }
 
     //분류,검색유형,검색어 존재
-    if(!StringUtils.isEmpty(String.valueOf(coffeeShopBbsFirterCondition.getShopId())) &&
+    if(!StringUtils.isEmpty(coffeeShopBbsFirterCondition.getCategory()) &&
         !StringUtils.isEmpty(coffeeShopBbsFirterCondition.getSearchType()) &&
         !StringUtils.isEmpty(coffeeShopBbsFirterCondition.getKeyword())){
 
       sql.append(" AND ");
     }
 
-    //검색유형
+//검색유형
     switch (coffeeShopBbsFirterCondition.getSearchType()){
       case "TC":  //shopId + 커피숍이름
         sql.append("    (  shop_id    like '%"+ coffeeShopBbsFirterCondition.getKeyword()+"%' ");
@@ -330,7 +337,6 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
     }
     return sql;
   }
-
 
   /**
    * 조회수 카운트
@@ -388,5 +394,4 @@ public class CoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
 
     return cnt;
   }
-
 }

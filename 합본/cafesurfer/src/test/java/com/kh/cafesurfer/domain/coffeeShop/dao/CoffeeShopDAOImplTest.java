@@ -1,6 +1,7 @@
 package com.kh.cafesurfer.domain.coffeeShop.dao;
 
 
+
 import com.kh.cafesurfer.domain.CoffeeShopBbs.dao.CoffeeShopBbs;
 import com.kh.cafesurfer.domain.CoffeeShopBbs.dao.CoffeeShopBbsDAO;
 import lombok.extern.slf4j.Slf4j;

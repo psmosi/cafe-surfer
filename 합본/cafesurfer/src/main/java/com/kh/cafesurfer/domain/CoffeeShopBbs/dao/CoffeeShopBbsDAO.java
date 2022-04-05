@@ -24,6 +24,8 @@ public interface CoffeeShopBbsDAO {
    */
   List<CoffeeShopBbs> findAll(CoffeeShopBbsFirterCondition coffeeShopBbsFirterCondition);
 
+
+
   /**
    * 상세조회
    * @param shopId 게시글번호
@@ -51,8 +53,8 @@ public interface CoffeeShopBbsDAO {
    * @return 게시글 전체건수
    */
   int totalCount();
-  int totalCount(CoffeeShopBbsFirterCondition coffeeShopBbsFirterCondition);
 
+  int totalCount(CoffeeShopBbsFirterCondition coffeeShopBbsFirterCondition);
 
   // 조회수 증가(카운트)
   Long updateViewCnt(Long shopId);

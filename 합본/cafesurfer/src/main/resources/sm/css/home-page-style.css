@@ -61,7 +61,7 @@ background:linear-gradient(to bottom, #8cc841 , #29aeec 50%);
   .location-selected{margin: 0 5px 0 3px; width: auto;}
   .location-selected-title{font-size: 13px; vertical-align: center;}
   .location-delete{width: 20px; height: 20px; background-color: #e0f7ff;  border-radius: 10px;}
-  .location-delete-btn{width: 8px; height: 8px; margin: 5px 6px 0; background-size: cover; background-image: url("../icon/icon-ex-2.png"); display: inline-block; overflow: hidden; text-indent: -20000px;   }
+  .location-delete-btn{width: 8px; height: 8px; margin: 5px 6px 0; background-size: cover; background-image: url("img/icon/icon-ex-2.png"); display: inline-block; overflow: hidden; text-indent: -20000px;   }
 
   /* search-detail-header */
   .search-detail-wrap{width: 50vw;  min-width: 500px; max-width: 650px;   padding: 0 4rem; }

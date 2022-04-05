@@ -27,6 +27,9 @@ public class CoffeeShopDetailForm {
 
   private List<MultipartFile> files;   //첨부파일
 
+  private String store_filename;  //  STORE_FILENAME	VARCHAR2(50 BYTE)
+  private String upload_filename; //  UPLOAD_FILENAME	VARCHAR2(50 BYTE)
+
 //  // 전체목록
 //  private Long shopId;                  // SHOP_ID	            NUMBER(5,0)
 //  private String shopName;              // SHOP_NAME	          NVARCHAR2(30 CHAR)

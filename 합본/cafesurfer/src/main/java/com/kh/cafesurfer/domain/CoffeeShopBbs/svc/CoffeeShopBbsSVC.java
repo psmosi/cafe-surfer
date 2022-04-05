@@ -20,10 +20,10 @@ public interface CoffeeShopBbsSVC {
     /**
      * 원글작성-첨부파일 있는경우
      * @param coffeeShopBbs
-     * @param files 첨파일
+     * @param
      * @return 게시글 번호
      */
-    Long saveOrigin(CoffeeShopBbs coffeeShopBbs, List<MultipartFile> files);
+    Long saveOrigin(CoffeeShopBbs coffeeShopBbs,List<MultipartFile> files1,List<MultipartFile> files2,List<MultipartFile> files3,List<MultipartFile> files4);
 
 
     /**
@@ -32,7 +32,6 @@ public interface CoffeeShopBbsSVC {
      */
     List<CoffeeShopBbs> findAll();
     List<CoffeeShopBbs> findAll(int startRec, int endRec);
-    List<CoffeeShopBbs> findAll(Long shopId, int startRec, int endRec);
 
     /**
      * 검색
@@ -61,22 +60,21 @@ public interface CoffeeShopBbsSVC {
      * @param coffeeShopBbs 수정내용
      * @return    수정건수
      */
-    int updateByBbsId(Long shopId, CoffeeShopBbs coffeeShopBbs);
+    int updateByBbsId( Long shopId,CoffeeShopBbs coffeeShopBbs);
 
     /**
      * 수정-첨부
-     * @param shopId 게시글 번호
+     * @param rid 게시글 번호
      * @param coffeeShopBbs 수정내용
      * @param files 첨부파일
      * @return 수정건수
      */
-    int updateByBbsId(Long shopId, CoffeeShopBbs coffeeShopBbs, List<MultipartFile> files);
+    int updateByBbsId( CoffeeShopBbs coffeeShopBbs, Long rid, List<MultipartFile> files);
 
     /**전체건수
      *
      * @return 게시글 전체건수
      */
     int totalCount();
-
     int totalCount(CoffeeShopBbsFirterCondition coffeeShopBbsFirterCondition);
   }

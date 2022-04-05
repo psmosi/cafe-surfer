@@ -29,7 +29,22 @@ public class CoffeeShopJoinForm {
   private String memberEmail;
   private String memberName;
 
-  private List<MultipartFile> files;   //첨부파일
+  private String bcategoryB0101;
+  private String bcategoryB0102;
+  private String bcategoryB0103;
+  private String bcategoryB0104;
+
+  private List<MultipartFile> files1;   //첨부파일
+  private List<MultipartFile> files2;   //첨부파일
+  private List<MultipartFile> files3;   //첨부파일
+  private List<MultipartFile> files4;   //첨부파일
+
+//  private  String bcategory;
+//  private  String gubun;                //  gubun                varchar2(11)   default 'M0101
+
+
+
+
 
 //  // 전체목록
 //  private Long shopId;                  // SHOP_ID	            NUMBER(5,0)

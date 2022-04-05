@@ -42,10 +42,10 @@
   <div class="main">
     <div class="inner main-inner">
       <main>
-        <div class="coffeeShopBbs-wrap" th:data-code="${category}">
+        <div class="coffeeShopBbs-wrap">
           <div class="coffeeShopBbs-title"><h3>게시글 보기</h3></div>
           <div class="class-body">
-            <form action="" method="post" th:object="${detailForm}">
+            <form action="" method="post" th:object="${coffeeShopDetailForm}">
               <input type="hidden" th:field="*{bbsId}">
               <div class="coffeeShopBbs-hit">
                 <span class="coffeeShopBbs-hit-content coffeeShopBbs-hit-tit">조회수</span>

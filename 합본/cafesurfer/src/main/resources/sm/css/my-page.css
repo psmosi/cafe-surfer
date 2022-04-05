@@ -47,7 +47,7 @@ body{font-family:  sans-serif, Arial,"맑은 고딕";  }
 
   .jj-icon{
     position: absolute; right: 40px; bottom: 7px;
-    width: 30px; height: 30px; background-size: cover; background-image: url("../icon/icon-heart-red.png"); display: block; overflow: hidden; text-indent: -20000px;}
+    width: 30px; height: 30px; background-size: cover; background-image: url("img/icon/icon-heart-red.png"); display: block; overflow: hidden; text-indent: -20000px;}
 
 
   .page{text-align: center; margin: 40px 0;}

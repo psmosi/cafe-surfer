@@ -33,13 +33,16 @@ public class CoffeeShopBbsSVCImpl implements CoffeeShopBbsSVC {
 
   //원글-첨부파일
   @Override
-  public Long saveOrigin(CoffeeShopBbs coffeeShopBbs, List<MultipartFile> files) {
+  public Long saveOrigin(CoffeeShopBbs coffeeShopBbs, List<MultipartFile> files1,List<MultipartFile> files2,List<MultipartFile> files3,List<MultipartFile> files4) {
 
     //1)원글 저장
     Long shopId = saveOrigin(coffeeShopBbs);
 
     //2)첨부 저장
-    uploadFileSVC.addFile(shopId,files);
+    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0101(),shopId, files1);
+    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0102(),shopId, files2);
+    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0103(),shopId, files3);
+    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0104(),shopId, files4);
 
     return shopId;
   }
@@ -65,7 +68,6 @@ public class CoffeeShopBbsSVCImpl implements CoffeeShopBbsSVC {
   @Override
   public CoffeeShopBbs findByBbsId(Long shopId) {
     CoffeeShopBbs findedItem = coffeeShopBbsDAO.findByBbsId(shopId);
-
     return findedItem;
   }
 
@@ -73,8 +75,14 @@ public class CoffeeShopBbsSVCImpl implements CoffeeShopBbsSVC {
   @Override
   public int deleteBbsId(Long shopId) {
     //1)첨부파일 삭제
-    String bcategory = String.valueOf(coffeeShopBbsDAO.findByBbsId(shopId));
-    uploadFileSVC.deleteFileByCodeWithRid(shopId);
+    String bcategoryB0101 = coffeeShopBbsDAO.findByBbsId(shopId).getBcategoryB0101();
+    String bcategoryB0102 = coffeeShopBbsDAO.findByBbsId(shopId).getBcategoryB0102();
+    String bcategoryB0103 = coffeeShopBbsDAO.findByBbsId(shopId).getBcategoryB0103();
+    String bcategoryB0104 = coffeeShopBbsDAO.findByBbsId(shopId).getBcategoryB0104();
+    uploadFileSVC.deleteFileByCodeWithRid(bcategoryB0101, shopId);
+    uploadFileSVC.deleteFileByCodeWithRid(bcategoryB0102, shopId);
+    uploadFileSVC.deleteFileByCodeWithRid(bcategoryB0103, shopId);
+    uploadFileSVC.deleteFileByCodeWithRid(bcategoryB0104, shopId);
 
     //2)게시글 삭제
     int affectedRow = coffeeShopBbsDAO.deleteBbsId(shopId);
@@ -90,21 +98,21 @@ public class CoffeeShopBbsSVCImpl implements CoffeeShopBbsSVC {
 
   //수정-첨부파일
   @Override
-  public int updateByBbsId(Long shopId, CoffeeShopBbs coffeeShopBbs, List<MultipartFile> files) {
+  public int updateByBbsId( CoffeeShopBbs coffeeShopBbs, Long rid, List<MultipartFile> files) {
 
     //1)수정
-    int affectedRow = updateByBbsId(shopId,coffeeShopBbs);
+    int affectedRow = updateByBbsId(rid, coffeeShopBbs);
 
     //2)첨부 저장
-    uploadFileSVC.addFile(shopId,files);
+    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0101(),rid,files);
+    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0102(),rid,files);
+    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0103(),rid,files);
+    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0104(),rid,files);
 
     return affectedRow;
   }
 
-  @Override
-  public List<CoffeeShopBbs> findAll(Long shopId, int startRec, int endRec) {
-    return null;
-  }
+
 
   //전체건수
   @Override
@@ -113,8 +121,11 @@ public class CoffeeShopBbsSVCImpl implements CoffeeShopBbsSVC {
   }
 
 
+
   @Override
   public int totalCount(CoffeeShopBbsFirterCondition coffeeShopBbsFirterCondition) {
     return coffeeShopBbsDAO.totalCount(coffeeShopBbsFirterCondition);
   }
+
+
 }
