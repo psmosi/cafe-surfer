@@ -13,7 +13,7 @@ public class pagingConfig {
   private static final int REC_COUNT_10_PER_PAGE = 10;
   private static final int PAGE_COUNT_10_PER_PAGE = 10;
 
-  private static final int REC_COUNT_5_PER_PAGE = 5;
+  private static final int REC_COUNT_5_PER_PAGE = 12;
   private static final int PAGE_COUNT_5_PER_PAGE = 5;
 
   @Bean
@@ -27,6 +27,11 @@ public class pagingConfig {
   }
 
   @Bean
+  public FindCriteria fc10() {
+    return new FindCriteria(rc10(),PAGE_COUNT_10_PER_PAGE);
+  }
+
+  @Bean
   public RecordCriteria rc5(){
     return new RecordCriteria(REC_COUNT_5_PER_PAGE);
   }
@@ -37,12 +42,8 @@ public class pagingConfig {
   }
 
   @Bean
-  public FindCriteria fc10() {
-    return new FindCriteria(rc10(),PAGE_COUNT_10_PER_PAGE);
-  }
-
-  @Bean
   public FindCriteria fc5() {
     return  new FindCriteria(rc5(),PAGE_COUNT_5_PER_PAGE);
   }
+
 }

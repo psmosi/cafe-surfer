@@ -32,6 +32,6 @@ function search_f(e){
             $keyword.focus(); $keyword.select(); //커서이동
             return false;
             }
-            const url = `/coffeeShopBbs/list/1/${$searchType.value}/${$keyword.value}?shopId=${shopId}`;
+            const url = `/coffeeShopBbs/list/1/${$searchType.value}/${$keyword.value}`;
             location.href= url;
 }

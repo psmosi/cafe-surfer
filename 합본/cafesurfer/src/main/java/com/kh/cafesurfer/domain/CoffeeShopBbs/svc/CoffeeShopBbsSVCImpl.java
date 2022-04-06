@@ -98,16 +98,16 @@ public class CoffeeShopBbsSVCImpl implements CoffeeShopBbsSVC {
 
   //수정-첨부파일
   @Override
-  public int updateByBbsId( CoffeeShopBbs coffeeShopBbs, Long rid, List<MultipartFile> files) {
+  public int updateByBbsId( CoffeeShopBbs coffeeShopBbs, Long rid, List<MultipartFile> files1,List<MultipartFile> files2,List<MultipartFile> files3,List<MultipartFile> files4) {
 
     //1)수정
     int affectedRow = updateByBbsId(rid, coffeeShopBbs);
 
     //2)첨부 저장
-    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0101(),rid,files);
-    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0102(),rid,files);
-    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0103(),rid,files);
-    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0104(),rid,files);
+    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0101(),rid,files1);
+    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0102(),rid,files2);
+    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0103(),rid,files3);
+    uploadFileSVC.addFile(coffeeShopBbs.getBcategoryB0104(),rid,files4);
 
     return affectedRow;
   }

@@ -24,17 +24,6 @@ public class MainController {
     return view;
   }
 
-//  @RequestMapping("/cotentItem")
-//  public String cotentItem(HttpServletRequest request){
-//
-//    log.info("info={}","main()호출됨");
-//
-//
-//    String view = null;
-//    HttpSession session = request.getSession(false);
-//    view = (session == null) ? "contentBeforeLogin" : "contentAfterLogin" ;
-//
-//    return view;
-//  }
+
 
 }

@@ -10,7 +10,6 @@ import com.kh.cafesurfer.domain.common.file.svc.UploadFileSVC;
 import com.kh.cafesurfer.domain.common.paging.FindCriteria;
 import com.kh.cafesurfer.web.form.coffeShop.*;
 import com.kh.cafesurfer.web.form.login.LoginMemberShip;
-import com.kh.cafesurfer.web.form.review.ListForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -25,6 +24,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.IOException;
@@ -41,12 +41,13 @@ public class CoffeeShopBbsController {
   private final CodeDAO codeDAO;
   private final UploadFileSVC uploadFileSVC;
 
-  //성별
+
   @ModelAttribute("ynParking")
   public ynParking[] ynParking(){
 
     return ynParking.values();
-  }  //성별
+  }
+
   @ModelAttribute("ynAllDay")
   public ynAllDay[] ynAllDay(){
 
@@ -54,7 +55,7 @@ public class CoffeeShopBbsController {
   }
 
   @Autowired
-  @Qualifier("fc10") //동일한 타입의 객체가 여러개있을때 빈이름을 명시적으로 지정해서 주입받을때
+  @Qualifier("fc5") //동일한 타입의 객체가 여러개있을때 빈이름을 명시적으로 지정해서 주입받을때
   private FindCriteria fc;
 
   //게시판 코드,디코드 가져오기
@@ -88,7 +89,7 @@ public class CoffeeShopBbsController {
     coffeeShopJoinForm.setMemberName(loginMember.getMemberName());
     model.addAttribute("coffeeShopJoinForm", coffeeShopJoinForm);
 
-    return "coffeeShopBbs/addForm";
+    return "shopAdd";
   }
 
   //작성처리
@@ -104,7 +105,7 @@ public class CoffeeShopBbsController {
 //     유효성체크 로직
     if (bindingResult.hasErrors()) {
       log.info("add/bindingResult={}", bindingResult);
-      return "coffeeShopBbs/addForm";
+      return "shopAdd";
     }
 
     CoffeeShopBbs coffeeShopBbs = new CoffeeShopBbs();
@@ -119,44 +120,20 @@ public class CoffeeShopBbsController {
     coffeeShopBbs.setMemberEmail(loginMember.getMemberEmail());
     coffeeShopBbs.setMemberName(loginMember.getMemberName());
 
-    Long originId1 = 0l;
-//    Long originId2 = 0l;
-//    Long originId3 = 0l;
-//    Long originId4 = 0l;
-    //파일첨부유무
-    if (coffeeShopJoinForm.getFiles1().size() == 0) {
-      originId1 = coffeeShopBbsSVC.saveOrigin(coffeeShopBbs);
-    } else {
-      originId1 = coffeeShopBbsSVC.saveOrigin(coffeeShopBbs, coffeeShopJoinForm.getFiles1(),coffeeShopJoinForm.getFiles2(),coffeeShopJoinForm.getFiles3(),coffeeShopJoinForm.getFiles4());
-    }
-    redirectAttributes.addAttribute("originId1", originId1);
+    Long originId = 0l;
 
-//    if (coffeeShopJoinForm.getFiles2().size() == 0) {
-//      originId2 = coffeeShopBbsSVC.saveOrigin(coffeeShopBbs);
-//    } else {
-//      originId2 = coffeeShopBbsSVC.saveOrigin(coffeeShopBbs, coffeeShopJoinForm.getFiles2());
-//    }
-//    redirectAttributes.addAttribute("originId2", originId2);
-//
-//    if (coffeeShopJoinForm.getFiles3().size() == 0) {
-//      originId3 = coffeeShopBbsSVC.saveOrigin(coffeeShopBbs);
-//    } else {
-//      originId3 = coffeeShopBbsSVC.saveOrigin(coffeeShopBbs, coffeeShopJoinForm.getFiles3());
-//    }
-//    redirectAttributes.addAttribute("originId3", originId3);
-//
-//    if (coffeeShopJoinForm.getFiles4().size() == 0) {
-//      originId4 = coffeeShopBbsSVC.saveOrigin(coffeeShopBbs);
-//    } else {
-//      originId4 = coffeeShopBbsSVC.saveOrigin(coffeeShopBbs, coffeeShopJoinForm.getFiles4());
-//    }
-//    redirectAttributes.addAttribute("originId4", originId4);
+    //파일첨부유무
+    if (coffeeShopJoinForm.getFiles1().size() == 0 || coffeeShopJoinForm.getFiles2().size() == 0 || coffeeShopJoinForm.getFiles3().size() == 0 || coffeeShopJoinForm.getFiles4().size() == 0) {
+      originId = coffeeShopBbsSVC.saveOrigin(coffeeShopBbs);
+    } else {
+      originId = coffeeShopBbsSVC.saveOrigin(coffeeShopBbs, coffeeShopJoinForm.getFiles1(),coffeeShopJoinForm.getFiles2(),coffeeShopJoinForm.getFiles3(),coffeeShopJoinForm.getFiles4());
+    }
+    redirectAttributes.addAttribute("originId", originId);
 
 //     <= 서버응답 302 get http://서버:port/bbs/10
 //     => 클라이언트요청 get http://서버:port/bbs/10
-    return "redirect:/coffeeShopBbs/{originId1}";
+    return "redirect:/coffeeShopBbs/{originId}";
   }
-
 
   @GetMapping({"/list",
       "/list/{reqPage}",
@@ -166,9 +143,9 @@ public class CoffeeShopBbsController {
       @PathVariable(required = false) Optional<Integer> reqPage,
       @PathVariable(required = false) Optional<String> searchType,
       @PathVariable(required = false) Optional<String> keyword,
+      HttpServletRequest request,
       Model model) {
-    log.info("/list 요청됨{},{},{},{}",reqPage,searchType,keyword);
-
+    log.info("/list 요청됨{},{},{}",reqPage,searchType,keyword);
 
     //FindCriteria 값 설정
     fc.getRc().setReqPage(reqPage.orElse(1)); //요청페이지, 요청없으면 1
@@ -177,11 +154,10 @@ public class CoffeeShopBbsController {
 
     List<CoffeeShopBbs> list = null;
 
-
       //검색어 있음
       if(searchType.isPresent() && keyword.isPresent()){
         CoffeeShopBbsFirterCondition coffeeShopBbsFirterCondition = new CoffeeShopBbsFirterCondition(
-            "",fc.getRc().getStartRec(), fc.getRc().getEndRec(),
+            fc.getRc().getStartRec(), fc.getRc().getEndRec(),
             searchType.get(),
             keyword.get());
         fc.setTotalRec(coffeeShopBbsSVC.totalCount(coffeeShopBbsFirterCondition));
@@ -196,19 +172,31 @@ public class CoffeeShopBbsController {
         list = coffeeShopBbsSVC.findAll(fc.getRc().getStartRec(), fc.getRc().getEndRec());
       }
 
-
-
-    List<ListForm> partOfList = new ArrayList<>();
+    List<CoffeeShopListForm> partOfList = new ArrayList<>();
     for (CoffeeShopBbs coffeeShopBbs : list) {
-      ListForm listForm = new ListForm();
-      BeanUtils.copyProperties(coffeeShopBbs, listForm);
-      partOfList.add(listForm);
+      CoffeeShopListForm coffeeShopListForm = new CoffeeShopListForm();
+      BeanUtils.copyProperties(coffeeShopBbs, coffeeShopListForm);
+      partOfList.add(coffeeShopListForm);
     }
 
     model.addAttribute("list", partOfList);
     model.addAttribute("fc",fc);
 
-    return "coffeeShopBbs/list";
+    HttpSession session = request.getSession(false);
+    if (session != null) {
+      LoginMemberShip loginMemberShip = (LoginMemberShip) session.getAttribute(SessionConst.LOGIN_MEMBER);
+      if(loginMemberShip.getMemberEmail().equals("admin@kh.com")) {
+        return "coffeeShopBbs/list";
+      }
+      return "mainAfterLogin";
+    } else {
+      return "mainBeforeLogin";
+    }
+
+
+//    return "coffeeShopBbs/list";
+//    return "mainAfterLogin";
+//    return "mainBeforeLogin";
   }
 
 
@@ -271,7 +259,7 @@ public class CoffeeShopBbsController {
   public String del(@PathVariable Long shopId) {
 
     coffeeShopBbsSVC.deleteBbsId(shopId);
-    return "redirect:/coffeeShopBbs/list";
+    return "mainBeforeLogin";
   }
 
   //수정양식
@@ -282,11 +270,11 @@ public class CoffeeShopBbsController {
 
     CoffeeShopBbs coffeeShopBbs = coffeeShopBbsSVC.findByBbsId(shopId);
 
-    CoffeeShopModifyForm editForm = new CoffeeShopModifyForm();
-    BeanUtils.copyProperties(coffeeShopBbs, editForm);
-    model.addAttribute("editForm", editForm);
+    CoffeeShopModifyForm coffeeShopModifyForm = new CoffeeShopModifyForm();
+    BeanUtils.copyProperties(coffeeShopBbs, coffeeShopModifyForm);
+    model.addAttribute("coffeeShopModifyForm", coffeeShopModifyForm);
 
-    log.info("editForm={}", editForm);
+    log.info("coffeeShopModifyForm={}", coffeeShopModifyForm);
 //    //첨부조회
 //    List<UploadFile> attachFiles = uploadFileSVC.getFilesByCodeWithRid(coffeeShopBbs.getBcategory(), coffeeShopBbs.getShopId());
 //    if (attachFiles.size() > 0) {
@@ -310,7 +298,7 @@ public class CoffeeShopBbsController {
       model.addAttribute("attachFiles4", attachFiles4);
     }
 
-    return "coffeeShopBbs/editForm";
+    return "shopModify";
   }
 
   //수정처리
@@ -322,16 +310,16 @@ public class CoffeeShopBbsController {
       RedirectAttributes redirectAttributes
   ) {
     if (bindingResult.hasErrors()) {
-      return "coffeeShopBbs/editForm";
+      return "shopModify";
     }
     CoffeeShopBbs coffeeShopBbs = new CoffeeShopBbs();
     BeanUtils.copyProperties(coffeeShopModifyForm, coffeeShopBbs);
     coffeeShopBbsSVC.updateByBbsId(shopId, coffeeShopBbs );
 
-    if (coffeeShopModifyForm.getFiles().size() == 0) {
+    if (coffeeShopModifyForm.getFiles1().size() == 0 || coffeeShopModifyForm.getFiles2().size() == 0 || coffeeShopModifyForm.getFiles3().size() == 0 || coffeeShopModifyForm.getFiles4().size() == 0) {
       coffeeShopBbsSVC.updateByBbsId(shopId, coffeeShopBbs);
     } else {
-      coffeeShopBbsSVC.updateByBbsId( coffeeShopBbs,shopId, coffeeShopModifyForm.getFiles());
+      coffeeShopBbsSVC.updateByBbsId( coffeeShopBbs,shopId, coffeeShopModifyForm.getFiles1(), coffeeShopModifyForm.getFiles2(), coffeeShopModifyForm.getFiles3(), coffeeShopModifyForm.getFiles4());
     }
     redirectAttributes.addAttribute("shopId", shopId);
     return "redirect:/coffeeShopBbs/{shopId}";

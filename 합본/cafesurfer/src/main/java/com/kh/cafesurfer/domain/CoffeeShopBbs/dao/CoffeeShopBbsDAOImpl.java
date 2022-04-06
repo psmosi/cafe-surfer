@@ -9,7 +9,6 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
-import org.thymeleaf.util.StringUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,7 +19,7 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor
 
-public class CoffeeShopCoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
+public class CoffeeShopBbsDAOImpl implements CoffeeShopBbsDAO {
 
   private final JdbcTemplate jdbcTemplate;
 
@@ -148,23 +147,13 @@ public class CoffeeShopCoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDA
     List<CoffeeShopBbs> list = null;
 
     //게시판 전체
-    if (StringUtils.isEmpty(coffeeShopBbsFirterCondition.getCategory())) {
+
       list = jdbcTemplate.query(
           sql.toString(),
           new BeanPropertyRowMapper<>(CoffeeShopBbs.class),
           coffeeShopBbsFirterCondition.getStartRec(),
           coffeeShopBbsFirterCondition.getEndRec()
       );
-      //게시판 분류
-    } else {
-      list = jdbcTemplate.query(
-          sql.toString(),
-          new BeanPropertyRowMapper<>(CoffeeShopBbs.class),
-          coffeeShopBbsFirterCondition.getCategory(),
-          coffeeShopBbsFirterCondition.getStartRec(),
-          coffeeShopBbsFirterCondition.getEndRec()
-      );
-    }
 
 
     return list;
@@ -225,34 +214,25 @@ public class CoffeeShopCoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDA
     StringBuffer sql = new StringBuffer();
 
     sql.append(" update coffeeshop ");
-    sql.append(" set shop_id = ?, ");
-    sql.append("    shop_name, ");
-    sql.append("    shop_address, ");
-    sql.append("    shop_tel, ");
-    sql.append("    view_count, ");
-    sql.append("    shop_bookmark_count, ");
-    sql.append("    shop_review_count, ");
-    sql.append("    parking, ");
-    sql.append("    allday, ");
-    sql.append("    shop_cdate, ");
-    sql.append("    bcategoryB0101, ");
-    sql.append("    bcategoryB0102, ");
-    sql.append("    bcategoryB0103, ");
-    sql.append("    bcategoryB0104 ");
+    sql.append(" set  ");
+    sql.append("    shop_name =?, ");
+    sql.append("    shop_address =?, ");
+    sql.append("    shop_tel =?, ");
+    sql.append("    parking =?, ");
+    sql.append("    allday =?, ");
+    sql.append("    bcategoryB0101 =?, ");
+    sql.append("    bcategoryB0102 =?, ");
+    sql.append("    bcategoryB0103 =?, ");
+    sql.append("    bcategoryB0104 =?  ");
     sql.append(" where shop_id = ? ");
 
     int updatedItemCount = jdbcTemplate.update(
         sql.toString(),
-        coffeeShopBbs.getShopId(),
         coffeeShopBbs.getShopName(),
         coffeeShopBbs.getShopAddress(),
         coffeeShopBbs.getShopTel(),
-        coffeeShopBbs.getViewCnt(),
-        coffeeShopBbs.getShopBookmarkCnt(),
-        coffeeShopBbs.getShopReviewCnt(),
         coffeeShopBbs.getYnParking(),
         coffeeShopBbs.getYnAllDay(),
-        coffeeShopBbs.getShopCdate(),
         coffeeShopBbs.getBcategoryB0101(),
         coffeeShopBbs.getBcategoryB0102(),
         coffeeShopBbs.getBcategoryB0103(),
@@ -290,48 +270,34 @@ public class CoffeeShopCoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDA
 
     Integer cnt = 0;
     //게시판 전체 검색 건수
-    if(StringUtils.isEmpty(coffeeShopBbsFirterCondition.getCategory())) {
+
       cnt = jdbcTemplate.queryForObject(
           sql.toString(), Integer.class
       );
-    }
+
 
     return cnt;
   }
 
   private StringBuffer dynamicQuery(CoffeeShopBbsFirterCondition coffeeShopBbsFirterCondition, StringBuffer sql) {
-    //분류
-    if(StringUtils.isEmpty(coffeeShopBbsFirterCondition.getCategory())){
-
-    }else{
-      sql.append("       shop_id = ? ");
-    }
-
-    //분류,검색유형,검색어 존재
-    if(!StringUtils.isEmpty(coffeeShopBbsFirterCondition.getCategory()) &&
-        !StringUtils.isEmpty(coffeeShopBbsFirterCondition.getSearchType()) &&
-        !StringUtils.isEmpty(coffeeShopBbsFirterCondition.getKeyword())){
-
-      sql.append(" AND ");
-    }
 
 //검색유형
     switch (coffeeShopBbsFirterCondition.getSearchType()){
-      case "TC":  //shopId + 커피숍이름
-        sql.append("    (  shop_id    like '%"+ coffeeShopBbsFirterCondition.getKeyword()+"%' ");
-        sql.append("    or shop_name like '%"+ coffeeShopBbsFirterCondition.getKeyword()+"%' )");
+      case "TC":  //커피숍이름 + 주소
+        sql.append("    (  SHOP_NAME    like '%"+ coffeeShopBbsFirterCondition.getKeyword()+"%' ");
+        sql.append("    or SHOP_ADDRESS like '%"+ coffeeShopBbsFirterCondition.getKeyword()+"%' )");
         break;
-      case "T":   //shopId
-        sql.append("       shop_id    like '%"+ coffeeShopBbsFirterCondition.getKeyword()+"%' ");
+      case "T":   //커피숍이름
+        sql.append("       SHOP_NAME    like '%"+ coffeeShopBbsFirterCondition.getKeyword()+"%' ");
         break;
-      case "C":   //커피숍이름
-        sql.append("       shop_name like '%"+ coffeeShopBbsFirterCondition.getKeyword()+"%' ");
+      case "C":   //주소
+        sql.append("       SHOP_ADDRESS like '%"+ coffeeShopBbsFirterCondition.getKeyword()+"%' ");
         break;
-      case "E":   //커피숍 주소
-        sql.append("       shop_address    like '%"+ coffeeShopBbsFirterCondition.getKeyword()+"%' ");
+      case "E":   //커피숍 전화번호
+        sql.append("       SHOP_TEL    like '%"+ coffeeShopBbsFirterCondition.getKeyword()+"%' ");
         break;
       case "N":   //키피숍 전화번호
-        sql.append("       shop_tel like '%"+ coffeeShopBbsFirterCondition.getKeyword()+"%' ");
+        sql.append("       SHOP_TEL    like '%"+ coffeeShopBbsFirterCondition.getKeyword()+"%' ");
         break;
       default:
     }
@@ -394,4 +360,6 @@ public class CoffeeShopCoffeeShopCoffeeShopBbsDAOImpl implements CoffeeShopBbsDA
 
     return cnt;
   }
+
+
 }

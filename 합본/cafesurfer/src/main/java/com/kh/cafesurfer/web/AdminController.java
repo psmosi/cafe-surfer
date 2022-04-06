@@ -1,6 +1,7 @@
 package com.kh.cafesurfer.web;
 
 
+import com.kh.cafesurfer.domain.CoffeeShopBbs.svc.CoffeeShopBbsSVC;
 import com.kh.cafesurfer.domain.memberShip.MemberShip;
 import com.kh.cafesurfer.domain.memberShip.svc.MemberShipSVC;
 import com.kh.cafesurfer.web.form.memberShip.DetailForm;
@@ -24,7 +25,7 @@ import java.util.List;
 public class AdminController {
 
   private final MemberShipSVC memberShipSVC;
-
+  private final CoffeeShopBbsSVC coffeeShopBbsSVC;
   //성별
   @ModelAttribute("memberGender")
   public MemberGender[] gender(){
@@ -47,6 +48,17 @@ public class AdminController {
 
     return "admin/member/members";
   }
+//
+//  //커피숍 전체조회
+//  @GetMapping("/coffeeShops")
+//  public String CoffeeShops(Model model){
+//
+//
+//    List<CoffeeShopBbs> coffeeShopAll = coffeeShopBbsSVC.findAll();
+//    model.addAttribute("coffeeShopAll", coffeeShopAll);
+//
+//    return "coffeeShopBbs/list";
+//  }
 
   @GetMapping("/apimembers")
   public String apiMembers(){

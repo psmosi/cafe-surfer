@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 
-<!--copyParam(title,styles,scripts,style,script,upm,header,nav,main,footer)   &lt;!&ndash;1) 순서를 지켜서 넣거나, 2) 파라미터 이름과 값을 일치시키면 됨&ndash;&gt;-->
-
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       th:replace="~{fragment/shopAdd::shopAdd(
@@ -23,25 +21,13 @@
   <title>커피숍 등록</title>
 
 <!--  <link rel="stylesheet" href="" th:href="@{/css/common.css}">-->
-
+  <script defer src="" th:src="@{/js/common/ckeditor.js}"></script>
+  <script defer src="" th:src="@{/js/coffeeShopBbs/addForm.js}"></script>
 
   <script defer src="" th:src="@{/js/homeJs/afterDetailChk.js}"></script>
   <script defer src="" th:src="@{/js/homeJs/afterArea.js}"></script>
   <script defer src="" th:src="@{/js/homeJs/afterHashtagbox.js}"></script>
   <script defer src="" th:src="@{/js/homeJs/afterReset.js}"></script>
-
-<!--  <script defer type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=410b3a83564f0bac127be038fded443b"></script>-->
-<!--  <script defer>-->
-<!--      var mapContainer = document.getElementById('map'), // 지도를 표시할 div-->
-<!--      mapOption = {-->
-<!--        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표-->
-<!--        level: 3, // 지도의 확대 레벨-->
-<!--      };-->
-
-<!--      // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다-->
-<!--      var map = new kakao.maps.Map(mapContainer, mapOption);-->
-<!--    </script>-->
-
 
 </head>
 <body>
@@ -58,7 +44,8 @@
     </div>
     <div class="gnb">
       <div class="inner gnb-inner">
-        <nav th:replace="~{fragment/mypageSide::mypageSide}"></nav>
+        <nav></nav>
+<!--        <nav th:replace="~{fragment/mypageSide::mypageSide}"></nav>-->
       </div>
     </div>
     <div class="main">

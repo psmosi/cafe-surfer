@@ -10,293 +10,81 @@
 
 <body>
 <main th:fragment="mainList">
+<!--  <div class="inner main-inner" th:data-code="${shopId}">-->
+
+    <div class="shop-list-wrap">
+      <div class="shop-list-box">
+        <ul class="shops-box">
 
 
-  <div class="shop-list-wrap">
-    <div class="shop-list-box">
-      <ul class="shops-box">
-        <li class="shop-each">
-          <div class="shop-container">
-            <div class="shop-container-util shop-each_img shop-img-rd ">
+          <li class="shop-each" th:each="item : ${list}">
+            <div class="shop-container">
+              <div class="shop-container-util shop-each_img shop-img-rd ">
+<!--       <img th:src="@{|/attach/*{shopId}/B0101/${uploadFile.store_filename}|}"/>-->
+              </div>
+              <div class="shop-container-util shop-each_title">
+                <span><a href="" th:href="@{/coffeeShopBbs/{shopId}(shopId=${item.shopId})}" th:text="${item.shopName}">커피숍이름</a></span>
+              </div>
+              <div class="shop-container-util shop-each_hashtag">
+                <ul>
+                  <li class="shop-hashtag-rep rep1">
+                    <div>
+                      <span>#콜드브루</span>
+                      <span>#울산중구</span>
+                    </div>
+                  </li>
+                  <br>
+                  <li class="shop-hashtag-rep rep2">
+                    <div>
+                      <span>#포근함</span>
+                      <span>#공원뷰</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
 
-              <img src="../cafeImg/001-스타벅스-울산국가정원점/coffeshop_screenshot/img3.png" alt="">
-            </div>
-            <div class="shop-container-util shop-each_title">
-              <span>스타벅스 울산 국가정원점</span>
-            </div>
-            <div class="shop-container-util shop-each_hashtag">
-              <ul>
-                <li class="shop-hashtag-rep rep1">
-                  <div>
-                    <span>#콜드브루</span>
-                    <span>#울산중구</span>
-                  </div>
-                </li>
-                <br>
-                <li class="shop-hashtag-rep rep2">
-                  <div>
-                    <span>#포근함</span>
-                    <span>#공원뷰</span>
-                  </div>
-                </li>
 
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li class="shop-each">
-          <div class="shop-container">
-            <div class="shop-container-util shop-each_img shop-img-rd ">
 
-              <img src="../cafeImg/001-스타벅스-울산국가정원점/coffeshop_screenshot/img3.png" alt="">
-            </div>
-            <div class="shop-container-util shop-each_title">
-              <span>스타벅스 울산 국가정원점</span>
-            </div>
-            <div class="shop-container-util shop-each_hashtag">
-              <ul>
-                <li class="shop-hashtag-rep rep1">
-                  <div>
-                    <span>#콜드브루</span>
-                    <span>#울산중구</span>
-                  </div>
-                </li>
-                <br>
-                <li class="shop-hashtag-rep rep2">
-                  <div>
-                    <span>#포근함</span>
-                    <span>#공원뷰</span>
-                  </div>
-                </li>
 
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li class="shop-each">
-          <div class="shop-container">
-            <div class="shop-container-util shop-each_img shop-img-rd ">
+        </ul>
 
-              <img src="../cafeImg/001-스타벅스-울산국가정원점/coffeshop_screenshot/img3.png" alt="">
-            </div>
-            <div class="shop-container-util shop-each_title">
-              <span>스타벅스 울산 국가정원점</span>
-            </div>
-            <div class="shop-container-util shop-each_hashtag">
-              <ul>
-                <li class="shop-hashtag-rep rep1">
-                  <div>
-                    <span>#콜드브루</span>
-                    <span>#울산중구</span>
-                  </div>
-                </li>
-                <br>
-                <li class="shop-hashtag-rep rep2">
-                  <div>
-                    <span>#포근함</span>
-                    <span>#공원뷰</span>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li class="shop-each">
-          <div class="shop-container">
-            <div class="shop-container-util shop-each_img shop-img-rd ">
-
-              <img src="../cafeImg/001-스타벅스-울산국가정원점/coffeshop_screenshot/img3.png" alt="">
-            </div>
-            <div class="shop-container-util shop-each_title">
-              <span>스타벅스 울산 국가정원점</span>
-            </div>
-            <div class="shop-container-util shop-each_hashtag">
-              <ul>
-                <li class="shop-hashtag-rep rep1">
-                  <div>
-                    <span>#콜드브루</span>
-                    <span>#울산중구</span>
-                  </div>
-                </li>
-                <br>
-                <li class="shop-hashtag-rep rep2">
-                  <div>
-                    <span>#포근함</span>
-                    <span>#공원뷰</span>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li class="shop-each">
-          <div class="shop-container">
-            <div class="shop-container-util shop-each_img shop-img-rd ">
-
-              <img src="../cafeImg/001-스타벅스-울산국가정원점/coffeshop_screenshot/img3.png" alt="">
-            </div>
-            <div class="shop-container-util shop-each_title">
-              <span>스타벅스 울산 국가정원점</span>
-            </div>
-            <div class="shop-container-util shop-each_hashtag">
-              <ul>
-                <li class="shop-hashtag-rep rep1">
-                  <div>
-                    <span>#콜드브루</span>
-                    <span>#울산중구</span>
-                  </div>
-                </li>
-                <br>
-                <li class="shop-hashtag-rep rep2">
-                  <div>
-                    <span>#포근함</span>
-                    <span>#공원뷰</span>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li class="shop-each">
-          <div class="shop-container">
-            <div class="shop-container-util shop-each_img shop-img-rd ">
-
-              <img src="../cafeImg/001-스타벅스-울산국가정원점/coffeshop_screenshot/img3.png" alt="">
-            </div>
-            <div class="shop-container-util shop-each_title">
-              <span>스타벅스 울산 국가정원점</span>
-            </div>
-            <div class="shop-container-util shop-each_hashtag">
-              <ul>
-                <li class="shop-hashtag-rep rep1">
-                  <div>
-                    <span>#콜드브루</span>
-                    <span>#울산중구</span>
-                  </div>
-                </li>
-                <br>
-                <li class="shop-hashtag-rep rep2">
-                  <div>
-                    <span>#포근함</span>
-                    <span>#공원뷰</span>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li class="shop-each">
-          <div class="shop-container">
-            <div class="shop-container-util shop-each_img shop-img-rd ">
-
-              <img src="../cafeImg/001-스타벅스-울산국가정원점/coffeshop_screenshot/img3.png" alt="">
-            </div>
-            <div class="shop-container-util shop-each_title">
-              <span>스타벅스 울산 국가정원점</span>
-            </div>
-            <div class="shop-container-util shop-each_hashtag">
-              <ul>
-                <li class="shop-hashtag-rep rep1">
-                  <div>
-                    <span>#콜드브루</span>
-                    <span>#울산중구</span>
-                  </div>
-                </li>
-                <br>
-                <li class="shop-hashtag-rep rep2">
-                  <div>
-                    <span>#포근함</span>
-                    <span>#공원뷰</span>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li class="shop-each">
-          <div class="shop-container">
-            <div class="shop-container-util shop-each_img shop-img-rd ">
-
-              <img src="../cafeImg/001-스타벅스-울산국가정원점/coffeshop_screenshot/img3.png" alt="">
-            </div>
-            <div class="shop-container-util shop-each_title">
-              <span>스타벅스 울산 국가정원점</span>
-            </div>
-            <div class="shop-container-util shop-each_hashtag">
-              <ul>
-                <li class="shop-hashtag-rep rep1">
-                  <div>
-                    <span>#콜드브루</span>
-                    <span>#울산중구</span>
-                  </div>
-                </li>
-                <br>
-                <li class="shop-hashtag-rep rep2">
-                  <div>
-                    <span>#포근함</span>
-                    <span>#공원뷰</span>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li class="shop-each">
-          <div class="shop-container">
-            <div class="shop-container-util shop-each_img shop-img-rd ">
-
-              <img src="../cafeImg/001-스타벅스-울산국가정원점/coffeshop_screenshot/img3.png" alt="">
-            </div>
-            <div class="shop-container-util shop-each_title">
-              <span>스타벅스 울산 국가정원점</span>
-            </div>
-            <div class="shop-container-util shop-each_hashtag">
-              <ul>
-                <li class="shop-hashtag-rep rep1">
-                  <div>
-                    <span>#콜드브루</span>
-                    <span>#울산중구</span>
-                  </div>
-                </li>
-                <br>
-                <li class="shop-hashtag-rep rep2">
-                  <div>
-                    <span>#포근함</span>
-                    <span>#공원뷰</span>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-          </div>
-        </li>
-
-      </ul>
+      </div>
     </div>
+  <div class="coffeeShopBbs-page page" >
+    <!--              이전페이지 정보-->
+    <th:block th:if="${fc.prev}">
+      <a class="coffeeShopBbs-page-item" href=""
+         th:href="@{/coffeeShopBbs/list/1/{searchType}/{keyword}(searchType=${fc.searchType},keyword=${fc.keyword})}">
+        <i class="fas fa-angle-double-left"></i>
+      </a>
+      <a class="coffeeShopBbs-page-item" href=""
+         th:href="@{/coffeeShopBbs/list/{reqPage}/{searchType}/{keyword}(reqPage=${fc.startPage-1},searchType=${fc.searchType},keyword=${fc.keyword})}">
+        <i class="fas fa-angle-left"></i>
+      </a>
+    </th:block>
+    <!--              페이지표시-->
+    <th:block th:each="pnum : ${#numbers.sequence(fc.startPage,fc.endPage)}">
+      <th:block th:if="${pnum != 0}">
+        <a class="coffeeShopBbs-page-item" th:classappend="${fc.rc.reqPage == pnum} ? 'active'" href=""
+           th:href="@{/coffeeShopBbs/list/{reqPage}/{searchType}/{keyword}(reqPage=${pnum},searchType=${fc.searchType},keyword=${fc.keyword})}"
+           th:text="${pnum}">1</a>
+      </th:block>
+    </th:block>
+    <!--                다음페이지정보-->
+    <th:block th:if="${fc.next}">
+      <a class="coffeeShopBbs-page-item" href=""
+         th:href="@{/coffeeShopBbs/list/{reqPage}/{searchType}/{keyword}(reqPage=${fc.endPage+1},searchType=${fc.searchType},keyword=${fc.keyword})}">
+        <i class="fas fa-angle-right"></i>
+      </a>
+      <a class="coffeeShopBbs-page-item" href=""
+         th:href="@{/coffeeShopBbs/list/{reqPage}/{searchType}/{keyword}(reqPage=${fc.finalEndPage},searchType=${fc.searchType},keyword=${fc.keyword})}">
+        <i class="fas fa-angle-double-right"></i>
+      </a>
+    </th:block>
   </div>
-  <div class="page">
-    <!-- <div class="pp1"></div>
-    <div class="pp1"></div>
-    <div class="pp1"></div>
-    <div class="pp1"></div>
-    <div class="pp1"></div> -->
-    <a href="javascript:void(0)"><<</a>
-    <a href="javascript:void(0)"><</a>
-    <a href="javascript:void(0)">1</a>
-    <a href="javascript:void(0)">2</a>
-    <a href="javascript:void(0)">3</a>
-    <a href="javascript:void(0)">4</a>
-    <a href="javascript:void(0)">5</a>
-    <a href="javascript:void(0)">></a>
-    <a href="javascript:void(0)">>></a>
   </div>
-
 </main>
 </body>
 </html>

@@ -66,10 +66,10 @@ public interface CoffeeShopBbsSVC {
      * 수정-첨부
      * @param rid 게시글 번호
      * @param coffeeShopBbs 수정내용
-     * @param files 첨부파일
+     * @param
      * @return 수정건수
      */
-    int updateByBbsId( CoffeeShopBbs coffeeShopBbs, Long rid, List<MultipartFile> files);
+    int updateByBbsId( CoffeeShopBbs coffeeShopBbs, Long rid, List<MultipartFile> files1,List<MultipartFile> files2,List<MultipartFile> files3,List<MultipartFile> files4);
 
     /**전체건수
      *
@@ -77,4 +77,7 @@ public interface CoffeeShopBbsSVC {
      */
     int totalCount();
     int totalCount(CoffeeShopBbsFirterCondition coffeeShopBbsFirterCondition);
+
+
+
   }

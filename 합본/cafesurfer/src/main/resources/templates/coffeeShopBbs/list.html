@@ -61,7 +61,7 @@
                 <tr th:each="item : ${list}">
                   <td th:text="${item.shopId}">커피숍번호</td>
                   <td>
-                    <a href="" th:href="@{/coffeeShopBbs/{shopId}(shopId=${item.shopId})}" th:text="${item.shopName}">제목</a>
+                    <a href="" th:href="@{/coffeeShopBbs/{shopId}/edit(shopId=${item.shopId})}" th:text="${item.shopName}">커피숍이름</a>
                   </td>
                   <td th:text="${item.shopAddress}">커피숍주소</td>
                   <td th:text="${item.shopTel}">전화번호</td>
@@ -110,11 +110,11 @@
 
             <div class="coffeeShopBbs-search">
               <select name="searchType" id="searchType" th:field="${fc.searchType}">
-                <option th:value="TC" value="">제목+내용</option>
-                <option th:value="T" value="">제목</option>
-                <option th:value="C" value="">내용</option>
-                <option th:value="E" value="">아이디</option>
-                <option th:value="N" value="">별칭</option>
+                <option th:value="TC" value="">커피숍이름+주소</option>
+                <option th:value="T" value="">커피숍이름</option>
+                <option th:value="C" value="">주소</option>
+                <option th:value="E" value="">전화번호</option>
+                <option th:value="N" value="">전화번호</option>
               </select>
               <input type="text" id="keyword" name="keyword" th:field="${fc.keyword}">
               <button id="searchBtn">검색</button>

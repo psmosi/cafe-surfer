@@ -64,4 +64,5 @@ public interface CoffeeShopBbsDAO {
 
   // 리뷰수 증가(카운트)
   Long updateShopReviewCnt(Long shopId);
+
 }
