@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragment/main2::main2(
+        ~{::title},       <!--/* title */-->
+        ~{::link},              <!--/* styles */-->
+        ~{::script},              <!--/* scripts */-->
+        ~{},       <!--/* style */-->
+        ~{},      <!--/* script */-->
+        ~{::.upm-inner},  <!--/* upm */-->
+        ~{},              <!--/* header */-->
+        ~{::nav},         <!--/* nav */-->
+        ~{::main},        <!--/* main */-->
+        _                 <!--/* footer default*/-->
+      )}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>등록된 커피숍 목록</title>
+  <link rel="stylesheet" href="" th:href="@{/css/coffeeShop/list.css}">
+  <script defer src="" th:src="@{/js/common/ckeditor.js}"></script>
+  <script defer src="" th:src="@{/js/coffeeShop/list.js}"></script>
+</head>
+<body>
+<div class="global-wrap">
+  <div class="upm">
+    <div class="inner upm-inner">
+      <th:block th:replace="~{fragment/uppermost2::afterLoginUpm}"></th:block>
+    </div>
+  </div>
+  <div class="hdr">
+    <div class="inner hdr-inner">
+      <header>header</header>
+    </div>
+  </div>
+  <div class="gnb">
+    <div class="inner gnb-inner">
+      <nav th:replace="~{fragment/menu::my-page}"></nav>
+    </div>
+  </div>
+  <div class="main">
+    <div class="inner main-inner"  th:data-code="${shopId}">
+      <main>
+        <div class="coffeeShop-wrap" >
+          <div class="coffeeShop-title" ><h3>등록된 커피숍 목록</h3></div>
+          <div class="coffeeShop-btngrp">
+            <button type="botton" id="writeBtn" th:data-code="${code}">글작성</button>
+          </div>
+          <div class="coffeeShop-body">
+            <div class="coffeeShop-content">
+              <table>
+                <thead>
+                <tr>
+                  <th>커피숍번호</th>
+                  <th>커피숍이름</th>
+                  <th>커피숍주소</th>
+                  <th>전화번호</th>
+                  <th>작성일</th>
+                  <th>북마크카운트</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${list}">
+                  <td th:text="${item.shopId}">커피숍번호</td>
+                  <td>
+                    <a href="" th:href="@{/coffeeShop/{shopId}/edit(shopId=${item.shopId})}" th:text="${item.shopName}">커피숍이름</a>
+                  </td>
+                  <td th:text="${item.shopAddress}">커피숍주소</td>
+                  <td th:text="${item.shopTel}">전화번호</td>
+                  <td th:text="${#temporals.format(item.shopCdate,'yy/MM/dd HH:dd')}">작성일</td>
+                  <td th:text="${item.shopBookmarkCnt}">북마크카운트</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="foot">
+      <div class="inner foot-inner">
+        <footer>
+          footer
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  window.onload = function() {
+    writeBtn.addEventListener('click', e => {
+        const url = `/coffeeShop/add`
+        location.href= url;
+    });
+  }
+</script>
+</body>
+</html>

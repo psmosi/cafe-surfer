@@ -1,0 +1,7 @@
+1. create ueser 파일 열어서 계정 생성 (surfer / 1234)
+
+2. surfer계정으로 ctreate table 파일 열어서 테이블, 시퀀스 생성.
+
+3. 샘플데이터 폴더에 넘버링 순서대로 샘플데이터 insert
+
+4. hashtag 폴더에 넘버링 순서대로 샘플데이터 insert
