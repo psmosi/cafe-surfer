@@ -1,6 +1,6 @@
 -- 테이블 삭제
 DROP TABLE bookmark CASCADE CONSTRAINTS;
-DROP TABLE coffeeShop CASCADE CONSTRAINTS;
+DROP TABLE coffeeshop CASCADE CONSTRAINTS;
 DROP TABLE hashtag_classification CASCADE CONSTRAINTS;
 DROP TABLE membership CASCADE CONSTRAINTS;
 DROP TABLE report CASCADE CONSTRAINTS;
@@ -12,7 +12,7 @@ DROP TABLE code CASCADE CONSTRAINTS;
 
 -- 시퀀스 삭제
 DROP SEQUENCE membership_member_id_seq;
-DROP SEQUENCE coffeeShop_shop_id_seq;
+DROP SEQUENCE coffeeshop_shop_id_seq;
 DROP SEQUENCE review_review_id_seq;
 DROP SEQUENCE hashtag_cmenu_id_seq;
 DROP SEQUENCE hashtag_vmenu_id_seq;
@@ -33,7 +33,7 @@ create sequence membership_member_id_seq
     nocycle
     nocache;
 
- create sequence coffeeShop_shop_id_seq
+ create sequence coffeeshop_shop_id_seq
     start with 1
     increment by 1
     minvalue 0
@@ -104,7 +104,7 @@ create sequence review_review_id_seq
     maxvalue 5000
     nocycle
     nocache;
- 
+
  create sequence hashtag_etc_id_seq
     start with 5001
     increment by 1
@@ -129,7 +129,7 @@ COMMENT ON COLUMN bookmark.member_id IS
 COMMENT ON COLUMN bookmark.shop_id IS
     '커피숍 ID';
 
-CREATE TABLE coffeeShop (
+CREATE TABLE coffeeshop (
     shop_id             NUMBER(5) NOT NULL,
     shop_name           NVARCHAR2(30) NOT NULL,
     shop_address        VARCHAR2(105) NOT NULL,
@@ -140,54 +140,54 @@ CREATE TABLE coffeeShop (
     parking             VARCHAR2(10) DEFAULT '아니오' NOT NULL,
     allday              VARCHAR2(10) DEFAULT '아니오' NOT NULL,
     shop_cdate          TIMESTAMP DEFAULT systimestamp NOT NULL,
-    bcategoryB0101      VARCHAR2(30),       --분류카테고리
-    bcategoryB0102      VARCHAR2(30),       --분류카테고리
-    bcategoryB0103      VARCHAR2(30),       --분류카테고리
-    bcategoryB0104      VARCHAR2(30),        --분류카테고리
-    bcategoryB0105      VARCHAR2(30),      --분류카테고리
-    hcategoryh0101      VARCHAR2(30),
-    hcategoryh0102      VARCHAR2(30),
-    hcategoryh0103      VARCHAR2(30),
-    hcategoryh0104      VARCHAR2(30) 
+    bcategoryB0101      VARCHAR2(30),       --사진 분류카테고리
+    bcategoryB0102      VARCHAR2(30),       --사진 분류카테고리
+    bcategoryB0103      VARCHAR2(30),       --사진 분류카테고리
+    bcategoryB0104      VARCHAR2(30),       --사진 분류카테고리
+    bcategoryB0105      VARCHAR2(20),       --커피숍 대표 사진
+    hcategoryH0101      VARCHAR2(20),       --커피숍 대표 해시태그1
+    hcategoryH0102      VARCHAR2(20),       --커피숍 대표 해시태그2
+    hcategoryH0103      VARCHAR2(20),       --커피숍 대표 해시태그3
+    hcategoryH0104      VARCHAR2(20)        --커피숍 대표 해시태그4
 );
 
-ALTER TABLE coffeeShop
+ALTER TABLE coffeeshop
     ADD CHECK ( parking IN ( '예', '아니오' ) );
 
-ALTER TABLE coffeeShop
+ALTER TABLE coffeeshop
     ADD CHECK ( allday IN ( '예', '아니오' ) );
 
-COMMENT ON COLUMN coffeeShop.shop_id IS
+COMMENT ON COLUMN coffeeshop.shop_id IS
     '커피숍 ID';
 
-COMMENT ON COLUMN coffeeShop.shop_name IS
+COMMENT ON COLUMN coffeeshop.shop_name IS
     '커피숍 이름';
 
-COMMENT ON COLUMN coffeeShop.shop_address IS
+COMMENT ON COLUMN coffeeshop.shop_address IS
     '커피숍 주소';
 
-COMMENT ON COLUMN coffeeShop.shop_tel IS
+COMMENT ON COLUMN coffeeshop.shop_tel IS
     '커피숍 전화번호 (''-'' 포함)';
 
-COMMENT ON COLUMN coffeeShop.view_count IS
+COMMENT ON COLUMN coffeeshop.view_count IS
     '커피숍 조회 카운트';
 
-COMMENT ON COLUMN coffeeShop.shop_bookmark_count IS
+COMMENT ON COLUMN coffeeshop.shop_bookmark_count IS
     '북마크 등록 카운트';
 
-COMMENT ON COLUMN coffeeShop.shop_review_count IS
+COMMENT ON COLUMN coffeeshop.shop_review_count IS
     '등록된 리뷰 개수 카운트';
 
-COMMENT ON COLUMN coffeeShop.parking IS
+COMMENT ON COLUMN coffeeshop.parking IS
     '주차시설 여부';
 
-COMMENT ON COLUMN coffeeShop.allday IS
+COMMENT ON COLUMN coffeeshop.allday IS
     '24시간 운영 여부';
 
-COMMENT ON COLUMN coffeeShop.shop_cdate IS
+COMMENT ON COLUMN coffeeshop.shop_cdate IS
     '커피숍 등록 일자';
 
-ALTER TABLE coffeeShop ADD CONSTRAINT coffeeShop_pk PRIMARY KEY ( shop_id );
+ALTER TABLE coffeeshop ADD CONSTRAINT coffeeshop_pk PRIMARY KEY ( shop_id );
 
 CREATE TABLE hashtag_classification (
     hashtag_id           NUMBER(5) NOT NULL,
@@ -309,8 +309,8 @@ COMMENT ON COLUMN shop_hashtag.hashtag_id IS
     '해시태그 ID';
 
 ALTER TABLE bookmark
-    ADD CONSTRAINT bookmark_coffeeShop_fk FOREIGN KEY ( shop_id )
-        REFERENCES coffeeShop ( shop_id ) ON DELETE CASCADE;
+    ADD CONSTRAINT bookmark_coffeeshop_fk FOREIGN KEY ( shop_id )
+        REFERENCES coffeeshop ( shop_id ) ON DELETE CASCADE;
 
 ALTER TABLE bookmark
     ADD CONSTRAINT bookmark_membership_fk FOREIGN KEY ( member_id )
@@ -325,8 +325,8 @@ ALTER TABLE report
         REFERENCES review ( review_id ) ON DELETE CASCADE;
 
 ALTER TABLE review
-    ADD CONSTRAINT review_coffeeShop_fk FOREIGN KEY ( shop_id )
-        REFERENCES coffeeShop ( shop_id ) ON DELETE CASCADE;
+    ADD CONSTRAINT review_coffeeshop_fk FOREIGN KEY ( shop_id )
+        REFERENCES coffeeshop ( shop_id ) ON DELETE CASCADE;
 
 ALTER TABLE review
     ADD CONSTRAINT review_membership_fk FOREIGN KEY ( member_id )
@@ -337,8 +337,8 @@ ALTER TABLE shop_hashtag
         REFERENCES hashtag_classification ( hashtag_id ) ON DELETE CASCADE;
 
 ALTER TABLE shop_hashtag
-    ADD CONSTRAINT shop_hashtag_coffeeShop_fk FOREIGN KEY ( shop_id )
-        REFERENCES coffeeShop ( shop_id ) ON DELETE CASCADE;
+    ADD CONSTRAINT shop_hashtag_coffeeshop_fk FOREIGN KEY ( shop_id )
+        REFERENCES coffeeshop ( shop_id ) ON DELETE CASCADE;
 
 -----------------------------------------------------------------------------
 -- 첨부파일 관련 테이블 --
@@ -370,13 +370,7 @@ insert into code (code_id,decode,pcode_id,useyn) values ('B0101','메인사진',
 insert into code (code_id,decode,pcode_id,useyn) values ('B0102','음료','B01','Y');
 insert into code (code_id,decode,pcode_id,useyn) values ('B0103','디저트','B01','Y');
 insert into code (code_id,decode,pcode_id,useyn) values ('B0104','굿즈','B01','Y');
-insert into code (code_id,decode,pcode_id,useyn) values ('B0105','썸네일','B01','Y');
 
-insert into code (code_id,decode,pcode_id,useyn) values ('H01','해시태그',null,'Y');
-insert into code (code_id,decode,pcode_id,useyn) values ('H0101','해시태그','H01','Y');
-insert into code (code_id,decode,pcode_id,useyn) values ('H0102','해시태그','H01','Y');
-insert into code (code_id,decode,pcode_id,useyn) values ('H0103','해시태그','H01','Y');
-insert into code (code_id,decode,pcode_id,useyn) values ('H0104','해시태그','H01','Y');
 ---------
 --첨부파일
 ---------
@@ -404,20 +398,16 @@ nocycle
 nocache;
 
 --제약조건
--- 사진 분류 정보
-alter table coffeeShop add constraint coffeeShop_bcategoryB0101_fk
+alter table coffeeshop add constraint coffeeshop_bcategoryB0101_fk
     foreign key(bcategoryB0101) references code(code_id) ON DELETE CASCADE;
 
-alter table coffeeShop add constraint coffeeShop_bcategoryB0102_fk
+alter table coffeeshop add constraint coffeeshop_bcategoryB0102_fk
     foreign key(bcategoryB0102) references code(code_id) ON DELETE CASCADE;
 
-alter table coffeeShop add constraint coffeeShop_bcategoryB0103_fk
+alter table coffeeshop add constraint coffeeshop_bcategoryB0103_fk
     foreign key(bcategoryB0103) references code(code_id) ON DELETE CASCADE;
 
-alter table coffeeShop add constraint coffeeShop_bcategoryB0104_fk
+alter table coffeeshop add constraint coffeeshop_bcategoryB0104_fk
     foreign key(bcategoryB0104) references code(code_id) ON DELETE CASCADE;
-
-alter table coffeeShop add constraint coffeeShop_bcategoryB0105_fk
-    foreign key(bcategoryB0105) references code(code_id) ON DELETE CASCADE;
 
 commit;

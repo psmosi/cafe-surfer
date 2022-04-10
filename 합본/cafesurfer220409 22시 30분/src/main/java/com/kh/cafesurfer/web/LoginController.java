@@ -40,6 +40,7 @@ public class LoginController {
       BindingResult bindingResult,
       HttpServletRequest request,
       @RequestParam(required = false,defaultValue = "/") String redirectUrl
+//      @RequestParam(required = false,defaultValue = "/coffeeShop/list") String redirectUrl
   ){
 
     //필드 유효성 체크
@@ -49,11 +50,12 @@ public class LoginController {
     }
 
     //오브젝트 체크 : 회원유무
-    if(!memberShipSVC.existMember(loginForm.getMemberEmail())) {
+    if(!memberShipSVC.existMemberByEmail(loginForm.getMemberEmail())) {
       bindingResult.reject("loginFail.email");
 
       return "login/loginForm";
     }
+
 
     //오브젝트 체크 :로그인
     MemberShip memberShip = memberShipSVC.login(loginForm.getMemberEmail(), loginForm.getMemberPasswd());
@@ -63,7 +65,7 @@ public class LoginController {
     }
 
     //회원 세션 정보
-    LoginMemberShip loginMemberShip = new LoginMemberShip(memberShip.getMemberEmail(), memberShip.getMemberName(),memberShip.getMemberId());
+    LoginMemberShip loginMemberShip = new LoginMemberShip(memberShip.getMemberEmail(), memberShip.getMemberName(),memberShip.getMemberId(), memberShip.getMemberTel());
 
     //인증성공
     //세션이 있으면 세션 반환, 없으면 새롭게 생성

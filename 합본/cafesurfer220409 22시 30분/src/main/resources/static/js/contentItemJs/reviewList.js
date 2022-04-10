@@ -1,7 +1,7 @@
 'use strict';
 
 //초기화면 목록 불러오기
-list_f();
+ list_f();
 
 //등록 처리 함수
 function confirmBtn_f(evt) {
@@ -26,6 +26,7 @@ function confirmBtn_f(evt) {
     })
     .catch((err) => console.log(err));
 }
+
 
 //등록된 리뷰 목록
 function list_f(evt) {
@@ -196,13 +197,15 @@ document.querySelector('.review-box').addEventListener('click', (evt) => {
 
   const reviewId = evt.target.dataset.reviewId;
 
+   console.log("리뷰 등록버튼!");
   //등록 버튼
   if (classValues.includes('writeBtn')) {
-    console.log("리뷰 등록버튼!");
     const $reviewText = document.querySelector('.write-review')
+
     if (memberId.value.trim().length === 0) {
       alert('로그인 후 이용하시기 바랍니다.');
       return false;
+
     } else if ($reviewText.value.trim().length === 0) {
         alert('내용을 입력해주세요');
         $reviewText.focus();

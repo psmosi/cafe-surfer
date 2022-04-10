@@ -17,4 +17,6 @@ public class LoginForm {
   @NotBlank
   @Size(min = 4, max=8)
   private String memberPasswd;
+
+//  private String memberTel;       //  MEMBER_TEL	VARCHAR2(15 BYTE)
 }

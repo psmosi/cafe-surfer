@@ -46,11 +46,18 @@ public interface MemberShipDAO {
   void deleteMember(String memberEmail);
 
   /**
-   * 회원 유무 체크
+   * 이메일 유무 체크
    * @param memberEmail
    * @return
    */
-  boolean existMember(String memberEmail);
+  boolean existMemberByEmail(String memberEmail);
+
+  /**
+   * 전화번호 중복 체크
+   * @param memberTel
+   * @return
+   */
+  boolean existMemberByTel(String memberTel);
 
   /**
    * 로그인 인증
@@ -70,8 +77,18 @@ public interface MemberShipDAO {
 
   /**
    * 아이디 찾기
-   * @param nickname
+   * @param memberName
+   * @param memberTel
    * @return
    */
-  String findEmailByName(String nickname);
+  String findEmailByEmail(String memberName, String memberTel);
+
+  /**
+   * 비밀번호 찾기
+   * @param memberName
+   * @param memberTel
+   * @param memberEmail
+   * @return
+   */
+  String findEmailByPw(String memberName, String memberTel,String memberEmail);
 }

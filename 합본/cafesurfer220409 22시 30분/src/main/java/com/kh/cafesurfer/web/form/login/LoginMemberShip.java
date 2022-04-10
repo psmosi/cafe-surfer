@@ -9,4 +9,5 @@ public class LoginMemberShip {
   private String memberEmail;
   private String memberName;
   private Long memberId;
+  private String memberTel;
 }

@@ -15,7 +15,7 @@ public class AppConfig implements WebMvcConfigurer {
         .addPathPatterns("/**")     // 인터셉터에 포함시키는 url패턴,루트경로부터 하위경로 모두
         .excludePathPatterns(
             "/",                    //초기화면
-            "/login",               //로그인
+            "/login/**",               //로그인
             "/logout",              //로그아웃
             "/members/join",         //회원가입
             "/css/**",
@@ -23,7 +23,7 @@ public class AppConfig implements WebMvcConfigurer {
             "/img/**",
             "/error/**",
             "/api/**",
-            "/members//findEmail",
+            "/members/findEmail",
             "/members/joinSuccess",
             "/main/**",
             "/memberJoin/**",
@@ -32,6 +32,7 @@ public class AppConfig implements WebMvcConfigurer {
             "/coffeeShop/**",
             "/search/**",
             "/attach/**"
+
 
         );  // 인테셉터에서 제외되는 url패턴
   }

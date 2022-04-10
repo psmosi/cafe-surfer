@@ -63,11 +63,20 @@ public class MemberShipController {
       return "memberJoin/memberJoinpage";
     }
     //2)아이디 중복체크
-    if(memberShipSVC.existMember(joinForm.getMemberEmail())){
+    if(memberShipSVC.existMemberByEmail(joinForm.getMemberEmail())){
       bindingResult.rejectValue("getMemberEmail","joinForm.MemberEmail.dup");
       log.info("error={}", bindingResult);
       return "memberJoin/memberJoinpage";
     }
+
+    //전화번호 중복체크
+    if(memberShipSVC.existMemberByTel(joinForm.getMemberTel())){
+      bindingResult.rejectValue("getMemberTel","joinForm.MemberTel.dup");
+      log.info("error={}", bindingResult);
+      return "memberJoin/memberJoinpage";
+    }
+
+
     //3)유효성체크 - global 오류 (2개이상의 필드체크, 백앤드로직 수행시 발생오류)
     //비밀번호 != 비빌번호체크
     if(!joinForm.getMemberPasswd().equals(joinForm.getMemberPasswdChk()))   {
@@ -85,7 +94,7 @@ public class MemberShipController {
     log.info("MemberEmail={}, MemberPasswd={}, MemberName={}",
         joinedMember.getMemberEmail(),joinedMember.getMemberPasswd(),joinedMember.getMemberName());
 
-    return "redirect:/login/loginForm";
+    return "redirect:/login";
   }
 
   @GetMapping("/joinSuccess")
@@ -265,4 +274,7 @@ public class MemberShipController {
 
     return "memberJoin/findEmail";
   }
+  
+  //비밀번호 찾기
+
 }

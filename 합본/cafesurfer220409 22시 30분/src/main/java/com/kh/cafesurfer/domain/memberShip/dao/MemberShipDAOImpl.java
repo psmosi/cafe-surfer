@@ -162,11 +162,20 @@ public class MemberShipDAOImpl implements MemberShipDAO{
     jdbcTemplate.update(sql.toString(), memberEmail);
   }
 
-  //회원유무체크
+  // 이메일 중복 체크
   @Override
-  public boolean existMember(String memberEmail) {
+  public boolean existMemberByEmail(String memberEmail) {
     String sql = "select count(member_email) from memberShip where member_email = ? ";
     Integer count = jdbcTemplate.queryForObject(sql, Integer.class, memberEmail);
+
+    return (count==1) ? true : false;
+  }
+
+  // 전화번호 중복 체크
+  @Override
+  public boolean existMemberByTel(String memberTel) {
+    String sql = "select count(member_tel) from memberShip where member_tel = ? ";
+    Integer count = jdbcTemplate.queryForObject(sql, Integer.class, memberTel);
 
     return (count==1) ? true : false;
   }
@@ -204,13 +213,14 @@ public class MemberShipDAOImpl implements MemberShipDAO{
     return (count == 1) ? true : false;
   }
 
-  //이름으로 아이디 찾기
+  //이름 전화번호 아이디 찾기
   @Override
-  public String findEmailByName(String memberName) {
+  public String findEmailByEmail(String memberName, String memberTel) {
     StringBuffer sql  = new StringBuffer();
     sql.append("SELECT member_email ");
     sql.append("  from MemberShip ");
     sql.append(" where member_name = ? ");
+    sql.append(" and member_tel = ? ");
 
     List<String> result = jdbcTemplate.query(
         sql.toString(),
@@ -220,7 +230,52 @@ public class MemberShipDAOImpl implements MemberShipDAO{
             return rs.getNString("member_email");
           }
         },
-        memberName
+        memberName,
+        new RowMapper<String>() {
+          @Override
+          public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+            return rs.getNString("member_tel");
+          }
+        },
+        memberTel
+    );
+
+    return (result.size() == 1) ? result.get(0) : null;
+  }
+
+  //이름 아이디 전화번호로 비밀번호 찾기
+  @Override
+  public String findEmailByPw(String memberName, String memberTel ,String memberEmail) {
+    StringBuffer sql  = new StringBuffer();
+    sql.append("SELECT member_passwd ");
+    sql.append("  from MemberShip ");
+    sql.append(" where member_name = ? ");
+    sql.append(" and member_tel = ? ");
+    sql.append(" and member_email = ? ");
+
+    List<String> result = jdbcTemplate.query(
+        sql.toString(),
+        new RowMapper<String>() {
+          @Override
+          public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+            return rs.getNString("member_email");
+          }
+        },
+        memberName,
+        new RowMapper<String>() {
+          @Override
+          public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+            return rs.getNString("member_tel");
+          }
+        },
+        memberTel,
+        new RowMapper<String>() {
+          @Override
+          public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+            return rs.getNString("member_email");
+          }
+        },
+        memberEmail
     );
 
     return (result.size() == 1) ? result.get(0) : null;

@@ -10,15 +10,15 @@
 <body>
 <div class="container">
   <div class="container-title">
-    <img src="../img/logo/logo-color.png" />
+    <img src="/img/logo/logo-color.png" />
   </div>
 
   <!-- 글로벌 오류 case1) form태그 밖에 있을 때 -->
   <div class="container-body">
-    <ul th:if="${#fields.hasErrors('${loginForm}')}">
-      <li th:errors="${loginForm}" th:errorclass="globalError"></li>
-    </ul>
-    <form action="" th:action method="post" th:object="${loginForm}">
+<!--    <ul th:if="${#fields.hasErrors('${loginForm}')}">-->
+<!--      <li th:errors="${loginForm}" th:errorclass="globalError"></li>-->
+<!--    </ul>-->
+    <form action="" method="post" th:object="${loginForm}">
       <ul class="form-wrap">
         <!-- 글로벌 오류 case2) form태그 안에 있을 때
     <li th:if="${#fields.hasErrors('global')}" class="globalError">

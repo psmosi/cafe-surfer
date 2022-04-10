@@ -179,10 +179,19 @@ public class CoffeeShopController {
 
 
     HttpSession session = request.getSession(false);
+
     if (session != null) {
-        return "mainAfterLogin";
-      }
+//    return "redirect:/";
+    return "mainAfterLogin";
+
+    }
+//      return "redirect:/";
       return "mainBeforeLogin";
+
+//    String view = null;
+//    view = (session == null) ? "mainAfterLogin" : "mainBeforeLogin" ;
+//
+//    return view;
   }
 
 

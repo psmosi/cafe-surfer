@@ -51,11 +51,15 @@ public class MemberShipSVCImpl implements MemberShipSVC{
     memberShipDAO.deleteMember(memberEmail);
   }
 
-  //회원 유무 체크
+  //아이디 유무 체크
   @Override
-  public boolean existMember(String memberEmail) {
-    return memberShipDAO.existMember(memberEmail);
+  public boolean existMemberByEmail(String memberEmail) {
+    return memberShipDAO.existMemberByEmail(memberEmail);
   }
+  
+  //전화번호 유무 체크
+  @Override
+  public boolean existMemberByTel(String memberTel) {return memberShipDAO.existMemberByTel(memberTel);}
 
   //로그인 여부 체크
   @Override
@@ -71,7 +75,13 @@ public class MemberShipSVCImpl implements MemberShipSVC{
 
   //아이디 찾기
   @Override
-  public String findEmailByName(String nickname) {
-    return memberShipDAO.findEmailByName(nickname);
+  public String findEmailByEmail(String memberName, String memberTel) {
+    return memberShipDAO.findEmailByEmail(memberName, memberTel);
+  }
+
+  //아이디 찾기
+  @Override
+  public String findEmailByPw(String memberName, String memberTel,String memberEmail) {
+    return memberShipDAO.findEmailByPw(memberName, memberTel, memberEmail);
   }
 }
