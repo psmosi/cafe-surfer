@@ -10,15 +10,16 @@
 
 <body>
 <main th:fragment="mainList">
-  <div class="coffeeShop-search">
-    <select name="searchType" id="searchType" th:field="${fc.searchType}">
-      <option th:value="KEYWORD" value="">키워드</option>
-      <option th:value="HASHTAG" value="">해시태그</option>
-    </select>
-    <input type="text" id="keyword" name="keyword" th:field="${fc.keyword}">
-    <button id="searchBtn">검색</button>
-  </div>
-  <!--  <div class="inner main-inner" th:data-code="${shopId}">-->
+
+<!--  <div class="coffeeShop-search">-->
+<!--    <select name="searchType" id="searchType" th:field="${fc.searchType}">-->
+<!--      <option th:value="KEYWORD" value="">키워드</option>-->
+<!--      <option th:value="HASHTAG" value="">해시태그</option>-->
+<!--    </select>-->
+<!--    <input type="text" id="keyword" name="keyword" th:field="${fc.keyword}">-->
+<!--    <button id="searchBtn">검색</button>-->
+<!--  </div>-->
+    <div class="inner main-inner" th:data-code="${shopId}">
 
   <div class="shop-list-wrap">
     <div class="shop-list-box">

@@ -404,10 +404,8 @@ public class CoffeeShopDAOImpl implements CoffeeShopDAO {
         keyword = coffeeShopFilterCondition.getKeyword();
         token = keyword.split(", ");
         if (token.length == 1) {
-          sql.append(" where t1.bcategoryB0105 = t4.code ");
           sql.append(" and t3.HASHTAG_NAME   like '%"+ keyword +"%' ");
         } else if (token.length > 1) {
-          sql.append(" where t1.bcategoryB0105 = t4.code ");
           sql.append(" and t3.HASHTAG_NAME   like '%"+ token[0] +"%' ");
           sql.append("intersect ");
           for (int i = 1; i < token.length; i++) {
