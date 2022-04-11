@@ -7,5 +7,4 @@ public class SearchBar {
   Long hashtagId;
   String hashtagName;
   Long hashtagSearchCount;
-  Long hashtagNumbering;
 }

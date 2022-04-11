@@ -81,7 +81,7 @@ public interface MemberShipDAO {
    * @param memberTel
    * @return
    */
-  String findEmailByEmail(String memberName, String memberTel);
+  String findEmailByTel(String memberName, String memberTel);
 
 
   /**
@@ -91,6 +91,6 @@ public interface MemberShipDAO {
    * @param memberEmail
    * @return
    */
-  String findEmailByPw(String memberName, String memberTel,String memberEmail);
+  String findPwByEmail(String memberName, String memberTel,String memberEmail);
 }
 

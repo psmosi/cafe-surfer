@@ -249,10 +249,55 @@ public class MemberShipController {
 
   //아이디 찾기
   @GetMapping("/findEmail")
-  public String findEmail(){
+  public String findEmail(@ModelAttribute FindEmailAndPasswdForm findFrom) {
 
     return "memberJoin/findEmail";
   }
 
+  //아이디 찾기 처리
+  @PostMapping("/findEmail")
+  public String foundEmail(@ModelAttribute FindEmailAndPasswdForm findFrom,
+                           BindingResult bindingResult) {
+
+
+    //필드 유효성 체크
+    if(bindingResult.hasErrors()){
+      log.info("loginError={}", bindingResult);
+      return "memberJoin/findEmail";
+    }
+
+//    //오브젝트 체크 : 회원유무
+//    if(!memberShipSVC.existMemberByEmail(findFrom.getMemberEmail())) {
+//      bindingResult.reject("loginFail.email");
+//
+//      return "memberJoin/findEmail";
+//    }
+
+
+
+
+//    MemberShip memberShip = new MemberShip();
+//    BeanUtils.copyProperties(findFrom, memberShip);
+
+    memberShipSVC.findEmailByTel(findFrom.getMemberName(), findFrom.getMemberTel());
+    return "memberJoin/findEmail";
+  }
+
   //비밀번호 찾기
+  @GetMapping("/findPasswd")
+  public String findPasswd(@ModelAttribute FindEmailAndPasswdForm findFrom) {
+
+    return "memberJoin/findPasswd";
+  }
+
+  //비밀번호 찾기 처리
+  @PostMapping("/findPasswd")
+  public String foundPasswd(@ModelAttribute FindEmailAndPasswdForm findFrom) {
+    MemberShip memberShip = new MemberShip();
+    BeanUtils.copyProperties(findFrom, memberShip);
+
+    memberShipSVC.findPwByEmail(findFrom.getMemberName(), findFrom.getMemberTel(), findFrom.getMemberEmail());
+
+    return "memberJoin/findPasswd";
+  }
 }

@@ -75,14 +75,14 @@ public class MemberShipSVCImpl implements MemberShipSVC{
 
   //아이디 찾기
   @Override
-  public String findEmailByEmail(String memberName, String memberTel) {
-    return memberShipDAO.findEmailByEmail(memberName, memberTel);
+  public String findEmailByTel(String memberName, String memberTel) {
+    return memberShipDAO.findEmailByTel(memberName, memberTel);
   }
 
-  //아이디 찾기
+  //비밀번호 찾기
   @Override
-  public String findEmailByPw(String memberName, String memberTel,String memberEmail) {
-    return memberShipDAO.findEmailByPw(memberName, memberTel, memberEmail);
+  public String findPwByEmail(String memberName, String memberTel,String memberEmail) {
+    return memberShipDAO.findPwByEmail(memberName, memberTel, memberEmail);
   }
 
 }

@@ -8,27 +8,23 @@ import javax.validation.constraints.Size;
 
 @Data
 public class ModifyForm {
-  @NotBlank
-  @Email
-  @Size(min = 4, max = 50)
-  private String memberEmail;     //  MEMBER_EMAIL	VARCHAR2(40 BYTE)
+  @Email @NotBlank @Size(min = 4, max = 40)
+  private String memberEmail;     //  MEMBER_EMAIL   VARCHAR2(40 BYTE)
 
-  @NotBlank
-  @Size(min = 4, max = 12)
-  private String memberPasswd;    //  MEMBER_PASSWD	VARCHAR2(20 BYTE)
+  @NotBlank @Size(min = 4, max = 20)
+  private String memberPasswd;    //  MEMBER_PASSWD   VARCHAR2(20 BYTE)
 
-  @NotBlank
-  @Size(min = 4, max = 12)
-  private String memberPasswdChk;    //  MEMBER_PASSWD	VARCHAR2(20 BYTE)
+  @NotBlank @Size(min = 4, max = 20)
+  private String memberPasswdChk;    //  MEMBER_PASSWD   VARCHAR2(20 BYTE)
 
-  @NotBlank
-  @Size(min = 2, max = 30)
-  private String memberName;      //  MEMBER_NAME	VARCHAR2(15 BYTE)
+  @NotBlank @Size(min = 2, max = 15)
+  private String memberName;      //  MEMBER_NAME   VARCHAR2(15 BYTE)
 
   private MemberGender memberGender;    // 남 여
 
-  private Long memberAge;         //  MEMBER_AGE	NUMBER(3,0)
+  private Long memberAge;         //  MEMBER_AGE   NUMBER(3,0)
 
-  @NotBlank
-  private String memberTel;       //  MEMBER_TEL	VARCHAR2(15 BYTE)
+  @NotBlank @Size(min = 10, max = 15)
+  private String memberTel;       //  MEMBER_TEL   VARCHAR2(15 BYTE)
+
 }

@@ -11,13 +11,13 @@ import java.util.List;
 @Data
 public class CoffeeShopModifyForm {
 
-  @NotBlank
-  @Size(min = 1, max = 30)
-  private String shopName;              // SHOP_NAME	            VARCHAR2(30 CHAR)
+  @NotBlank @Size(min = 1, max = 30)
+  private String shopName;              // SHOP_NAME               VARCHAR2(30 CHAR)
   @NotBlank @Size(min = 1, max = 105)
   private String shopAddress;           // SHOP_ADDRESS           VARCHAR2(105 BYTE)
   @NotBlank @Size(min = 8, max = 15)
-  private String shopTel;               // SHOP_TEL	              VARCHAR2(15 BYTE)
+  private String shopTel;               // SHOP_TEL                 VARCHAR2(15 BYTE)
+
   @NotBlank
   private String ynParking;                // PARKING	              NUMBER
   @NotBlank

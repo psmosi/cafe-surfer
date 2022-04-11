@@ -1,6 +1,7 @@
 'use strict';
 
 list_f();
+
 const $hashtag = document.querySelector('.hashtags');
 const $inputtext = document.getElementById('inputtext');
 
@@ -46,7 +47,6 @@ function displayItem(data) {
  `<label title="${ele.hashtagName}" class="hashtagList ${ele.hashtagName}" data-hashtag-Numbering="${ele.hashtagNumbering}" data-hashtag-name="${ele.hashtagName}" data-hashtag-id="${ele.hashtagId}">
      <input type="checkbox" autocomplete="off" class="hashtag_name" id="${ele.hashtagId}">
      #${ele.hashtagName}
-
    </label>`;
   });
 

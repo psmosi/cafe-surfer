@@ -211,7 +211,7 @@ public class MemberShipDAOImpl implements MemberShipDAO{
 
   // 이름, 전화번호로 아이디(이메일) 찾기
   @Override
-  public String findEmailByEmail(String memberName, String memberTel) {
+  public String findEmailByTel(String memberName, String memberTel) {
     StringBuffer sql  = new StringBuffer();
     sql.append("SELECT member_email ");
     sql.append("  from MemberShip ");
@@ -234,10 +234,8 @@ public class MemberShipDAOImpl implements MemberShipDAO{
   }
 
   @Override
-  public String findEmailByPw(String memberName, String memberTel, String memberEmail) {
-
+  public String findPwByEmail(String memberName, String memberTel, String memberEmail) {
     StringBuffer sql  = new StringBuffer();
-
     sql.append("SELECT member_passwd ");
     sql.append("  from MemberShip ");
     sql.append(" where member_name = ? ");

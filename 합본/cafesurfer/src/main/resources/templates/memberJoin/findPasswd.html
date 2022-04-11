@@ -59,12 +59,13 @@
         box-shadow: 0 15px 10px -7px #eee;
       }
       
-      .result-find-id{
+      .result-find-pw{
         margin : 40px 30px 0; text-align: left;
       }
 
       #memberName,
-      #memberTel {
+      #memberTel,
+      #memberEmail {
         padding: 10px 30px;
         width: 360px;
         border: 1px solid #ccc;
@@ -120,7 +121,7 @@
       <!-- 글로벌 오류 case1) form태그 밖에 있을 때 -->
       <div class="container-body">
 
-<!--        <form method="post" th:object="${findEmailAndPasswdForm}">-->
+        <form action="" th:action method="post" th:object="${findEmailAndPasswdForm}">
           <ul class="form-wrap">
             <li>
               <label for="memberName"></label>
@@ -128,8 +129,13 @@
                 type="text"
                 name="memberName"
                 id="memberName"
+                th:field="*{memberName}"
+                th:errorclass="fieldError"
                 placeholder="이름"
               />
+            </li>
+            <li th:if="${#fields.hasErrors('memberName')}">
+              <p th:errors="*{memberName}" th:errorclass="fieldError"></p>
             </li>
             <li>
               <label for="memberTel"></label>
@@ -137,50 +143,44 @@
                 type="text"
                 name="memberTel"
                 id="memberTel"
+                th:field="*{memberTel}"
+                th:errorclass="fieldError"
                 placeholder="전화번호"
               />
             </li>
+            <li th:if="${#fields.hasErrors('memberTel')}">
+              <p th:errors="*{memberTel}" th:errorclass="fieldError"></p>
+            </li>
             <li>
-              <div class="result-find-id"><span id="findedEmail">이메일 : </span></div>
+              <label for="memberEmail"></label>
+              <input
+                type="text"
+                name="memberEmail"
+                id="memberEmail"
+                th:field="*{memberEmail}"
+                th:errorclass="fieldError"
+                placeholder="이메일"
+              />
+            </li>
+            <li th:if="${#fields.hasErrors('memberEmail')}">
+              <p th:errors="*{memberEmail}" th:errorclass="fieldError"></p>
+            </li>
+            <li>
+              <div class="result-find-pw"><span >비밀번호 : </span></div>
             </li>
             <li>
               <!--      <button type="submit" th:text="#{btn.login}">로그인</button>-->
-              <button type="submit" id="findEmailBtn" class="check-btn">아이디 찾기</button>
+              <button type="submit" class="check-btn">비밀번호 찾기</button>
             </li>
             
             <li>
-              <a href="/members/findPasswd" class="find-pw">비밀번호찾기</a>
-              <a href="/login" class="sign-up">로그인</a>
+              <a href="#" class="find-id" th:href="@{/members/findEmail}">아이디찾기</a>
+              <a href="#" class="sign-up" th:href="@{/login}">로그인</a>
             </li>
           </ul>
         </form>
       </div>
     </div>
-  <script>
-    findEmailBtn.addEventListener('click', findByEmail);
 
-    function findByEmail(e) {
-      const xhr = new XMLHttpRequest(); // AJAX 객체 생성
-
-      // 클라이언트 요청
-      xhr.open('PUT', '/api/members/email/find');
-      xhr.send(memberName.value);
-
-      xhr.addEventListener('load', e => {
-        // console.log(xhr);
-        if (xhr.status = 200) {
-          // console.log(xhr.response);  // json포맷의 문자열 수신 확인
-          const obj = JSON.parse(xhr.response); // json포맷의 문자열 >> js객체변환
-          if (obj.rtcd === '00') {
-            findedEmail.textContent = obj.data;
-          } else {
-            findedEmail.textContent = obj.data;
-          }
-        } else {
-          // console.err('Error', xhr.status, xhr.statusText);
-        }
-      });
-    }
-  </script>
   </body>
 </html>

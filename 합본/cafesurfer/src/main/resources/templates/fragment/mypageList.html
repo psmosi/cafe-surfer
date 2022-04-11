@@ -30,7 +30,7 @@
               <img th:src="@{|/attach/${item.shopId}/B0105/${item.store_filename}|}"/>
             </div>
             <div class="shop-container-util shop-each_title">
-              <span><a href="" th:href="@{/coffeeShop/{shopId}(shopId=${item.shopId})}" th:text="${item.shopName}">커피숍이름</a></span>
+              <span><a href="" th:href="@{/coffeeShop/detail/{shopId}(shopId=${item.shopId})}" th:text="${item.shopName}">커피숍이름</a></span>
             </div>
             <div class="shop-container-util shop-each_hashtag">
               <ul>

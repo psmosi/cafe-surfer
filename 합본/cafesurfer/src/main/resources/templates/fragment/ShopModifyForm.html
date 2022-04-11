@@ -29,13 +29,13 @@
         <div class="content">
           <table>
             <th color="blue" align="center" colspan="2">커피숍 등록 양식</th>
-
             <tr>
               <td class="box1">
                 커피숍 명
               </td>
               <td class="box2">
                 <input type="text" placeholder="커피숍 명을 입력해주세요" th:field="*{shopName}">
+                <p th:if="${#fields.hasErrors('shopName')}" th:errors="*{shopName}"></p>
               </td>
             </tr>
             <tr>
@@ -44,6 +44,7 @@
               </td>
               <td class="box2">
                 <input type="text" placeholder="- 빼고 입력해주세요" th:field="*{shopTel}">
+                <p th:if="${#fields.hasErrors('shopTel')}" th:errors="*{shopTel}"></p>
               </td>
             </tr>
             <tr>
@@ -52,6 +53,7 @@
               </td>
               <td class="box2">
                 <input type="text" size="60" placeholder="상세 주소를 입력해주세요" th:field="*{shopAddress}">
+                <p th:if="${#fields.hasErrors('shopAddress')}" th:errors="*{shopAddress}"></p>
               </td>
             </tr>
             <tr>

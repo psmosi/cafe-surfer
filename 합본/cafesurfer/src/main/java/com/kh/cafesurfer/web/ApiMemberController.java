@@ -72,7 +72,8 @@ public class ApiMemberController {
     log.info("memberName={}",memberName);
     log.info("memberTel={}",memberTel);
     ApiResult<String> result = null;
-    String memberEmail = memberSVC.findEmailByEmail(memberName, memberTel);
+
+    String memberEmail = memberSVC.findEmailByTel(memberName, memberTel);
 
     //StringUtils.isEmpty() : null 또는 ""문자열인지 체크
     //if(email == null || email.equals(""))
@@ -94,7 +95,7 @@ public class ApiMemberController {
     log.info("memberEmail={}",memberEmail);
     ApiResult<String> result = null;
 
-    String memberPasswd = memberSVC.findEmailByPw(memberName, memberTel, memberEmail);
+    String memberPasswd = memberSVC.findPwByEmail(memberName, memberTel, memberEmail);
 
     //StringUtils.isEmpty() : null 또는 ""문자열인지 체크
     //if(email == null || email.equals(""))

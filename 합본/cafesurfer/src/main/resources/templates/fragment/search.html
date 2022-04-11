@@ -40,7 +40,7 @@
             <li class="input_tag__tags__input">
               <!--              <input class="search-input" type="text" placeholder="Do The Best!" id="inputtext" onkeyup="backspace()">-->
 
-              <select name="searchType" id="searchType" th:field="${fc.searchType}" style="display : none;">
+              <select name="searchType" id="searchType" th:field="${fc.searchType}">
                 <option th:value="KEYWORD" value="">키워드</option>
                 <option th:value="HASHTAG" value="">해시태그</option>
               </select>
@@ -50,7 +50,7 @@
           <div class="search-box">
             <button id="searchBtn">검색</button>
 
-            <!--            <a href="#" class="search-icon">검색</a>-->
+            <!--            <a href="" class="search-icon">검색</a>-->
           </div>
           <!--          </form>-->
         </div>
@@ -61,7 +61,7 @@
         <div class="condition-reset-wrap">
 
           <!-- <div class="reset-icon-box">
-            <a href="#" class="reset-icon">초기화</a>
+            <a href="" class="reset-icon">초기화</a>
           </div> -->
 
         </div>
@@ -79,7 +79,7 @@
           <span class="location-selected-title">#울산남구</span>
         </div>
         <div class="location-delete">
-          <a class="location-delete-btn" href="#">X</a>
+          <a class="location-delete-btn" href="">X</a>
         </div>
       </div> -->
 

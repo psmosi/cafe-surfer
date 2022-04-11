@@ -24,6 +24,7 @@ public class AppConfig implements WebMvcConfigurer {
             "/error/**",
             "/api/**",
             "/members/findEmail",
+            "/members/findPasswd",
             "/members/joinSuccess",
             "/main/**",
             "/memberJoin/**",
