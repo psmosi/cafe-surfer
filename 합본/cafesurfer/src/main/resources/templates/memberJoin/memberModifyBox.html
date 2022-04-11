@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원 수정</title>
+  <style>
+    p.errmsg {
+      display: none;
+      margin: 0;
+      font-weight: bold;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+<main th:fragment="memberModifyBox">
+
+  <div>
+    <form id="modifyForm" method="post" th:object="${modifyForm}" >
+
+      <div class="content">
+
+        <table>
+          <th color="blue" align ="center" colspan = "2">회원수정</th>
+          <tr>
+            <td class="box1">
+              <label for="memberEmail" th:for="${#ids.next('memberEmail')}">이메일</label>
+
+            </td>
+            <td class="box2">
+              <li>
+                <input type="text" name="memberEmail" id="memberEmail" th:field="*{memberEmail}"
+                       th:class="${#fields.hasErrors('memberEmail') ? 'fieldError' : 'fieldSuccess'}"
+                       disabled="disabled">
+              </li>
+            </td>
+          </tr>
+          <td class="box1">
+            <label for="memberPasswd"   th:for="${#ids.next('memberPasswd')}">비밀번호</label>
+          </td>
+          <td class="box2">
+            <li>
+              <input type="password" placeholder="비밀번호를 입력해주세요" name="memberPasswd" id="memberPasswd" th:field="*{memberPasswd}"
+                     th:class="${#fields.hasErrors('memberPasswd') ? 'fieldError' : 'fieldSuccess'}">
+            </li>
+            <li th:if="${#fields.hasErrors('memberPasswd')}">
+              <p th:errors="*{memberPasswd}" th:errorclass="fieldError"></p>
+            </li>
+          </td>
+          </tr>
+          <tr>
+            <td class="box1">
+              <label for="memberPasswd"  th:for="${#ids.next('memberPasswdChk')}">비밀번호 확인</label>
+            </td>
+            <td class="box2">
+              <input type="password"  name="memberPasswdChk" id="memberPasswdChk" th:field="*{memberPasswdChk}"
+                     th:class="${#fields.hasErrors('memberPasswdChk') ? 'fieldError' : 'fieldSuccess'}">
+              <li th:if="${#fields.hasErrors('memberPasswdChk')}">
+                <p th:errors="*{memberPasswdChk}" th:errorclass="fieldError"></p>
+              </li>
+              <li th:if="${#fields.hasErrors('global')}">
+                <p th:errors="*{global}" th:errorclass="globalError"></p>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td class="box1">
+              <label for="memberTel" th:for="${#ids.next('memberTel')}">휴대전화</label>
+            </td>
+            <td class="box2">
+              <li>
+                <input type="text" name="memberTel" id="memberTel" th:field="*{memberTel}"
+                       th:class="${#fields.hasErrors('memberTel') ? 'fieldError' : 'fieldSuccess'}"
+                       readonly="readonly">
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td class="box1">
+              <label for="memberName" th:for="${#ids.next('memberName')}">이름</label>
+
+            </td>
+            <td class="box2">
+              <li>
+                <input type="text" name="memberName" id="memberName" th:field="*{memberName}"
+                       th:class="${#fields.hasErrors('memberName') ? 'fieldError' : 'fieldSuccess'}">
+              </li>
+              <li th:if="${#fields.hasErrors('memberName')}">
+                <p th:errors="*{memberName}" th:errorclass="fieldError"></p>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td class="box1">
+              <label for="memberAge" th:for="${#ids.next('memberAge')}">생년월일</label>
+
+            </td>
+            <td class="box2">
+              <li>
+                <input type="text" placeholder="8자로 입력해주세요" name="memberAge" id="memberAge" th:field="*{memberAge}"
+                       th:class="${#fields.hasErrors('memberAge') ? 'fieldError' : 'fieldSuccess'}">
+              </li>
+              <li th:if="${#fields.hasErrors('memberAge')}">
+                <p th:errors="*{memberAge}" th:errorclass="fieldError"></p>
+              </li>
+            </td>
+          </tr>
+          <tr>
+            <td class="box1">
+              성별
+            </td>
+            <td class="box2">
+              <li>
+                <th:block th:each=" ele : ${memberGender} ">
+                  <label for="male" th:for="${#ids.next('memberGender')}" th:text="${ele.description}"></label>
+                  <input type="radio" th:field="*{memberGender}" th:value="${ele.name()}">
+                </th:block>
+                <th:block th:remove="all">
+                  <label for="male">남자</label>
+                  <input type="radio" name="gender" id="male" value="남자">
+                  <label for="female">여자</label>
+                  <input type="radio" name="gender" id="female" value="여자">
+                </th:block>
+              </li>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+      <div class="Btn">
+        <input type="button" id="modifyBtn" value="수정">
+        <!--      <input type="button" id="add" value="수정">-->
+        <!--      <input type="button" id="cancel" value="취소">-->
+      </div>
+    </form>
+  </div>
+  <script>
+    //수정 버튼 클릭시
+    modifyBtn.addEventListener('click', e => {
+      modifyForm.submit();
+    });
+  </script>
+</main>
+</body>
+</html>
