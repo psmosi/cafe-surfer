@@ -163,7 +163,7 @@ public class MemberShipController {
     memberShipSVC.modifyMember(memberShip);
     redirectAttributes.addAttribute("MemberEmail", memberShip.getMemberEmail());
 
-    return "redirect:/members/{MemberEmail}/memberModifypage";  //회원 상세화면 이동
+    return "redirect:/members/{MemberEmail}/memberModify";  //회원 상세화면 이동
   }
 
   //회원상세
