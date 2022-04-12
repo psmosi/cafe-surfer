@@ -1,6 +1,6 @@
-package com.kh.cafesurfer.domain.membership.dao;
+package com.kh.cafesurfer.domain.memberShip.dao;
 
-import com.kh.cafesurfer.domain.membership.MemberShip;
+import com.kh.cafesurfer.domain.memberShip.MemberShip;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -20,7 +20,6 @@ import java.util.List;
 @Slf4j
 @Repository
 @RequiredArgsConstructor
-
 public class MemberShipDAOImpl implements MemberShipDAO{
 
   private final JdbcTemplate jdbcTemplate;
@@ -31,7 +30,7 @@ public class MemberShipDAOImpl implements MemberShipDAO{
     //SQL문작성
     StringBuffer sql = new StringBuffer();
     sql.append("insert into memberShip " );
-    sql.append("values(membership_member_id_seq.nextval, ?, ?, ? , ?, ?, ?, default) " );
+    sql.append("values(membership_member_id_seq.nextval, ?, ?, ? , ?, ?, ?) " );
 
     //SQL실행
     KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -46,17 +45,15 @@ public class MemberShipDAOImpl implements MemberShipDAO{
         pstmt.setString(1,memberShip.getMemberEmail());
         pstmt.setString(2,memberShip.getMemberPasswd());
         pstmt.setString(3,memberShip.getMemberName());
-
         pstmt.setString(4,memberShip.getMemberGender());
         pstmt.setLong(5,memberShip.getMemberAge());
         pstmt.setString(6,memberShip.getMemberTel());
-//        pstmt.setLong(7,memberShip.getMemberOwner());
 
 
         return pstmt;
       }
     },keyHolder);
-    
+
     long member_id = keyHolder.getKey().longValue();
     log.info("신규회원등록={} 후 member_id반환값={}",memberShip, keyHolder.getKey());
 
@@ -73,8 +70,7 @@ public class MemberShipDAOImpl implements MemberShipDAO{
     sql.append("       member_passwd = ?, ");
     sql.append("       member_name = ?, ");
     sql.append("       member_gender = ?, ");
-    sql.append("       member_age = ?, ");
-    sql.append("       member_tel = ? ");
+    sql.append("       member_age = ? ");
     sql.append(" where member_email = ? ");
 
     jdbcTemplate.update(
@@ -83,9 +79,7 @@ public class MemberShipDAOImpl implements MemberShipDAO{
         memberShip.getMemberName(),
         memberShip.getMemberGender(),
         memberShip.getMemberAge(),
-        memberShip.getMemberTel(),
         memberShip.getMemberEmail());
-
   }
 
   //조회
@@ -102,10 +96,10 @@ public class MemberShipDAOImpl implements MemberShipDAO{
     sql.append("  from memberShip ");
     sql.append(" where member_email = ? ");
 
-   MemberShip memberShip = jdbcTemplate.queryForObject(
+    MemberShip memberShip = jdbcTemplate.queryForObject(
         sql.toString(),
         new BeanPropertyRowMapper<>(MemberShip.class),
-       memberEmail
+        memberEmail
     );
     return memberShip;
   }
@@ -164,11 +158,20 @@ public class MemberShipDAOImpl implements MemberShipDAO{
     jdbcTemplate.update(sql.toString(), memberEmail);
   }
 
-  //회원유무체크
+  //이메일 등록 유무 체크
   @Override
-  public boolean existMember(String memberEmail) {
+  public boolean existMemberByEmail(String memberEmail) {
     String sql = "select count(member_email) from memberShip where member_email = ? ";
     Integer count = jdbcTemplate.queryForObject(sql, Integer.class, memberEmail);
+
+    return (count==1) ? true : false;
+  }
+
+  // 전화번호 중복 체크
+  @Override
+  public boolean existMemberByTel(String memberTel) {
+    String sql = "select count(member_tel) from memberShip where member_tel = ? ";
+    Integer count = jdbcTemplate.queryForObject(sql, Integer.class, memberTel);
 
     return (count==1) ? true : false;
   }
@@ -205,14 +208,15 @@ public class MemberShipDAOImpl implements MemberShipDAO{
 
     return (count == 1) ? true : false;
   }
-  
-  //이름으로 아이디 찾기
+
+  // 이름, 전화번호로 아이디(이메일) 찾기
   @Override
-  public String findEmailByName(String memberName) {
+  public String findEmailByTel(String memberName, String memberTel) {
     StringBuffer sql  = new StringBuffer();
     sql.append("SELECT member_email ");
     sql.append("  from MemberShip ");
     sql.append(" where member_name = ? ");
+    sql.append(" and member_tel = ? ");
 
     List<String> result = jdbcTemplate.query(
         sql.toString(),
@@ -222,7 +226,33 @@ public class MemberShipDAOImpl implements MemberShipDAO{
             return rs.getNString("member_email");
           }
         },
-        memberName
+        memberName,
+        memberTel
+    );
+
+    return (result.size() == 1) ? result.get(0) : null;
+  }
+
+  @Override
+  public String findPwByEmail(String memberName, String memberTel, String memberEmail) {
+    StringBuffer sql  = new StringBuffer();
+    sql.append("SELECT member_passwd ");
+    sql.append("  from MemberShip ");
+    sql.append(" where member_name = ? ");
+    sql.append(" and member_tel = ? ");
+    sql.append(" and member_email = ? ");
+
+    List<String> result = jdbcTemplate.query(
+        sql.toString(),
+        new RowMapper<String>() {
+          @Override
+          public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+            return rs.getNString("member_passwd");
+          }
+        },
+        memberName,
+        memberTel,
+        memberEmail
     );
 
     return (result.size() == 1) ? result.get(0) : null;

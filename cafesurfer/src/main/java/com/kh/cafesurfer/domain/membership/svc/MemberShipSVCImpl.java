@@ -1,6 +1,7 @@
-package com.kh.cafesurfer.domain.membership.svc;
-import com.kh.cafesurfer.domain.membership.MemberShip;
-import com.kh.cafesurfer.domain.membership.dao.MemberShipDAO;
+package com.kh.cafesurfer.domain.memberShip.svc;
+
+import com.kh.cafesurfer.domain.memberShip.MemberShip;
+import com.kh.cafesurfer.domain.memberShip.dao.MemberShipDAO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -14,102 +15,74 @@ public class MemberShipSVCImpl implements MemberShipSVC{
 
   private final MemberShipDAO memberShipDAO;
 
-  /**
-   * 가입
-   * @param memberShip
-   * @return
-   */
+  //가입
   @Override
-  public MemberShip insertMember(MemberShip memberShip) {
+  public MemberShip addMember(MemberShip memberShip) {
     return memberShipDAO.insertMember(memberShip);
   }
 
-  /**
-   * 수정
-   * @param memberShip
-   */
+  //수정
   @Override
-  public void updateMember(MemberShip memberShip) {
+  public void modifyMember(MemberShip memberShip) {
     memberShipDAO.updateMember(memberShip);
   }
 
-  /**
-   * 조회
-   * @param memberEmail
-   * @return
-   */
+  //조회 by email
   @Override
-  public MemberShip selectMemberByEmail(String memberEmail) {
+  public MemberShip memberFindByEmail(String memberEmail) {
     return memberShipDAO.selectMemberByEmail(memberEmail);
   }
 
-  /**
-   * 조회
-   * @param memberId
-   * @return
-   */
+  //조회 by id
   @Override
-  public MemberShip selectMemberByMemberId(Long memberId) {
+  public MemberShip memberFindByMemberId(Long memberId) {
     return memberShipDAO.selectMemberByMemberId(memberId);
   }
 
-  /**
-   * 전체조회
-   * @return
-   */
+  //전체조회
   @Override
-  public List<MemberShip> selectAll() {
+  public List<MemberShip> FindAll() {
     return memberShipDAO.selectAll();
   }
 
-  /**
-   * 탈퇴
-   * @param memberEmail
-   */
+  //삭제
   @Override
-  public void deleteMember(String memberEmail) {
+  public void removeMember(String memberEmail) {
     memberShipDAO.deleteMember(memberEmail);
   }
 
-  /**
-   * 회원유무 체크
-   * @param memberEmail
-   * @return
-   */
+  //아이디 유무 체크
   @Override
-  public boolean existMember(String memberEmail) {
-    return memberShipDAO.existMember(memberEmail);
+  public boolean existMemberByEmail(String memberEmail) {
+    return memberShipDAO.existMemberByEmail(memberEmail);
   }
 
-  /**
-   * 로그인
-   * @param memberEmail
-   * @param memberPasswd
-   * @return
-   */
+  //전화번호 유무 체크
+  @Override
+  public boolean existMemberByTel(String memberTel) {return memberShipDAO.existMemberByTel(memberTel);}
+
+  //로그인 여부 체크
   @Override
   public MemberShip login(String memberEmail, String memberPasswd) {
-    return memberShipDAO.login(memberEmail,memberPasswd);
+    return memberShipDAO.login(memberEmail, memberPasswd);
   }
 
-  /**
-   * 비밀먼호 일치여부체크
-   * @param memberEmail
-   * @param memberPasswd
-   * @return
-   */
+  //비밀번호 일치 여부 체크
   @Override
   public boolean isMember(String memberEmail, String memberPasswd) {
-    return memberShipDAO.isMember(memberEmail,memberPasswd);
+    return memberShipDAO.isMember(memberEmail, memberPasswd);
   }
 
-  /**
-   * 이름으로 이메일 찾기
-   * @param memberName
-   * @return
-   */
+  //아이디 찾기
   @Override
-  public String findEmailByName(String memberName) {
-    return memberShipDAO.findEmailByName(memberName);
+  public String findEmailByTel(String memberName, String memberTel) {
+    return memberShipDAO.findEmailByTel(memberName, memberTel);
   }
+
+  //비밀번호 찾기
+  @Override
+  public String findPwByEmail(String memberName, String memberTel,String memberEmail) {
+    return memberShipDAO.findPwByEmail(memberName, memberTel, memberEmail);
+  }
+
 }

@@ -18,5 +18,4 @@ public class OutForm {
   private String memberPasswd;    //  MEMBER_PASSWD	VARCHAR2(20 BYTE)
 
   private Boolean agree;
-
 }

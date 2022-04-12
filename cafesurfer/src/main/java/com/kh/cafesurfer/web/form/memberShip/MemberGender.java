@@ -1,4 +1,5 @@
 package com.kh.cafesurfer.web.form.memberShip;
+
 public enum MemberGender {
   MALE("남"), FEMALE("여");
 

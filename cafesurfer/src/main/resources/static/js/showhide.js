@@ -1,3 +1,4 @@
+'use strict';
 // Event in Search-Bar
 // 검색창 안 이벤트 (상세검색 / 검색 버튼)
 
@@ -27,48 +28,48 @@ let flagReview = true;
 function beverageShowHide() {
   if(flagBeverage==true){
     beverageMenu.style.display="none";
-    beverageBtn.style.backgroundImage = "url('../icon/icon-triangle-inverted-white.png')";
+    beverageBtn.style.backgroundImage = "url('/img/icon/icon-triangle-inverted-white.png')";
     flagBeverage = false;
   }
   else if(flagBeverage==false){
     beverageMenu.style.display="block";
-    beverageBtn.style.backgroundImage = "url('../icon/icon-triangle-white.png')";
+    beverageBtn.style.backgroundImage = "url('/img/icon/icon-triangle-white.png')";
     flagBeverage = true;
   };
 }
 function dessertShowHide() {
   if(flagDessert==true){
     dessertMenu.style.display="none";
-    dessertBtn.style.backgroundImage = "url('../icon/icon-triangle-inverted-white.png')";
+    dessertBtn.style.backgroundImage = "url('/img/icon/icon-triangle-inverted-white.png')";
     flagDessert = false;
   }
   else if(flagDessert==false){
     dessertMenu.style.display="block";
-    dessertBtn.style.backgroundImage = "url('../icon/icon-triangle-white.png')";
+    dessertBtn.style.backgroundImage = "url('/img/icon/icon-triangle-white.png')";
     flagDessert = true;
   } 
 };
 function goodsShowHide() {
   if(flagGoods==true){
     goodsMenu.style.display="none";
-    goodsBtn.style.backgroundImage = "url('../icon/icon-triangle-inverted-white.png')";
+    goodsBtn.style.backgroundImage = "url('/img/icon/icon-triangle-inverted-white.png')";
     flagGoods = false;
   }
   else if(flagGoods==false){
     goodsMenu.style.display="block";
-    goodsBtn.style.backgroundImage = "url('../icon/icon-triangle-white.png')";
+    goodsBtn.style.backgroundImage = "url('/img/icon/icon-triangle-white.png')";
     flagGoods = true;
   } 
 };
 function reviewShowHide() {
   if(flagReview==true){
     reviewMenu.style.display="none";
-    reviewBtn.style.backgroundImage = "url('../icon/icon-triangle-inverted-white.png')";
+    reviewBtn.style.backgroundImage = "url('/img/icon/icon-triangle-inverted-white.png')";
     flagReview = false;
   }
   else if(flagReview==false){
     reviewMenu.style.display="block";
-    reviewBtn.style.backgroundImage = "url('../icon/icon-triangle-white.png')";
+    reviewBtn.style.backgroundImage = "url('/img/icon/icon-triangle-white.png')";
     flagReview = true;
   } 
 };
