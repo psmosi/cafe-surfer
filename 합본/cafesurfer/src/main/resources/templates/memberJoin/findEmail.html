@@ -116,11 +116,7 @@
       <div class="container-title">
         <img src="../img/logo/logo-color.png" />
       </div>
-
-      <!-- 글로벌 오류 case1) form태그 밖에 있을 때 -->
       <div class="container-body">
-
-<!--        <form method="post" th:object="${findEmailAndPasswdForm}">-->
           <ul class="form-wrap">
             <li>
               <label for="memberName"></label>
@@ -144,7 +140,6 @@
               <div class="result-find-id"><span id="findedEmail">이메일 : </span></div>
             </li>
             <li>
-              <!--      <button type="submit" th:text="#{btn.login}">로그인</button>-->
               <button type="submit" id="findEmailBtn" class="check-btn">아이디 찾기</button>
             </li>
             
@@ -157,29 +152,32 @@
       </div>
     </div>
   <script>
-    findEmailBtn.addEventListener('click', findByEmail);
+    findEmailBtn.addEventListener('click', findEmailByEmail);
 
-    function findByEmail(e) {
-      const xhr = new XMLHttpRequest(); // AJAX 객체 생성
+    function findEmailByEmail(e) {
 
-      // 클라이언트 요청
-      xhr.open('PUT', '/api/members/email/find');
-      xhr.send(memberName.value);
+       const data = {};
+        data.memberName = memberName.value;
+        data.memberTel = memberTel.value;
 
-      xhr.addEventListener('load', e => {
-        // console.log(xhr);
-        if (xhr.status = 200) {
-          // console.log(xhr.response);  // json포맷의 문자열 수신 확인
-          const obj = JSON.parse(xhr.response); // json포맷의 문자열 >> js객체변환
-          if (obj.rtcd === '00') {
-            findedEmail.textContent = obj.data;
+        fetch('/api/members/memberEmail/find', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data), // js객체 => json포맷 문자열 변환
+        })
+          .then((res) => res.json()) // json포맷 문자열 => js객체 변환
+          .then((res) => {
+           console.log(res);
+           if (res.rtcd === '00') {
+            findedEmail.textContent = "이메일 : " + res.data;
           } else {
-            findedEmail.textContent = obj.data;
+            findedEmail.textContent = res.data;
           }
-        } else {
-          // console.err('Error', xhr.status, xhr.statusText);
-        }
-      });
+        })
+          .catch((err) => {
+            console.error('Err:', err);
+        });
+          console.log('after fetch');
     }
   </script>
   </body>

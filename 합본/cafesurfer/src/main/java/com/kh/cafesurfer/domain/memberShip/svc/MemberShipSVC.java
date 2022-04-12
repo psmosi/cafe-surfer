@@ -89,5 +89,5 @@ public interface MemberShipSVC {
    * @param memberEmail
    * @return
    */
-  String findPwByEmail(String memberName, String memberTel,String memberEmail);
+  String findPwByEmail(String memberName, String memberTel, String memberEmail);
 }

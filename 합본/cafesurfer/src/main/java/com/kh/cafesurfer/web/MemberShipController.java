@@ -155,7 +155,7 @@ public class MemberShipController {
 
     //3) 회원정보 수정
     MemberShip memberShip = new MemberShip(modifyForm.getMemberEmail(), modifyForm.getMemberPasswd(), modifyForm.getMemberName(),
-        modifyForm.getMemberGender().getDescription(), modifyForm.getMemberAge());
+        modifyForm.getMemberGender().getDescription(), modifyForm.getMemberAge(), modifyForm.getMemberTel());
 
     memberShipSVC.modifyMember(memberShip);
     redirectAttributes.addAttribute("MemberEmail", memberShip.getMemberEmail());

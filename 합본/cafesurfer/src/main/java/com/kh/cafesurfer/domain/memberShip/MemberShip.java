@@ -18,12 +18,13 @@ public class MemberShip {
   private String memberTel;       //  MEMBER_TEL	VARCHAR2(15 BYTE)
 
 
-  public MemberShip(String memberEmail, String memberPasswd, String memberName, String memberGender, Long memberAge) {
+  public MemberShip(String memberEmail, String memberPasswd, String memberName, String memberGender, Long memberAge, String memberTel) {
     this.memberEmail = memberEmail;
     this.memberPasswd = memberPasswd;
     this.memberName = memberName;
     this.memberGender = memberGender;
     this.memberAge = memberAge;
+    this.memberTel = memberTel;
 
   }
 }

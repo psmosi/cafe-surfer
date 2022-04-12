@@ -117,11 +117,7 @@
       <div class="container-title">
         <img src="../img/logo/logo-color.png" />
       </div>
-
-      <!-- 글로벌 오류 case1) form태그 밖에 있을 때 -->
       <div class="container-body">
-
-        <form action="" th:action method="post" th:object="${findEmailAndPasswdForm}">
           <ul class="form-wrap">
             <li>
               <label for="memberName"></label>
@@ -129,13 +125,8 @@
                 type="text"
                 name="memberName"
                 id="memberName"
-                th:field="*{memberName}"
-                th:errorclass="fieldError"
                 placeholder="이름"
               />
-            </li>
-            <li th:if="${#fields.hasErrors('memberName')}">
-              <p th:errors="*{memberName}" th:errorclass="fieldError"></p>
             </li>
             <li>
               <label for="memberTel"></label>
@@ -143,13 +134,8 @@
                 type="text"
                 name="memberTel"
                 id="memberTel"
-                th:field="*{memberTel}"
-                th:errorclass="fieldError"
                 placeholder="전화번호"
               />
-            </li>
-            <li th:if="${#fields.hasErrors('memberTel')}">
-              <p th:errors="*{memberTel}" th:errorclass="fieldError"></p>
             </li>
             <li>
               <label for="memberEmail"></label>
@@ -157,30 +143,53 @@
                 type="text"
                 name="memberEmail"
                 id="memberEmail"
-                th:field="*{memberEmail}"
-                th:errorclass="fieldError"
                 placeholder="이메일"
               />
             </li>
-            <li th:if="${#fields.hasErrors('memberEmail')}">
-              <p th:errors="*{memberEmail}" th:errorclass="fieldError"></p>
+            <li>
+              <div class="result-find-pw"><span id="foundPasswd">비밀번호 : </span></div>
             </li>
             <li>
-              <div class="result-find-pw"><span >비밀번호 : </span></div>
-            </li>
-            <li>
-              <!--      <button type="submit" th:text="#{btn.login}">로그인</button>-->
-              <button type="submit" class="check-btn">비밀번호 찾기</button>
+              <button type="submit" class="check-btn" id="findPwBtn">비밀번호 찾기</button>
             </li>
             
             <li>
-              <a href="#" class="find-id" th:href="@{/members/findEmail}">아이디찾기</a>
-              <a href="#" class="sign-up" th:href="@{/login}">로그인</a>
+              <a href="/members/findEmail" class="find-id">아이디찾기</a>
+              <a href="/login" class="sign-up">로그인</a>
             </li>
           </ul>
         </form>
       </div>
     </div>
+  <script>
+    findPwBtn.addEventListener('click', findPasswdByEmail);
 
-  </body>
+    function findPasswdByEmail(e) {
+
+       const data = {};
+        data.memberName = memberName.value;
+        data.memberTel = memberTel.value;
+        data.memberEmail = memberEmail.value;
+
+        fetch('/api/members/pw/find', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data), // js객체 => json포맷 문자열 변환
+        })
+          .then((res) => res.json()) // json포맷 문자열 => js객체 변환
+          .then((res) => {
+           console.log(res);
+           if (res.rtcd === '00') {
+            foundPasswd.textContent = "비밀번호 : " + res.data;
+          } else {
+            foundPasswd.textContent = res.data;
+          }
+        })
+          .catch((err) => {
+            console.error('Err:', err);
+        });
+          console.log('after fetch');
+    }
+  </script>
+</body>
 </html>

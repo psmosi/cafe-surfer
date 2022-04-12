@@ -247,7 +247,7 @@ public class MemberShipDAOImpl implements MemberShipDAO{
         new RowMapper<String>() {
           @Override
           public String mapRow(ResultSet rs, int rowNum) throws SQLException {
-            return rs.getNString("member_email");
+            return rs.getNString("member_passwd");
           }
         },
         memberName,

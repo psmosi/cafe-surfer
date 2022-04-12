@@ -7,4 +7,5 @@ public class FindEmailAndPasswdForm {
   String memberEmail;
   String memberName;
   String memberTel;
+  String memberPasswd;
 }

@@ -4,6 +4,7 @@ package com.kh.cafesurfer.web;
 import com.kh.cafesurfer.domain.memberShip.MemberShip;
 import com.kh.cafesurfer.domain.memberShip.svc.MemberShipSVC;
 import com.kh.cafesurfer.web.api.ApiResult;
+import com.kh.cafesurfer.web.form.memberShip.FindEmailAndPasswdForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -66,14 +67,14 @@ public class ApiMemberController {
 
   //아이디 찾기
   @ResponseBody
-  @PutMapping("/api/members/email/find")
-  public ApiResult<String> findEmailByEmail(@RequestBody String memberName, String memberTel) {
+  @PutMapping("/api/members/memberEmail/find")
+  public ApiResult<String> findEmailByEmail(@RequestBody FindEmailAndPasswdForm found) {
 
-    log.info("memberName={}",memberName);
-    log.info("memberTel={}",memberTel);
+    log.info("memberName={}",found.getMemberName());
+    log.info("memberTel={}",found.getMemberTel());
     ApiResult<String> result = null;
 
-    String memberEmail = memberSVC.findEmailByTel(memberName, memberTel);
+    String memberEmail = memberSVC.findEmailByTel(found.getMemberName(), found.getMemberTel());
 
     //StringUtils.isEmpty() : null 또는 ""문자열인지 체크
     //if(email == null || email.equals(""))
@@ -88,21 +89,21 @@ public class ApiMemberController {
   //비밀번호 찾기
   @ResponseBody
   @PutMapping("/api/members/pw/find")
-  public ApiResult<String> findEmailByPw(@RequestBody String memberName, String memberTel,String memberEmail) {
+  public ApiResult<String> findEmailByPw(@RequestBody FindEmailAndPasswdForm found) {
 
-    log.info("memberName={}",memberName);
-    log.info("memberTel={}",memberTel);
-    log.info("memberEmail={}",memberEmail);
+    log.info("memberName={}",found.getMemberName());
+    log.info("memberTel={}",found.getMemberTel());
+    log.info("memberEmail={}",found.getMemberEmail());
     ApiResult<String> result = null;
 
-    String memberPasswd = memberSVC.findPwByEmail(memberName, memberTel, memberEmail);
+    String memberPasswd = memberSVC.findPwByEmail(found.getMemberName(), found.getMemberTel(), found.getMemberEmail());
 
     //StringUtils.isEmpty() : null 또는 ""문자열인지 체크
     //if(email == null || email.equals(""))
     if (!StringUtils.isEmpty(memberPasswd)) {
       result = new ApiResult<>("00", "success", memberPasswd);
     } else {
-      result = new ApiResult<>("99", "fail", "찾고자 하는 아이디가 없습니다.");
+      result = new ApiResult<>("99", "fail", "일치하는 정보가 없습니다.");
     }
     return result;
   }
