@@ -22,9 +22,7 @@
 
   <form action="/members/join" method="post" th:object="${joinForm}">
     <div class="container">
-      <div class="container-title">
-        <img src="../img/logo/logo-color.png"/>
-      </div>
+
       <div class="container-body">
         <div class="inputInfo">
           <div class="member_email">
@@ -35,6 +33,9 @@
 
               <p class="errmsg"></p>
             </li>
+          <li>
+            <button id="emailDupChk" type="button">중복확인</button>
+          </li>
             <li th:if="${#fields.hasErrors('memberEmail')}">
               <p th:errors="*{memberEmail}" th:errorclass="fieldError"></p>
             </li>
@@ -103,21 +104,23 @@
 
               <p class="errmsg"></p>
             </li>
+            <li>
+              <button id="telDupChk" type="button">중복확인</button>
+            </li>
             <li th:if="${#fields.hasErrors('memberTel')}">
               <p th:errors="*{memberTel}" th:errorclass="fieldError"></p>
             </li>
           </div>
         </div>
-        <div class="dupBtn">
-          <button id="emailDupChk" type="button">중복확인</button>
-          <button id="telDupChk" type="button">중복확인</button>
+
+
+        <div class="Btn">
+          <button type="button" id="joinBtn">가입</button>
+          <button type="button" id="cancelBtn" onclick="location.href='http://localhost:9080/'">취소</button>
         </div>
       </div>
-      <div class="Btn">
-        <button type="button" id="joinBtn">가입</button>
-        <button type="button" id="cancelBtn" onclick="location.href='http://localhost:9080/'">취소</button>
       </div>
-    </div>
+
   </form>
 
   <script>

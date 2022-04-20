@@ -22,17 +22,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>회원가입</title>
 
+
+
   <script defer src="" th:src="@{/js/homeJs/beforeDetailChk.js}"></script>
 <!--  <script defer src="" th:src="@{/js/homeJs/beforeArea.js}"></script>-->
 <!--  <script defer src="" th:src="@{/js/homeJs/beforeHashtagbox.js}"></script>-->
 <!--  <script defer src="" th:src="@{/js/homeJs/beforeReset.js}"></script>-->
   <script defer src="" th:src="@{/js/homeJs/searchBar.js}"></script>
 
+
 </head>
 <body>
   <div class="global-wrap">
     <div class="upm">
-      <div class="inner upm-inner"></div>
+      <div class="inner upm-inner">
+        <th:block th:replace="~{fragment/uppermost::beforeLoginUpm}"></th:block>
+      </div>
     </div>
     <div class="hdr">
       <div class="inner hdr-inner">
