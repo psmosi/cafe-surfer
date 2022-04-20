@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+</head>
+
+<body>
+<nav th:fragment="global">
+
+  <div class="util-wrap">
+    <div class="util-box">
+      <div class="search-box-wrap">
+        <div class="input_tag">
+          <li class="detail-box">
+            <a href="#" class="detail-icon">상세</a>
+          </li>
+          <ul class="input_tag__tags">
+            <div id="hashtags"></div>
+            <li class="input_tag__tags__input">
+              <select name="searchType" id="searchType" style="display: none;">
+                <option th:value="KEYWORD" value="">키워드</option>
+                <option th:value="HASHTAG" value="">해시태그</option>
+              </select>
+              <input type="text" id="keyword" placeholder="검색어를 입력하세요" name="keyword" onkeyup="backspace()">
+            </li>
+          </ul>
+          <div class="search-box">
+            <button id="searchBtn">검색</button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- search-detail-header -->
+      <div class="menu">
+        <input type="checkbox" class="detailCHK" id="collapsible">
+        <div class="menuitems">
+          <div class="search-detail-wrap">
+            <div class="search-detail-header-wrap">
+              <div class="detail-hashtag-wrap">
+                <div class="align-hashtag hashtag-coffee" style="background-color: #8cc841;">
+                  <a href="javascript:void(0)" class="tagTabBtn btn-coffee" onclick="list_f($coffee)">커피</a>
+                </div>
+                <div class="align-hashtag hashtag-beverage">
+                  <a href="javascript:void(0)" class="tagTabBtn btn-beverage" onclick="list_f($beverage)">음료</a>
+                </div>
+                <div class="align-hashtag hashtag-dessert">
+                  <a href="javascript:void(0)" class="tagTabBtn btn-dessert" onclick="list_f($dessert)">디저트</a>
+                </div>
+                <div class="align-hashtag align-goods">
+                  <a href="javascript:void(0)" class="tagTabBtn btn-goods" onclick="list_f($goods)">굿즈</a>
+                </div>
+                <div class="align-hashtag align-mood">
+                  <a href="javascript:void(0)" class="tagTabBtn btn-mood" onclick="list_f($mood)">분위기</a>
+                </div>
+                <div class="align-hashtag align-view">
+                  <a href="javascript:void(0)" class="tagTabBtn btn-view" onclick="list_f($view)">뷰</a>
+                </div>
+                <div class="align-hashtag align-location">
+                  <a href="javascript:void(0)" class="tagTabBtn btn-location" onclick="list_f($location)">지역</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- search-detail-body -->
+          <div class="search-detail-content-wrap">
+            <div class="list-wrap list-wrap-hashtag">
+              <div class="scroll hashtagbox">
+                <li class="sub_item" id="sub_item" style="line-height: 35px;">
+                  <label title="레노버" class="aaa hash_com hashtagbox">
+                    <input type="checkbox" autocomplete="off" id="searchMakerRep6792" name="searchMakerRep6792">
+                    #레노버
+                  </label>
+                  <label title="에이수스" class="bbb hash_com hashtagbox">
+                    <input type="checkbox" autocomplete="off" id="searchMakerRep8888" name="searchMakerRep8888">
+                    #에이수스
+                  </label>
+                </li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+</body>
+</html>
